@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="PracticaGenNHibernate"
+		                   namespace="PracticaGenNHibernate.EN.Practica">
+		    
+		    
+			
+				<class name="LineaPedidoEN" table="LineaPedido"> 
+				  	
+						<id name="Id" column="idLineaPedido" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Cantidad" type="integer"> 
+						<column name="cantidad"  not-null="true"/>
+					</property>
+					<property name="Valoracion" type="integer"> 
+						<column name="valoracion"  not-null="true"/>
+					</property>
+			
+			
+		  			
+						<many-to-one name="Producto" class="PracticaGenNHibernate.EN.Practica.ProductoEN" >	
+								<column name="FK_idProducto_idProducto"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Pedido" class="PracticaGenNHibernate.EN.Practica.PedidoEN" >	
+								<column name="FK_idPedido_idPedido"/> 
+						</many-to-one>
+											 					
+			
+			
+			
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="LineaPedidoENReadAllHQL">from LineaPedidoEN</query>
+		</hibernate-mapping>
+	

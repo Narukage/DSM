@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="PracticaGenNHibernate"
+		                   namespace="PracticaGenNHibernate.EN.Practica">
+		    
+		    
+			
+				<class name="PedidoEN" table="Pedido"> 
+				  	
+						<id name="Id" column="idPedido" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Estado" type="integer"> 
+						<column name="estado"  not-null="true"/>
+					</property>
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="PrecioTotal" type="float"> 
+						<column name="precioTotal"  not-null="true"/>
+					</property>
+					<property name="TipoPago" type="integer"> 
+						<column name="tipoPago"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="LineaPedido" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_idPedido_idPedido"/>
+					      	</key>
+							<one-to-many class="PracticaGenNHibernate.EN.Practica.LineaPedidoEN"/>
+					    </bag>
+					
+			
+		  			
+						<many-to-one name="Codigo" class="PracticaGenNHibernate.EN.Practica.CodigoEN" >	
+								<column name="FK_idCodigo_idCodigo"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Usuario" class="PracticaGenNHibernate.EN.Practica.UsuarioEN" >	
+								<column name="FK_emailRegistrado_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Admin" class="PracticaGenNHibernate.EN.Practica.AdminEN" >	
+								<column name="FK_emailRegistrado_idAdmin"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="PedidoENReadAllHQL">from PedidoEN</query>
+		</hibernate-mapping>
+	
