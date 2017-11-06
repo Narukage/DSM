@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="PracticaGenNHibernate"
+		                   namespace="PracticaGenNHibernate.EN.Practica">
+		    
+		    
+			
+				
+<joined-subclass name="AdminEN" extends="PracticaGenNHibernate.EN.Practica.RegistradoEN" table="Admin"> 
+	<key>
+    	
+				<column name="emailRegistrado"/>
+		
+    	
+   	</key>
+
+			
+					
+			
+			
+		  			
+						<bag name="Codigo" >
+							<key>
+							
+								
+								<column name="FK_emailRegistrado_idAdmin"/>
+					      	</key>
+							<one-to-many class="PracticaGenNHibernate.EN.Practica.CodigoEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Pedido" >
+							<key>
+							
+								
+								<column name="FK_emailRegistrado_idAdmin"/>
+					      	</key>
+							<one-to-many class="PracticaGenNHibernate.EN.Practica.PedidoEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Usuario" >
+							<key>
+							
+								
+								<column name="FK_emailRegistrado_idAdmin"/>
+					      	</key>
+							<one-to-many class="PracticaGenNHibernate.EN.Practica.UsuarioEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Incidencia" >
+							<key>
+							
+								
+								<column name="FK_emailRegistrado_idAdmin"/>
+					      	</key>
+							<one-to-many class="PracticaGenNHibernate.EN.Practica.IncidenciaEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="AdminENReadAllHQL">from AdminEN</query>
+		</hibernate-mapping>
+	
