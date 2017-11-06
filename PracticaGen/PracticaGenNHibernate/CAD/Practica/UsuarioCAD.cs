@@ -126,9 +126,10 @@ public string New_ (UsuarioEN usuario)
                         .Add (usuario);
                 }
                 if (usuario.Direccion != null) {
-                        for (int i = 0; i < usuario.Direccion.Count; i++) {
-                                usuario.Direccion [i] = (PracticaGenNHibernate.EN.Practica.DireccionEN)session.Load (typeof(PracticaGenNHibernate.EN.Practica.DireccionEN), usuario.Direccion [i].Id);
-                                usuario.Direccion [i].Usuario.Add (usuario);
+                        foreach (PracticaGenNHibernate.EN.Practica.DireccionEN item in usuario.Direccion) {
+                                item.Usuario = new System.Collections.Generic.List<PracticaGenNHibernate.EN.Practica.UsuarioEN>();
+                                item.Usuario.Add (usuario);
+                                session.Save (item);
                         }
                 }
 

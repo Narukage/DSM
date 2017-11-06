@@ -38,7 +38,7 @@ public IBebidaCAD get_IBebidaCAD ()
         return this._IBebidaCAD;
 }
 
-public int New_ (float p_precio, string p_nombre, string p_foto)
+public int New_ (double p_precio, string p_nombre, string p_foto)
 {
         BebidaEN bebidaEN = null;
         int oid;
@@ -57,7 +57,7 @@ public int New_ (float p_precio, string p_nombre, string p_foto)
         return oid;
 }
 
-public void Modify (int p_Bebida_OID, float p_precio, string p_nombre, string p_foto)
+public void Modify (int p_Bebida_OID, double p_precio, string p_nombre, string p_foto)
 {
         BebidaEN bebidaEN = null;
 

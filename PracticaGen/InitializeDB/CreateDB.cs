@@ -75,13 +75,33 @@ public static void Create (string databaseArg, string userArg, string passArg)
 public static void InitializeData ()
 {
         /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
+
         try
         {
                 // Insert the initilizations of entities using the CEN classes
+                IngredienteCEN ing1 = new IngredienteCEN ();
+                int idg = ing1.New_ (0.2, "Mozzarella", "foto1");
+                IngredienteCEN ing2 = new IngredienteCEN ();
+                int idg2 = ing2.New_ (0.4, "Olivas", "foto2");
+                IngredienteCEN ing3 = new IngredienteCEN ();
+                int idg3 = ing3.New_ (0.15, "Jamon", "foto3");
+
+                PersonalizableCEN pizza = new PersonalizableCEN ();
+
+                PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum d = PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum.familiar;
+
+                PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum e = PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum.Clasica;
+                int id = pizza.New_ (3.0, "pizza personalizada", "suuuh foto", d, e);
+
+                System.Collections.Generic.IList<int> lista = new System.Collections.Generic.List<int>();
+                IngredienteEN uno = new IngredienteCAD ().ReadOID (idg);
+                lista.Add (idg);
+                pizza.AnaydirIngrediente (id, lista);
+                pizza.AnaydirIngrediente (id, lista);
+
+                Console.WriteLine ("El precio de su pizza es " + Math.Round (pizza.get_IPersonalizableCAD ().ReadOIDDefault (id).Precio, 2));
 
 
-                // p.e. CustomerCEN customer = new CustomerCEN();
-                // customer.New_ (p_user:"user", p_password:"1234");
 
 
 

@@ -22,7 +22,7 @@ private int descuento;
 /**
  *	Atributo tipo
  */
-private int tipo;
+private PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum tipo;
 
 
 
@@ -55,7 +55,7 @@ public virtual int Descuento {
 
 
 
-public virtual int Tipo {
+public virtual PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum Tipo {
         get { return tipo; } set { tipo = value;  }
 }
 
@@ -82,7 +82,7 @@ public CodigoEN()
 
 
 
-public CodigoEN(int id, int descuento, int tipo, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> pedido, PracticaGenNHibernate.EN.Practica.AdminEN admin
+public CodigoEN(int id, int descuento, PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum tipo, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> pedido, PracticaGenNHibernate.EN.Practica.AdminEN admin
                 )
 {
         this.init (Id, descuento, tipo, pedido, admin);
@@ -95,7 +95,7 @@ public CodigoEN(CodigoEN codigo)
 }
 
 private void init (int id
-                   , int descuento, int tipo, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> pedido, PracticaGenNHibernate.EN.Practica.AdminEN admin)
+                   , int descuento, PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum tipo, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> pedido, PracticaGenNHibernate.EN.Practica.AdminEN admin)
 {
         this.Id = id;
 

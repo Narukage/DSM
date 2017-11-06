@@ -12,7 +12,7 @@
 						</id>
 			
 					
-					<property name="Estado" type="integer"> 
+					<property name="Estado" > 
 						<column name="estado"  not-null="true"/>
 					</property>
 					<property name="Fecha" type="date"> 
@@ -21,7 +21,7 @@
 					<property name="PrecioTotal" type="float"> 
 						<column name="precioTotal"  not-null="true"/>
 					</property>
-					<property name="TipoPago" type="integer"> 
+					<property name="TipoPago" > 
 						<column name="tipoPago"  not-null="true"/>
 					</property>
 			

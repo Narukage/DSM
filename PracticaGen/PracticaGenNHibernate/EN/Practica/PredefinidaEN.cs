@@ -32,8 +32,8 @@ public PredefinidaEN() : base ()
 
 
 public PredefinidaEN(int id, string descripcion
-                     , int tamaño, int masa
-                     , float precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
+                     , PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum tamaño, PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum masa
+                     , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
                      )
 {
         this.init (Id, descripcion, tamaño, masa, precio, nombre, foto, lineaPedido);
@@ -46,7 +46,7 @@ public PredefinidaEN(PredefinidaEN predefinida)
 }
 
 private void init (int id
-                   , string descripcion, int tamaño, int masa, float precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
+                   , string descripcion, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum tamaño, PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum masa, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
 {
         this.Id = id;
 

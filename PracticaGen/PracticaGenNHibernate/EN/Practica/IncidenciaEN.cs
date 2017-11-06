@@ -22,7 +22,7 @@ private string descripcion;
 /**
  *	Atributo estado
  */
-private int estado;
+private PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum estado;
 
 
 
@@ -55,7 +55,7 @@ public virtual string Descripcion {
 
 
 
-public virtual int Estado {
+public virtual PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum Estado {
         get { return estado; } set { estado = value;  }
 }
 
@@ -81,7 +81,7 @@ public IncidenciaEN()
 
 
 
-public IncidenciaEN(int id, string descripcion, int estado, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, PracticaGenNHibernate.EN.Practica.AdminEN admin
+public IncidenciaEN(int id, string descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum estado, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, PracticaGenNHibernate.EN.Practica.AdminEN admin
                     )
 {
         this.init (Id, descripcion, estado, usuario, admin);
@@ -94,7 +94,7 @@ public IncidenciaEN(IncidenciaEN incidencia)
 }
 
 private void init (int id
-                   , string descripcion, int estado, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, PracticaGenNHibernate.EN.Practica.AdminEN admin)
+                   , string descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum estado, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, PracticaGenNHibernate.EN.Practica.AdminEN admin)
 {
         this.Id = id;
 

@@ -19,13 +19,17 @@ namespace PracticaGenNHibernate.CEN.Practica
 {
 public partial class PersonalizableCEN
 {
-public void AnaydirIngrediente (int p_oid)
+public void AnaydirIngrediente (int p_Personalizable_OID, System.Collections.Generic.IList<int> p_ingrediente_OID)
 {
-        /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Personalizable_anaydirIngrediente) ENABLED START*/
+            /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Personalizable_anaydirIngrediente_customized)ENABLE START*/
+            PersonalizableEN per = _IPersonalizableCAD.ReadOID(p_Personalizable_OID);
+            per.Precio += new IngredienteCAD().ReadOIDDefault(p_ingrediente_OID[0]).Precio;
+            _IPersonalizableCAD.Modify(per);
+            _IPersonalizableCAD.AnaydirIngrediente(p_Personalizable_OID, p_ingrediente_OID);
 
-        // Write here your custom code...
+            //Call to PersonalizableCAD
 
-        throw new NotImplementedException ("Method AnaydirIngrediente() not yet implemented.");
+            _IPersonalizableCAD.AnaydirIngrediente (p_Personalizable_OID, p_ingrediente_OID);
 
         /*PROTECTED REGION END*/
 }

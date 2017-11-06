@@ -14,7 +14,7 @@ public BebidaEN() : base ()
 
 
 public BebidaEN(int id,
-                float precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
+                double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
                 )
 {
         this.init (Id, precio, nombre, foto, lineaPedido);
@@ -27,7 +27,7 @@ public BebidaEN(BebidaEN bebida)
 }
 
 private void init (int id
-                   , float precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
+                   , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
 {
         this.Id = id;
 

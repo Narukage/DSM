@@ -38,7 +38,7 @@ public IPedidoCAD get_IPedidoCAD ()
         return this._IPedidoCAD;
 }
 
-public int New_ (int p_estado, Nullable<DateTime> p_fecha, float p_precioTotal, int p_tipoPago, int p_codigo, string p_usuario, string p_admin)
+public int New_ (PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fecha, float p_precioTotal, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum p_tipoPago, int p_codigo, string p_usuario, string p_admin)
 {
         PedidoEN pedidoEN = null;
         int oid;
@@ -83,7 +83,7 @@ public int New_ (int p_estado, Nullable<DateTime> p_fecha, float p_precioTotal, 
         return oid;
 }
 
-public void Modify (int p_Pedido_OID, int p_estado, Nullable<DateTime> p_fecha, float p_precioTotal, int p_tipoPago)
+public void Modify (int p_Pedido_OID, PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fecha, float p_precioTotal, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum p_tipoPago)
 {
         PedidoEN pedidoEN = null;
 

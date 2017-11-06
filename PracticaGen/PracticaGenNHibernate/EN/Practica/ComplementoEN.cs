@@ -14,7 +14,7 @@ public ComplementoEN() : base ()
 
 
 public ComplementoEN(int id,
-                     float precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
+                     double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
                      )
 {
         this.init (Id, precio, nombre, foto, lineaPedido);
@@ -27,7 +27,7 @@ public ComplementoEN(ComplementoEN complemento)
 }
 
 private void init (int id
-                   , float precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
+                   , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
 {
         this.Id = id;
 

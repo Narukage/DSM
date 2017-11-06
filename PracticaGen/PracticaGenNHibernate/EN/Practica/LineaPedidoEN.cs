@@ -36,7 +36,7 @@ private int cantidad;
 /**
  *	Atributo valoracion
  */
-private int valoracion;
+private PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum valoracion;
 
 
 
@@ -67,7 +67,7 @@ public virtual int Cantidad {
 
 
 
-public virtual int Valoracion {
+public virtual PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum Valoracion {
         get { return valoracion; } set { valoracion = value;  }
 }
 
@@ -81,7 +81,7 @@ public LineaPedidoEN()
 
 
 
-public LineaPedidoEN(int id, PracticaGenNHibernate.EN.Practica.ProductoEN producto, PracticaGenNHibernate.EN.Practica.PedidoEN pedido, int cantidad, int valoracion
+public LineaPedidoEN(int id, PracticaGenNHibernate.EN.Practica.ProductoEN producto, PracticaGenNHibernate.EN.Practica.PedidoEN pedido, int cantidad, PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum valoracion
                      )
 {
         this.init (Id, producto, pedido, cantidad, valoracion);
@@ -94,7 +94,7 @@ public LineaPedidoEN(LineaPedidoEN lineaPedido)
 }
 
 private void init (int id
-                   , PracticaGenNHibernate.EN.Practica.ProductoEN producto, PracticaGenNHibernate.EN.Practica.PedidoEN pedido, int cantidad, int valoracion)
+                   , PracticaGenNHibernate.EN.Practica.ProductoEN producto, PracticaGenNHibernate.EN.Practica.PedidoEN pedido, int cantidad, PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum valoracion)
 {
         this.Id = id;
 

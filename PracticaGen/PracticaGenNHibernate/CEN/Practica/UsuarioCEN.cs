@@ -38,7 +38,7 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public string New_ (string p_email, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono, string p_admin, System.Collections.Generic.IList<int> p_direccion)
+public string New_ (string p_email, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono, string p_admin, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.DireccionEN> p_direccion)
 {
         UsuarioEN usuarioEN = null;
         string oid;
@@ -63,19 +63,7 @@ public string New_ (string p_email, string p_nombre, String p_contrasenya, Nulla
                 usuarioEN.Admin.Email = p_admin;
         }
 
-
-        usuarioEN.Direccion = new System.Collections.Generic.List<PracticaGenNHibernate.EN.Practica.DireccionEN>();
-        if (p_direccion != null) {
-                foreach (int item in p_direccion) {
-                        PracticaGenNHibernate.EN.Practica.DireccionEN en = new PracticaGenNHibernate.EN.Practica.DireccionEN ();
-                        en.Id = item;
-                        usuarioEN.Direccion.Add (en);
-                }
-        }
-
-        else{
-                usuarioEN.Direccion = new System.Collections.Generic.List<PracticaGenNHibernate.EN.Practica.DireccionEN>();
-        }
+        usuarioEN.Direccion = p_direccion;
 
         //Call to UsuarioCAD
 

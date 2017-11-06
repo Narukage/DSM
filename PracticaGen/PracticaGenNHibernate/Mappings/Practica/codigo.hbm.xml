@@ -15,7 +15,7 @@
 					<property name="Descuento" type="integer"> 
 						<column name="descuento"  not-null="true"/>
 					</property>
-					<property name="Tipo" type="integer"> 
+					<property name="Tipo" > 
 						<column name="tipo"  not-null="true"/>
 					</property>
 			

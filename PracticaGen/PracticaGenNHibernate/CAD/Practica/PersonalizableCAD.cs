@@ -199,7 +199,106 @@ public void Destroy (int id
         }
 }
 
+public void AnaydirIngrediente (int p_Personalizable_OID, System.Collections.Generic.IList<int> p_ingrediente_OID)
+{
+        PracticaGenNHibernate.EN.Practica.PersonalizableEN personalizableEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                personalizableEN = (PersonalizableEN)session.Load (typeof(PersonalizableEN), p_Personalizable_OID);
+                PracticaGenNHibernate.EN.Practica.IngredienteEN ingredienteENAux = null;
+                if (personalizableEN.Ingrediente == null) {
+                        personalizableEN.Ingrediente = new System.Collections.Generic.List<PracticaGenNHibernate.EN.Practica.IngredienteEN>();
+                }
+
+                foreach (int item in p_ingrediente_OID) {
+                        ingredienteENAux = new PracticaGenNHibernate.EN.Practica.IngredienteEN ();
+                        ingredienteENAux = (PracticaGenNHibernate.EN.Practica.IngredienteEN)session.Load (typeof(PracticaGenNHibernate.EN.Practica.IngredienteEN), item);
+                        ingredienteENAux.Personalizable.Add (personalizableEN);
+
+                        personalizableEN.Ingrediente.Add (ingredienteENAux);
+                }
+
+
+                session.Update (personalizableEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in PersonalizableCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
 public System.Collections.Generic.IList<PersonalizableEN> GetTodosProductos (int first, int size)
+{
+        System.Collections.Generic.IList<PersonalizableEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(PersonalizableEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<PersonalizableEN>();
+                else
+                        result = session.CreateCriteria (typeof(PersonalizableEN)).List<PersonalizableEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in PersonalizableCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+
+//Sin e: ReadOID
+//Con e: PersonalizableEN
+public PersonalizableEN ReadOID (int id
+                                 )
+{
+        PersonalizableEN personalizableEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                personalizableEN = (PersonalizableEN)session.Get (typeof(PersonalizableEN), id);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in PersonalizableCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return personalizableEN;
+}
+
+public System.Collections.Generic.IList<PersonalizableEN> ReadAll (int first, int size)
 {
         System.Collections.Generic.IList<PersonalizableEN> result = null;
         try

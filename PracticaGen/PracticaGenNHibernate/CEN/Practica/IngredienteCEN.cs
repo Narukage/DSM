@@ -38,7 +38,7 @@ public IIngredienteCAD get_IIngredienteCAD ()
         return this._IIngredienteCAD;
 }
 
-public int New_ (float p_precio, string p_nombre, string p_foto)
+public int New_ (double p_precio, string p_nombre, string p_foto)
 {
         IngredienteEN ingredienteEN = null;
         int oid;
@@ -57,7 +57,7 @@ public int New_ (float p_precio, string p_nombre, string p_foto)
         return oid;
 }
 
-public void Modify (int p_Ingrediente_OID, float p_precio, string p_nombre, string p_foto)
+public void Modify (int p_Ingrediente_OID, double p_precio, string p_nombre, string p_foto)
 {
         IngredienteEN ingredienteEN = null;
 
@@ -83,6 +83,22 @@ public System.Collections.Generic.IList<IngredienteEN> GetTodosProductos (int fi
         System.Collections.Generic.IList<IngredienteEN> list = null;
 
         list = _IIngredienteCAD.GetTodosProductos (first, size);
+        return list;
+}
+public IngredienteEN ReadOID (int id
+                              )
+{
+        IngredienteEN ingredienteEN = null;
+
+        ingredienteEN = _IIngredienteCAD.ReadOID (id);
+        return ingredienteEN;
+}
+
+public System.Collections.Generic.IList<IngredienteEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<IngredienteEN> list = null;
+
+        list = _IIngredienteCAD.ReadAll (first, size);
         return list;
 }
 }

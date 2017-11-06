@@ -38,7 +38,7 @@ public ILineaPedidoCAD get_ILineaPedidoCAD ()
         return this._ILineaPedidoCAD;
 }
 
-public int New_ (int p_producto, int p_pedido, int p_cantidad, int p_valoracion)
+public int New_ (int p_producto, int p_pedido, int p_cantidad, PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum p_valoracion)
 {
         LineaPedidoEN lineaPedidoEN = null;
         int oid;
@@ -71,7 +71,7 @@ public int New_ (int p_producto, int p_pedido, int p_cantidad, int p_valoracion)
         return oid;
 }
 
-public void Modify (int p_LineaPedido_OID, int p_cantidad, int p_valoracion)
+public void Modify (int p_LineaPedido_OID, int p_cantidad, PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum p_valoracion)
 {
         LineaPedidoEN lineaPedidoEN = null;
 

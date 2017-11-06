@@ -233,5 +233,65 @@ public System.Collections.Generic.IList<PizzaEN> GetTodosProductos (int first, i
 
         return result;
 }
+
+//Sin e: ReadOID
+//Con e: PizzaEN
+public PizzaEN ReadOID (int id
+                        )
+{
+        PizzaEN pizzaEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                pizzaEN = (PizzaEN)session.Get (typeof(PizzaEN), id);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in PizzaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return pizzaEN;
+}
+
+public System.Collections.Generic.IList<PizzaEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<PizzaEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(PizzaEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<PizzaEN>();
+                else
+                        result = session.CreateCriteria (typeof(PizzaEN)).List<PizzaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in PizzaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

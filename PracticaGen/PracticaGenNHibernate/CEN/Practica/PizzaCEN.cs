@@ -38,7 +38,7 @@ public IPizzaCAD get_IPizzaCAD ()
         return this._IPizzaCAD;
 }
 
-public int New_ (float p_precio, string p_nombre, string p_foto, int p_tamaño, int p_masa)
+public int New_ (double p_precio, string p_nombre, string p_foto, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum p_tamaño, PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum p_masa)
 {
         PizzaEN pizzaEN = null;
         int oid;
@@ -61,7 +61,7 @@ public int New_ (float p_precio, string p_nombre, string p_foto, int p_tamaño, 
         return oid;
 }
 
-public void Modify (int p_Pizza_OID, float p_precio, string p_nombre, string p_foto, int p_tamaño, int p_masa)
+public void Modify (int p_Pizza_OID, double p_precio, string p_nombre, string p_foto, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum p_tamaño, PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum p_masa)
 {
         PizzaEN pizzaEN = null;
 
@@ -89,6 +89,22 @@ public System.Collections.Generic.IList<PizzaEN> GetTodosProductos (int first, i
         System.Collections.Generic.IList<PizzaEN> list = null;
 
         list = _IPizzaCAD.GetTodosProductos (first, size);
+        return list;
+}
+public PizzaEN ReadOID (int id
+                        )
+{
+        PizzaEN pizzaEN = null;
+
+        pizzaEN = _IPizzaCAD.ReadOID (id);
+        return pizzaEN;
+}
+
+public System.Collections.Generic.IList<PizzaEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<PizzaEN> list = null;
+
+        list = _IPizzaCAD.ReadAll (first, size);
         return list;
 }
 }

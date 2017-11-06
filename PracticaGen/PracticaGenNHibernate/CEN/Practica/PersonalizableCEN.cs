@@ -38,7 +38,7 @@ public IPersonalizableCAD get_IPersonalizableCAD ()
         return this._IPersonalizableCAD;
 }
 
-public int New_ (float p_precio, string p_nombre, string p_foto, int p_tamaño, int p_masa)
+public int New_ (double p_precio, string p_nombre, string p_foto, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum p_tamaño, PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum p_masa)
 {
         PersonalizableEN personalizableEN = null;
         int oid;
@@ -61,7 +61,7 @@ public int New_ (float p_precio, string p_nombre, string p_foto, int p_tamaño, 
         return oid;
 }
 
-public void Modify (int p_Personalizable_OID, float p_precio, string p_nombre, string p_foto, int p_tamaño, int p_masa)
+public void Modify (int p_Personalizable_OID, double p_precio, string p_nombre, string p_foto, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum p_tamaño, PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum p_masa)
 {
         PersonalizableEN personalizableEN = null;
 
@@ -89,6 +89,22 @@ public System.Collections.Generic.IList<PersonalizableEN> GetTodosProductos (int
         System.Collections.Generic.IList<PersonalizableEN> list = null;
 
         list = _IPersonalizableCAD.GetTodosProductos (first, size);
+        return list;
+}
+public PersonalizableEN ReadOID (int id
+                                 )
+{
+        PersonalizableEN personalizableEN = null;
+
+        personalizableEN = _IPersonalizableCAD.ReadOID (id);
+        return personalizableEN;
+}
+
+public System.Collections.Generic.IList<PersonalizableEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<PersonalizableEN> list = null;
+
+        list = _IPersonalizableCAD.ReadAll (first, size);
         return list;
 }
 }

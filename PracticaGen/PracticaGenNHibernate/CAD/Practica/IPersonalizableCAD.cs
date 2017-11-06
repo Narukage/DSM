@@ -22,7 +22,15 @@ void Destroy (int id
               );
 
 
+void AnaydirIngrediente (int p_Personalizable_OID, System.Collections.Generic.IList<int> p_ingrediente_OID);
 
 System.Collections.Generic.IList<PersonalizableEN> GetTodosProductos (int first, int size);
+
+
+PersonalizableEN ReadOID (int id
+                          );
+
+
+System.Collections.Generic.IList<PersonalizableEN> ReadAll (int first, int size);
 }
 }

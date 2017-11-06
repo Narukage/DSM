@@ -15,7 +15,7 @@
 					<property name="Cantidad" type="integer"> 
 						<column name="cantidad"  not-null="true"/>
 					</property>
-					<property name="Valoracion" type="integer"> 
+					<property name="Valoracion" > 
 						<column name="valoracion"  not-null="true"/>
 					</property>
 			

@@ -1,0 +1,65 @@
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+17   [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.3.11, Build v201508030321
+18   [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+18   [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+18   [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/Users/Alberto Berenguer/Desktop/work/Practica/templates/workflow/generator.mwe
+18   [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+830  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\Users\Alberto Berenguer\Desktop\work'
+952  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+1073 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+1252 [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/Users/Alberto Berenguer/Desktop/work/Practica/templates/workflow/generator.mwe:10
+1253 [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+1649 [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+2409 [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../PracticaGen(overwrite=false,append=false,fileEncoding=utf-8), ../PracticaGen]
+configuroConf:C:\Users\ALBERT~1\AppData\Local\Temp\OOH4RIA624164196610961953.cfg
+enc:utf-8
+2992 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+3393 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - Protected region start at index 683 in file ..\PracticaGen\PracticaGenNHibernate\CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs has illegal type 'ENABLE'
+java.lang.RuntimeException: Protected region start at index 683 in file ..\PracticaGen\PracticaGenNHibernate\CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs has illegal type 'ENABLE'
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.init(ProtectedRegionResolverImpl.java:358)
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.getProtectedRegion(ProtectedRegionResolverImpl.java:282)
+	at org.eclipse.internal.xpand2.ast.ProtectStatement.evaluateInternal(ProtectStatement.java:88)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.FileStatement.evaluateInternal(FileStatement.java:86)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.internal.xpand2.ast.AbstractDefinition.evaluate(AbstractDefinition.java:178)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.invokeDefinition(ExpandStatement.java:246)
+	at org.eclipse.internal.xpand2.ast.ExpandStatement.evaluateInternal(ExpandStatement.java:226)
+	at org.eclipse.internal.xpand2.ast.Statement.evaluate(Statement.java:41)
+	at org.eclipse.xpand2.Generator.invokeInternal2(Generator.java:272)
+	at org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.invokeInternal(AbstractExpressionsUsingWorkflowComponent.java:232)
+	at org.eclipse.emf.mwe.core.lib.AbstractWorkflowComponent.invoke(AbstractWorkflowComponent.java:126)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.internalInvoke(CompositeComponent.java:104)
+	at org.eclipse.emf.mwe.core.container.CompositeComponent.invoke(CompositeComponent.java:89)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.executeWorkflow(WorkflowEngine.java:174)
+	at org.eclipse.emf.mwe.core.WorkflowEngine.run(WorkflowEngine.java:53)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.doRun(WorkflowRunner.java:192)
+	at org.eclipse.emf.mwe.core.WorkflowRunner.main(WorkflowRunner.java:71)
+Caused by: org.eclipse.internal.xpand2.pr.ProtectedRegionSyntaxException: Protected region start at index 683 in file ..\PracticaGen\PracticaGenNHibernate\CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs has illegal type 'ENABLE'
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.getAllRegions(ProtectedRegionResolverImpl.java:264)
+	at org.eclipse.internal.xpand2.pr.ProtectedRegionResolverImpl.init(ProtectedRegionResolverImpl.java:339)
+	... 32 more
+3403 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Protected region start at index 683 in file ..\PracticaGen\PracticaGenNHibernate\CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs has illegal type 'ENABLE'(Element: org.eclipse.internal.xpand2.ast.ProtectStatement@25a6944c; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../PracticaGen(overwrite=false,append=false,fileEncoding=utf-8), ../PracticaGen])
+3404 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Protected region start at index 683 in file ..\PracticaGen\PracticaGenNHibernate\CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs has illegal type 'ENABLE'(Element: «FILE "InitializeDB"+.fileSeparator()+"Program.cs"»...«ENDFILE»; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../PracticaGen(overwrite=false,append=false,fileEncoding=utf-8), ../PracticaGen])
+3404 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Protected region start at index 683 in file ..\PracticaGen\PracticaGenNHibernate\CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs has illegal type 'ENABLE'(Element: programs : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../PracticaGen(overwrite=false,append=false,fileEncoding=utf-8), ../PracticaGen])
+3405 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Protected region start at index 683 in file ..\PracticaGen\PracticaGenNHibernate\CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs has illegal type 'ENABLE'(Element: EXPAND programs; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../PracticaGen(overwrite=false,append=false,fileEncoding=utf-8), ../PracticaGen])
+3405 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Protected region start at index 683 in file ..\PracticaGen\PracticaGenNHibernate\CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs has illegal type 'ENABLE'(Element: createDBProject : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../PracticaGen(overwrite=false,append=false,fileEncoding=utf-8), ../PracticaGen])
+3405 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Protected region start at index 683 in file ..\PracticaGen\PracticaGenNHibernate\CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs has illegal type 'ENABLE'(Element: EXPAND resources::visualStudio::initializeDB::createDBProject; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../PracticaGen(overwrite=false,append=false,fileEncoding=utf-8), ../PracticaGen])
+3405 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Protected region start at index 683 in file ..\PracticaGen\PracticaGenNHibernate\CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs has illegal type 'ENABLE'(Element: nHibernateGeneration : ConceptualModel; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../PracticaGen(overwrite=false,append=false,fileEncoding=utf-8), ../PracticaGen])
+3406 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Protected region start at index 683 in file ..\PracticaGen\PracticaGenNHibernate\CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs has illegal type 'ENABLE'(Element: EXPAND nHibernateGeneration FOR (ConceptualModel)var conceptual; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../PracticaGen(overwrite=false,append=false,fileEncoding=utf-8), ../PracticaGen])
+3406 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Protected region start at index 683 in file ..\PracticaGen\PracticaGenNHibernate\CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs has illegal type 'ENABLE'(Element: main : Boolean; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../PracticaGen(overwrite=false,append=false,fileEncoding=utf-8), ../PracticaGen])
+3407 [main] ERROR eclipse.emf.mwe.core.WorkflowEngine  - [ERROR]: Protected region start at index 683 in file ..\PracticaGen\PracticaGenNHibernate\CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs has illegal type 'ENABLE'(Element: EXPAND workflow::nhibernate::workflow::main FOR true; Reported by: Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [CONFIGURATION:../PracticaGen(overwrite=false,append=false,fileEncoding=utf-8), ../PracticaGen])

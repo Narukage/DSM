@@ -23,5 +23,12 @@ void Destroy (int id
 
 
 System.Collections.Generic.IList<PizzaEN> GetTodosProductos (int first, int size);
+
+
+PizzaEN ReadOID (int id
+                 );
+
+
+System.Collections.Generic.IList<PizzaEN> ReadAll (int first, int size);
 }
 }

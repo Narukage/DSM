@@ -15,7 +15,7 @@ private int id;
 /**
  *	Atributo estado
  */
-private int estado;
+private PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum estado;
 
 
 
@@ -36,7 +36,7 @@ private float precioTotal;
 /**
  *	Atributo tipoPago
  */
-private int tipoPago;
+private PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum tipoPago;
 
 
 
@@ -77,7 +77,7 @@ public virtual int Id {
 
 
 
-public virtual int Estado {
+public virtual PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum Estado {
         get { return estado; } set { estado = value;  }
 }
 
@@ -95,7 +95,7 @@ public virtual float PrecioTotal {
 
 
 
-public virtual int TipoPago {
+public virtual PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum TipoPago {
         get { return tipoPago; } set { tipoPago = value;  }
 }
 
@@ -134,7 +134,7 @@ public PedidoEN()
 
 
 
-public PedidoEN(int id, int estado, Nullable<DateTime> fecha, float precioTotal, int tipoPago, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, PracticaGenNHibernate.EN.Practica.CodigoEN codigo, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, PracticaGenNHibernate.EN.Practica.AdminEN admin
+public PedidoEN(int id, PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum estado, Nullable<DateTime> fecha, float precioTotal, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum tipoPago, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, PracticaGenNHibernate.EN.Practica.CodigoEN codigo, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, PracticaGenNHibernate.EN.Practica.AdminEN admin
                 )
 {
         this.init (Id, estado, fecha, precioTotal, tipoPago, lineaPedido, codigo, usuario, admin);
@@ -147,7 +147,7 @@ public PedidoEN(PedidoEN pedido)
 }
 
 private void init (int id
-                   , int estado, Nullable<DateTime> fecha, float precioTotal, int tipoPago, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, PracticaGenNHibernate.EN.Practica.CodigoEN codigo, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, PracticaGenNHibernate.EN.Practica.AdminEN admin)
+                   , PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum estado, Nullable<DateTime> fecha, float precioTotal, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum tipoPago, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, PracticaGenNHibernate.EN.Practica.CodigoEN codigo, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, PracticaGenNHibernate.EN.Practica.AdminEN admin)
 {
         this.Id = id;
 

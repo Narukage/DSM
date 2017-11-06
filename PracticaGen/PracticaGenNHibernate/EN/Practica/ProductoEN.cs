@@ -15,7 +15,7 @@ private int id;
 /**
  *	Atributo precio
  */
-private float precio;
+private double precio;
 
 
 
@@ -49,7 +49,7 @@ public virtual int Id {
 
 
 
-public virtual float Precio {
+public virtual double Precio {
         get { return precio; } set { precio = value;  }
 }
 
@@ -82,7 +82,7 @@ public ProductoEN()
 
 
 
-public ProductoEN(int id, float precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
+public ProductoEN(int id, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
                   )
 {
         this.init (Id, precio, nombre, foto, lineaPedido);
@@ -95,7 +95,7 @@ public ProductoEN(ProductoEN producto)
 }
 
 private void init (int id
-                   , float precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
+                   , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
 {
         this.Id = id;
 

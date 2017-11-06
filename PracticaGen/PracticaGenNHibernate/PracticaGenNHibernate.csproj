@@ -1,245 +1,354 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PracticaGenNHibernate</RootNamespace>
-    <AssemblyName>PracticaGenNHibernate</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\PracticaGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
-    </Reference>
-    <Reference Include="LinFu.DynamicProxy, Version=1.0.3.14911, Culture=neutral, PublicKeyToken=62a6874124340d6e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\PracticaGenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
-    </Reference>
-    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\PracticaGenNHibernate\AppLib\NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\PracticaGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
-    </Reference>
-    <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\PracticaGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\PracticaGenNHibernate\AppLib\Antlr3.Runtime.dll" />
-    <Content Include="..\PracticaGenNHibernate\AppLib\Castle.DynamicProxy2.dll" />
-    <Content Include="..\PracticaGenNHibernate\AppLib\Iesi.Collections.dll" />
-    <Content Include="..\PracticaGenNHibernate\AppLib\LinFu.DynamicProxy.dll" />
-    <Content Include="..\PracticaGenNHibernate\AppLib\log4net.dll" />
-    <Content Include="..\PracticaGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll" />
-    <Content Include="..\PracticaGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll" />
-    <Content Include="..\PracticaGenNHibernate\AppLib\NHibernate.dll" />
-    <Content Include="..\PracticaGenNHibernate\AppLib\nunit.core.dll" />
-    <Content Include="..\PracticaGenNHibernate\AppLib\nunit.framework.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="NHibernateHelper.cs" />
-    <Compile Include="Utils\Util.cs" />
-    <Compile Include="Exceptions\ModelException.cs" />
-    <Compile Include="Exceptions\DataLayerException.cs" />
-    <Compile Include="CAD\BasicCAD.cs" />
-    <Compile Include="CP\BasicCP.cs" />
-    <Compile Include="EN\Practica\ProductoEN.cs" />
-    <Compile Include="CEN\Practica\ProductoCEN.cs" />
-    <Compile Include="CAD\Practica\IProductoCAD.cs" />
-    <Compile Include="CAD\Practica\ProductoCAD.cs" />
-    <Compile Include="CP\Practica\ProductoCP.cs" />
-    <Compile Include="CEN\Practica\ProductoCEN_BuscarProducto.cs" />
-    <Compile Include="EN\Practica\ComplementoEN.cs" />
-    <Compile Include="CEN\Practica\ComplementoCEN.cs" />
-    <Compile Include="CAD\Practica\IComplementoCAD.cs" />
-    <Compile Include="CAD\Practica\ComplementoCAD.cs" />
-    <Compile Include="CP\Practica\ComplementoCP.cs" />
-    <Compile Include="EN\Practica\BebidaEN.cs" />
-    <Compile Include="CEN\Practica\BebidaCEN.cs" />
-    <Compile Include="CAD\Practica\IBebidaCAD.cs" />
-    <Compile Include="CAD\Practica\BebidaCAD.cs" />
-    <Compile Include="CP\Practica\BebidaCP.cs" />
-    <Compile Include="EN\Practica\IngredienteEN.cs" />
-    <Compile Include="CEN\Practica\IngredienteCEN.cs" />
-    <Compile Include="CAD\Practica\IIngredienteCAD.cs" />
-    <Compile Include="CAD\Practica\IngredienteCAD.cs" />
-    <Compile Include="CP\Practica\IngredienteCP.cs" />
-    <Compile Include="EN\Practica\PizzaEN.cs" />
-    <Compile Include="CEN\Practica\PizzaCEN.cs" />
-    <Compile Include="CAD\Practica\IPizzaCAD.cs" />
-    <Compile Include="CAD\Practica\PizzaCAD.cs" />
-    <Compile Include="CP\Practica\PizzaCP.cs" />
-    <Compile Include="EN\Practica\PredefinidaEN.cs" />
-    <Compile Include="CEN\Practica\PredefinidaCEN.cs" />
-    <Compile Include="CAD\Practica\IPredefinidaCAD.cs" />
-    <Compile Include="CAD\Practica\PredefinidaCAD.cs" />
-    <Compile Include="CP\Practica\PredefinidaCP.cs" />
-    <Compile Include="EN\Practica\PersonalizableEN.cs" />
-    <Compile Include="CEN\Practica\PersonalizableCEN.cs" />
-    <Compile Include="CAD\Practica\IPersonalizableCAD.cs" />
-    <Compile Include="CAD\Practica\PersonalizableCAD.cs" />
-    <Compile Include="CP\Practica\PersonalizableCP.cs" />
-    <Compile Include="CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs" />
-    <Compile Include="EN\Practica\PedidoEN.cs" />
-    <Compile Include="CEN\Practica\PedidoCEN.cs" />
-    <Compile Include="CAD\Practica\IPedidoCAD.cs" />
-    <Compile Include="CAD\Practica\PedidoCAD.cs" />
-    <Compile Include="CP\Practica\PedidoCP.cs" />
-    <Compile Include="CEN\Practica\PedidoCEN_CalcularMedia.cs" />
-    <Compile Include="CEN\Practica\PedidoCEN_AnyadirCodigo.cs" />
-    <Compile Include="CEN\Practica\PedidoCEN_ConsultarEstado.cs" />
-    <Compile Include="EN\Practica\LineaPedidoEN.cs" />
-    <Compile Include="CEN\Practica\LineaPedidoCEN.cs" />
-    <Compile Include="CAD\Practica\ILineaPedidoCAD.cs" />
-    <Compile Include="CAD\Practica\LineaPedidoCAD.cs" />
-    <Compile Include="CP\Practica\LineaPedidoCP.cs" />
-    <Compile Include="CEN\Practica\LineaPedidoCEN_AnyadirProducto.cs" />
-    <Compile Include="CEN\Practica\LineaPedidoCEN_ValorarLinea.cs" />
-    <Compile Include="EN\Practica\CodigoEN.cs" />
-    <Compile Include="CEN\Practica\CodigoCEN.cs" />
-    <Compile Include="CAD\Practica\ICodigoCAD.cs" />
-    <Compile Include="CAD\Practica\CodigoCAD.cs" />
-    <Compile Include="CP\Practica\CodigoCP.cs" />
-    <Compile Include="EN\Practica\UsuarioEN.cs" />
-    <Compile Include="CEN\Practica\UsuarioCEN.cs" />
-    <Compile Include="CAD\Practica\IUsuarioCAD.cs" />
-    <Compile Include="CAD\Practica\UsuarioCAD.cs" />
-    <Compile Include="CP\Practica\UsuarioCP.cs" />
-    <Compile Include="CEN\Practica\UsuarioCEN_AnyadirDireccion.cs" />
-    <Compile Include="CEN\Practica\UsuarioCEN_EliminarDireccion.cs" />
-    <Compile Include="CEN\Practica\UsuarioCEN_ConfirmarPedido.cs" />
-    <Compile Include="CEN\Practica\UsuarioCEN_LoginRRSS.cs" />
-    <Compile Include="CEN\Practica\UsuarioCEN_SeleccionarFormaPago.cs" />
-    <Compile Include="CEN\Practica\UsuarioCEN_ConsultarHistorial.cs" />
-    <Compile Include="EN\Practica\AdminEN.cs" />
-    <Compile Include="CEN\Practica\AdminCEN.cs" />
-    <Compile Include="CAD\Practica\IAdminCAD.cs" />
-    <Compile Include="CAD\Practica\AdminCAD.cs" />
-    <Compile Include="CP\Practica\AdminCP.cs" />
-    <Compile Include="EN\Practica\RegistradoEN.cs" />
-    <Compile Include="CEN\Practica\RegistradoCEN.cs" />
-    <Compile Include="CAD\Practica\IRegistradoCAD.cs" />
-    <Compile Include="CAD\Practica\RegistradoCAD.cs" />
-    <Compile Include="CP\Practica\RegistradoCP.cs" />
-    <Compile Include="CEN\Practica\RegistradoCEN_Login.cs" />
-    <Compile Include="CEN\Practica\RegistradoCEN_RecuperarContrasenya.cs" />
-    <Compile Include="CEN\Practica\RegistradoCEN_CerrarSesion.cs" />
-    <Compile Include="EN\Practica\DireccionEN.cs" />
-    <Compile Include="CEN\Practica\DireccionCEN.cs" />
-    <Compile Include="CAD\Practica\IDireccionCAD.cs" />
-    <Compile Include="CAD\Practica\DireccionCAD.cs" />
-    <Compile Include="CP\Practica\DireccionCP.cs" />
-    <Compile Include="EN\Practica\IncidenciaEN.cs" />
-    <Compile Include="CEN\Practica\IncidenciaCEN.cs" />
-    <Compile Include="CAD\Practica\IIncidenciaCAD.cs" />
-    <Compile Include="CAD\Practica\IncidenciaCAD.cs" />
-    <Compile Include="CP\Practica\IncidenciaCP.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\Practica\producto.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Practica\complemento.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Practica\bebida.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Practica\ingrediente.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Practica\pizza.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Practica\predefinida.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Practica\personalizable.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Practica\pedido.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Practica\lineapedido.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Practica\codigo.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Practica\usuario.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Practica\admin.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Practica\registrado.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Practica\direccion.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Practica\incidencia.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="hibernate.cfg.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Resources\xsd\nhibernate-configuration.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+		<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		  <PropertyGroup>
+		    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		    <ProductVersion>8.0.30703</ProductVersion>
+		    <SchemaVersion>2.0</SchemaVersion>
+		    <ProjectGuid>{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}</ProjectGuid>
+		    <OutputType>Library</OutputType>
+		    <AppDesignerFolder>Properties</AppDesignerFolder>
+		    <RootNamespace>PracticaGenNHibernate</RootNamespace>
+		    <AssemblyName>PracticaGenNHibernate</AssemblyName>
+		    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+		    <FileAlignment>512</FileAlignment>
+		    <PublishUrl>publish\</PublishUrl>
+		    <Install>true</Install>
+		    <InstallFrom>Disk</InstallFrom>
+		    <UpdateEnabled>false</UpdateEnabled>
+		    <UpdateMode>Foreground</UpdateMode>
+		    <UpdateInterval>7</UpdateInterval>
+		    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+		    <UpdatePeriodically>false</UpdatePeriodically>
+		    <UpdateRequired>false</UpdateRequired>
+		    <MapFileExtensions>true</MapFileExtensions>
+		    <ApplicationRevision>0</ApplicationRevision>
+		    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+		    <IsWebBootstrapper>false</IsWebBootstrapper>
+		    <UseApplicationTrust>false</UseApplicationTrust>
+		    <BootstrapperEnabled>true</BootstrapperEnabled>
+		  </PropertyGroup>
+		  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		    <DebugSymbols>true</DebugSymbols>
+		    <DebugType>full</DebugType>
+		    <Optimize>false</Optimize>
+		    <OutputPath>bin\Debug\</OutputPath>
+		    <DefineConstants>DEBUG;TRACE</DefineConstants>
+		    <ErrorReport>prompt</ErrorReport>
+		    <WarningLevel>4</WarningLevel>
+		  </PropertyGroup>
+		  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		    <DebugType>pdbonly</DebugType>
+		    <Optimize>true</Optimize>
+		    <OutputPath>bin\Release\</OutputPath>
+		    <DefineConstants>TRACE</DefineConstants>
+		    <ErrorReport>prompt</ErrorReport>
+		    <WarningLevel>4</WarningLevel>
+		  </PropertyGroup>
+		<ItemGroup>
+		    <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\PracticaGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
+		    </Reference>
+		    <Reference Include="LinFu.DynamicProxy, Version=1.0.3.14911, Culture=neutral, PublicKeyToken=62a6874124340d6e, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\PracticaGenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
+		    </Reference>
+		    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\PracticaGenNHibernate\AppLib\NHibernate.dll</HintPath>
+		    </Reference>
+		    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\PracticaGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
+		    </Reference>
+		    <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\PracticaGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
+		    </Reference>
+		    <Reference Include="System" />
+		    <Reference Include="System.Core">
+		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+		    </Reference>
+		    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+		    <Reference Include="System.Transactions" />
+		    <Reference Include="System.Xml.Linq">
+		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+		    </Reference>
+		    <Reference Include="System.Data.DataSetExtensions">
+		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+		    </Reference>
+		    <Reference Include="System.Data" />
+		    <Reference Include="System.Xml" />
+		</ItemGroup>
+		
+		<ItemGroup>
+		    <Content Include="..\PracticaGenNHibernate\AppLib\Antlr3.Runtime.dll" />
+		    <Content Include="..\PracticaGenNHibernate\AppLib\Castle.DynamicProxy2.dll" />
+		    <Content Include="..\PracticaGenNHibernate\AppLib\Iesi.Collections.dll" />
+		    <Content Include="..\PracticaGenNHibernate\AppLib\LinFu.DynamicProxy.dll" />
+		    <Content Include="..\PracticaGenNHibernate\AppLib\log4net.dll" />
+		    <Content Include="..\PracticaGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll" />
+		    <Content Include="..\PracticaGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll" />
+		    <Content Include="..\PracticaGenNHibernate\AppLib\NHibernate.dll" />
+		    <Content Include="..\PracticaGenNHibernate\AppLib\nunit.core.dll" />
+		    <Content Include="..\PracticaGenNHibernate\AppLib\nunit.framework.dll" />
+  		</ItemGroup>
+  		
+		<ItemGroup>
+			<Compile Include="NHibernateHelper.cs" />
+		    <Compile Include="Utils\Util.cs" />
+		    <Compile Include="Exceptions\ModelException.cs"/>
+		    <Compile Include="Exceptions\DataLayerException.cs"/>
+		    
+	<Compile Include="CAD\BasicCAD.cs"/>
+	<Compile Include="CP\BasicCP.cs"/>
+	<Compile Include="EN\Practica\ProductoEN.cs" />
+	<Compile Include="CEN\Practica\ProductoCEN.cs" />
+	<Compile Include="CAD\Practica\IProductoCAD.cs" />
+	<Compile Include="CAD\Practica\ProductoCAD.cs" />
+	<Compile Include="CP\Practica\ProductoCP.cs" />
+			
+			
+			
+			
+			
+			
+	<Compile Include="EN\Practica\ComplementoEN.cs" />
+	<Compile Include="CEN\Practica\ComplementoCEN.cs" />
+	<Compile Include="CAD\Practica\IComplementoCAD.cs" />
+	<Compile Include="CAD\Practica\ComplementoCAD.cs" />
+	<Compile Include="CP\Practica\ComplementoCP.cs" />
+			
+			
+			
+			
+	<Compile Include="EN\Practica\BebidaEN.cs" />
+	<Compile Include="CEN\Practica\BebidaCEN.cs" />
+	<Compile Include="CAD\Practica\IBebidaCAD.cs" />
+	<Compile Include="CAD\Practica\BebidaCAD.cs" />
+	<Compile Include="CP\Practica\BebidaCP.cs" />
+			
+			
+			
+			
+	<Compile Include="EN\Practica\IngredienteEN.cs" />
+	<Compile Include="CEN\Practica\IngredienteCEN.cs" />
+	<Compile Include="CAD\Practica\IIngredienteCAD.cs" />
+	<Compile Include="CAD\Practica\IngredienteCAD.cs" />
+	<Compile Include="CP\Practica\IngredienteCP.cs" />
+			
+			
+			
+			
+			
+			
+	<Compile Include="EN\Practica\PizzaEN.cs" />
+	<Compile Include="CEN\Practica\PizzaCEN.cs" />
+	<Compile Include="CAD\Practica\IPizzaCAD.cs" />
+	<Compile Include="CAD\Practica\PizzaCAD.cs" />
+	<Compile Include="CP\Practica\PizzaCP.cs" />
+			
+			
+			
+			
+			
+			
+	<Compile Include="EN\Practica\PredefinidaEN.cs" />
+	<Compile Include="CEN\Practica\PredefinidaCEN.cs" />
+	<Compile Include="CAD\Practica\IPredefinidaCAD.cs" />
+	<Compile Include="CAD\Practica\PredefinidaCAD.cs" />
+	<Compile Include="CP\Practica\PredefinidaCP.cs" />
+			
+			
+			
+			
+	<Compile Include="EN\Practica\PersonalizableEN.cs" />
+	<Compile Include="CEN\Practica\PersonalizableCEN.cs" />
+	<Compile Include="CAD\Practica\IPersonalizableCAD.cs" />
+	<Compile Include="CAD\Practica\PersonalizableCAD.cs" />
+	<Compile Include="CP\Practica\PersonalizableCP.cs" />
+			
+			
+			
+			<Compile Include="CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs" />
+			
+			
+			
+			
+	<Compile Include="EN\Practica\PedidoEN.cs" />
+	<Compile Include="CEN\Practica\PedidoCEN.cs" />
+	<Compile Include="CAD\Practica\IPedidoCAD.cs" />
+	<Compile Include="CAD\Practica\PedidoCAD.cs" />
+	<Compile Include="CP\Practica\PedidoCP.cs" />
+			
+			
+			
+			
+			
+			<Compile Include="CEN\Practica\PedidoCEN_CalcularMedia.cs" />
+			
+			<Compile Include="CEN\Practica\PedidoCEN_AnyadirCodigo.cs" />
+			
+			<Compile Include="CEN\Practica\PedidoCEN_ConsultarEstado.cs" />
+			
+	<Compile Include="EN\Practica\LineaPedidoEN.cs" />
+	<Compile Include="CEN\Practica\LineaPedidoCEN.cs" />
+	<Compile Include="CAD\Practica\ILineaPedidoCAD.cs" />
+	<Compile Include="CAD\Practica\LineaPedidoCAD.cs" />
+	<Compile Include="CP\Practica\LineaPedidoCP.cs" />
+			
+			
+			
+			
+			
+			<Compile Include="CEN\Practica\LineaPedidoCEN_AnyadirProducto.cs" />
+			
+			<Compile Include="CEN\Practica\LineaPedidoCEN_ValorarLinea.cs" />
+			
+	<Compile Include="EN\Practica\CodigoEN.cs" />
+	<Compile Include="CEN\Practica\CodigoCEN.cs" />
+	<Compile Include="CAD\Practica\ICodigoCAD.cs" />
+	<Compile Include="CAD\Practica\CodigoCAD.cs" />
+	<Compile Include="CP\Practica\CodigoCP.cs" />
+			
+			
+			
+			
+			
+	<Compile Include="EN\Practica\UsuarioEN.cs" />
+	<Compile Include="CEN\Practica\UsuarioCEN.cs" />
+	<Compile Include="CAD\Practica\IUsuarioCAD.cs" />
+	<Compile Include="CAD\Practica\UsuarioCAD.cs" />
+	<Compile Include="CP\Practica\UsuarioCP.cs" />
+			
+			
+			
+			<Compile Include="CEN\Practica\UsuarioCEN_AnyadirDireccion.cs" />
+			
+			<Compile Include="CEN\Practica\UsuarioCEN_EliminarDireccion.cs" />
+			
+			<Compile Include="CEN\Practica\UsuarioCEN_ConfirmarPedido.cs" />
+			
+			<Compile Include="CEN\Practica\UsuarioCEN_LoginRRSS.cs" />
+			
+			<Compile Include="CEN\Practica\UsuarioCEN_SeleccionarFormaPago.cs" />
+			
+			
+			<Compile Include="CEN\Practica\UsuarioCEN_ConsultarHistorial.cs" />
+			
+	<Compile Include="EN\Practica\AdminEN.cs" />
+	<Compile Include="CEN\Practica\AdminCEN.cs" />
+	<Compile Include="CAD\Practica\IAdminCAD.cs" />
+	<Compile Include="CAD\Practica\AdminCAD.cs" />
+	<Compile Include="CP\Practica\AdminCP.cs" />
+			
+			
+			
+	<Compile Include="EN\Practica\RegistradoEN.cs" />
+	<Compile Include="CEN\Practica\RegistradoCEN.cs" />
+	<Compile Include="CAD\Practica\IRegistradoCAD.cs" />
+	<Compile Include="CAD\Practica\RegistradoCAD.cs" />
+	<Compile Include="CP\Practica\RegistradoCP.cs" />
+			
+			
+			
+			
+			
+			<Compile Include="CEN\Practica\RegistradoCEN_Login.cs" />
+			
+			<Compile Include="CEN\Practica\RegistradoCEN_RecuperarContrasenya.cs" />
+			
+			<Compile Include="CEN\Practica\RegistradoCEN_CerrarSesion.cs" />
+			
+	<Compile Include="EN\Practica\DireccionEN.cs" />
+	<Compile Include="CEN\Practica\DireccionCEN.cs" />
+	<Compile Include="CAD\Practica\IDireccionCAD.cs" />
+	<Compile Include="CAD\Practica\DireccionCAD.cs" />
+	<Compile Include="CP\Practica\DireccionCP.cs" />
+			
+			
+			
+			
+			
+	<Compile Include="EN\Practica\IncidenciaEN.cs" />
+	<Compile Include="CEN\Practica\IncidenciaCEN.cs" />
+	<Compile Include="CAD\Practica\IIncidenciaCAD.cs" />
+	<Compile Include="CAD\Practica\IncidenciaCAD.cs" />
+	<Compile Include="CP\Practica\IncidenciaCP.cs" />
+			
+			
+			
+			
+			
+	<Compile Include="Enumerated\Practica\EstadoPedidoEnum.cs" />
+	<Compile Include="Enumerated\Practica\TipoCodigoEnum.cs" />
+	<Compile Include="Enumerated\Practica\TipoPagoEnum.cs" />
+	<Compile Include="Enumerated\Practica\TipoValoracionEnum.cs" />
+	<Compile Include="Enumerated\Practica\EstadoIncidenciaEnum.cs" />
+	<Compile Include="Enumerated\Practica\TamanyoEnum.cs" />
+	<Compile Include="Enumerated\Practica\TipomasaEnum.cs" />
+	
+	
+
+		    
+	
+
+		    <Compile Include="Properties\AssemblyInfo.cs" />
+		    <Compile Include="Properties\Settings.Designer.cs">
+		      <AutoGen>True</AutoGen>
+		      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+		      <DependentUpon>Settings.settings</DependentUpon>
+		    </Compile>
+		  </ItemGroup>
+		  <ItemGroup>
+		  
+	<EmbeddedResource Include="Mappings\Practica\producto.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica\complemento.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica\bebida.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica\ingrediente.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica\pizza.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica\predefinida.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica\personalizable.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica\pedido.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica\lineapedido.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica\codigo.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica\usuario.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica\admin.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica\registrado.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica\direccion.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica\incidencia.hbm.xml" />
+	
+	
+
+		  </ItemGroup>
+		  <ItemGroup>
+		    <Content Include="hibernate.cfg.xml">
+		      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		    </Content>
+		  </ItemGroup>
+		  <ItemGroup>
+		    <None Include="app.config" />
+		    <None Include="Properties\Settings.settings">
+		      <Generator>SettingsSingleFileGenerator</Generator>
+		      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+		    </None>
+		        <None Include="Resources\xsd\nhibernate-configuration.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Resources\xsd\nhibernate-mapping.xsd">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+		  </ItemGroup>
+	 	
+		
+	
+		  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+		  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 		       Other similar extension points exist, see Microsoft.Common.targets.
 		  <Target Name="BeforeBuild">
 		  </Target>
 		  <Target Name="AfterBuild">
 		  </Target>
 		  -->
-</Project>
+		</Project>

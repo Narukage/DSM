@@ -1,0 +1,31 @@
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\bin\Debug\hibernate.cfg.xml
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\bin\Debug\PracticaGenNHibernate.dll.config
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\bin\Debug\PracticaGenNHibernate.dll
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\bin\Debug\PracticaGenNHibernate.pdb
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\bin\Debug\NHibernate.dll
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\bin\Debug\Iesi.Collections.dll
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\bin\Debug\log4net.dll
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\obj\Debug\PracticaGenNHibernate.csproj.CoreCompileInputs.cache
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\obj\Debug\PracticaGenNHibernate.dll
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\obj\Debug\PracticaGenNHibernate.pdb
+C:\ooh4ria\workspaceMars\PracticaGen\PracticaGenNHibernate\obj\Debug\PracticaGenNHibernate.csprojResolveAssemblyReference.cache
+C:\Users\Alberto Berenguer\Desktop\work\PracticaGen\PracticaGenNHibernate\obj\Debug\PracticaGenNHibernate.csproj.CoreCompileInputs.cache
+C:\Users\Alberto Berenguer\Desktop\work\PracticaGen\PracticaGenNHibernate\obj\Debug\PracticaGenNHibernate.dll
+C:\Users\Alberto Berenguer\Desktop\work\PracticaGen\PracticaGenNHibernate\obj\Debug\PracticaGenNHibernate.pdb
+C:\Users\Alberto Berenguer\Desktop\work\PracticaGen\PracticaGenNHibernate\bin\Debug\hibernate.cfg.xml
+C:\Users\Alberto Berenguer\Desktop\work\PracticaGen\PracticaGenNHibernate\bin\Debug\PracticaGenNHibernate.dll.config
+C:\Users\Alberto Berenguer\Desktop\work\PracticaGen\PracticaGenNHibernate\bin\Debug\PracticaGenNHibernate.dll
+C:\Users\Alberto Berenguer\Desktop\work\PracticaGen\PracticaGenNHibernate\bin\Debug\PracticaGenNHibernate.pdb
+C:\Users\Alberto Berenguer\Desktop\work\PracticaGen\PracticaGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\Alberto Berenguer\Desktop\work\PracticaGen\PracticaGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\Alberto Berenguer\Desktop\work\PracticaGen\PracticaGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\Alberto Berenguer\Desktop\work\PracticaGen\PracticaGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\Alberto Berenguer\Desktop\work\PracticaGen\PracticaGenNHibernate\bin\Debug\NHibernate.dll
+C:\Users\Alberto Berenguer\Desktop\work\PracticaGen\PracticaGenNHibernate\bin\Debug\Iesi.Collections.dll
+C:\Users\Alberto Berenguer\Desktop\work\PracticaGen\PracticaGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Alberto Berenguer\Desktop\work\PracticaGen\PracticaGenNHibernate\bin\Debug\log4net.dll

@@ -12,7 +12,7 @@
 						</id>
 			
 					
-					<property name="Precio" type="float"> 
+					<property name="Precio" type="double"> 
 						<column name="precio"  not-null="true"/>
 					</property>
 					<property name="Nombre" type="string"> 

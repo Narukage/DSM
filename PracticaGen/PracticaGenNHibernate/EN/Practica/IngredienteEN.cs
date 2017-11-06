@@ -33,7 +33,7 @@ public IngredienteEN() : base ()
 
 
 public IngredienteEN(int id, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PersonalizableEN> personalizable
-                     , float precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
+                     , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
                      )
 {
         this.init (Id, personalizable, precio, nombre, foto, lineaPedido);
@@ -46,7 +46,7 @@ public IngredienteEN(IngredienteEN ingrediente)
 }
 
 private void init (int id
-                   , System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PersonalizableEN> personalizable, float precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
+                   , System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PersonalizableEN> personalizable, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
 {
         this.Id = id;
 

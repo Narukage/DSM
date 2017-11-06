@@ -38,7 +38,7 @@ public IIncidenciaCAD get_IIncidenciaCAD ()
         return this._IIncidenciaCAD;
 }
 
-public int New_ (string p_descripcion, int p_estado, string p_usuario, string p_admin)
+public int New_ (string p_descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum p_estado, string p_usuario, string p_admin)
 {
         IncidenciaEN incidenciaEN = null;
         int oid;
@@ -71,7 +71,7 @@ public int New_ (string p_descripcion, int p_estado, string p_usuario, string p_
         return oid;
 }
 
-public void Modify (int p_Incidencia_OID, string p_descripcion, int p_estado)
+public void Modify (int p_Incidencia_OID, string p_descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum p_estado)
 {
         IncidenciaEN incidenciaEN = null;
 
