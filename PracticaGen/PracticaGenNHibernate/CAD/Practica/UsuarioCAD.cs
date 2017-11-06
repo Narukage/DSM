@@ -243,5 +243,64 @@ public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.Usuari
 
         return result;
 }
+//Sin e: ReadOID
+//Con e: UsuarioEN
+public UsuarioEN ReadOID (string email
+                          )
+{
+        UsuarioEN usuarioEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                usuarioEN = (UsuarioEN)session.Get (typeof(UsuarioEN), email);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return usuarioEN;
+}
+
+public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<UsuarioEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(UsuarioEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<UsuarioEN>();
+                else
+                        result = session.CreateCriteria (typeof(UsuarioEN)).List<UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

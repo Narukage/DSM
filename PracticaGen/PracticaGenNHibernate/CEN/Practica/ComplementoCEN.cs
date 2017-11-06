@@ -85,5 +85,21 @@ public System.Collections.Generic.IList<ComplementoEN> GetTodosProductos (int fi
         list = _IComplementoCAD.GetTodosProductos (first, size);
         return list;
 }
+public ComplementoEN ReadOID (int id
+                              )
+{
+        ComplementoEN complementoEN = null;
+
+        complementoEN = _IComplementoCAD.ReadOID (id);
+        return complementoEN;
+}
+
+public System.Collections.Generic.IList<ComplementoEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<ComplementoEN> list = null;
+
+        list = _IComplementoCAD.ReadAll (first, size);
+        return list;
+}
 }
 }

@@ -198,5 +198,65 @@ public void Destroy (string email
                 SessionClose ();
         }
 }
+
+//Sin e: ReadOID
+//Con e: AdminEN
+public AdminEN ReadOID (string email
+                        )
+{
+        AdminEN adminEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                adminEN = (AdminEN)session.Get (typeof(AdminEN), email);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in AdminCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return adminEN;
+}
+
+public System.Collections.Generic.IList<AdminEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<AdminEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(AdminEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<AdminEN>();
+                else
+                        result = session.CreateCriteria (typeof(AdminEN)).List<AdminEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in AdminCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

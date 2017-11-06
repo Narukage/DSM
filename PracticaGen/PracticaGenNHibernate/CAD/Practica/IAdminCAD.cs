@@ -20,5 +20,21 @@ void Modify (AdminEN admin);
 
 void Destroy (string email
               );
+
+
+
+
+
+
+
+
+
+
+
+AdminEN ReadOID (string email
+                 );
+
+
+System.Collections.Generic.IList<AdminEN> ReadAll (int first, int size);
 }
 }

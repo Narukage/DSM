@@ -23,5 +23,12 @@ void Destroy (int id
 
 
 System.Collections.Generic.IList<BebidaEN> GetTodosProductos (int first, int size);
+
+
+BebidaEN ReadOID (int id
+                  );
+
+
+System.Collections.Generic.IList<BebidaEN> ReadAll (int first, int size);
 }
 }

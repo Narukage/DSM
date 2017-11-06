@@ -85,5 +85,21 @@ public System.Collections.Generic.IList<BebidaEN> GetTodosProductos (int first, 
         list = _IBebidaCAD.GetTodosProductos (first, size);
         return list;
 }
+public BebidaEN ReadOID (int id
+                         )
+{
+        BebidaEN bebidaEN = null;
+
+        bebidaEN = _IBebidaCAD.ReadOID (id);
+        return bebidaEN;
+}
+
+public System.Collections.Generic.IList<BebidaEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<BebidaEN> list = null;
+
+        list = _IBebidaCAD.ReadAll (first, size);
+        return list;
+}
 }
 }

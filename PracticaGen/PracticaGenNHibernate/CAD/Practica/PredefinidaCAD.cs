@@ -233,5 +233,65 @@ public System.Collections.Generic.IList<PredefinidaEN> GetTodosProductos (int fi
 
         return result;
 }
+
+//Sin e: ReadOID
+//Con e: PredefinidaEN
+public PredefinidaEN ReadOID (int id
+                              )
+{
+        PredefinidaEN predefinidaEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                predefinidaEN = (PredefinidaEN)session.Get (typeof(PredefinidaEN), id);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in PredefinidaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return predefinidaEN;
+}
+
+public System.Collections.Generic.IList<PredefinidaEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<PredefinidaEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(PredefinidaEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<PredefinidaEN>();
+                else
+                        result = session.CreateCriteria (typeof(PredefinidaEN)).List<PredefinidaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in PredefinidaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

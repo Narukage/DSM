@@ -221,5 +221,65 @@ public System.Collections.Generic.IList<BebidaEN> GetTodosProductos (int first, 
 
         return result;
 }
+
+//Sin e: ReadOID
+//Con e: BebidaEN
+public BebidaEN ReadOID (int id
+                         )
+{
+        BebidaEN bebidaEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                bebidaEN = (BebidaEN)session.Get (typeof(BebidaEN), id);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in BebidaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return bebidaEN;
+}
+
+public System.Collections.Generic.IList<BebidaEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<BebidaEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(BebidaEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<BebidaEN>();
+                else
+                        result = session.CreateCriteria (typeof(BebidaEN)).List<BebidaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in BebidaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

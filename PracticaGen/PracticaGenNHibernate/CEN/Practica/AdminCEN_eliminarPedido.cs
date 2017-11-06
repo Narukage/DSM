@@ -11,21 +11,21 @@ using PracticaGenNHibernate.EN.Practica;
 using PracticaGenNHibernate.CAD.Practica;
 
 
-/*PROTECTED REGION ID(usingPracticaGenNHibernate.CEN.Practica_Usuario_eliminarDireccion) ENABLED START*/
+/*PROTECTED REGION ID(usingPracticaGenNHibernate.CEN.Practica_Admin_eliminarPedido) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
 namespace PracticaGenNHibernate.CEN.Practica
 {
-public partial class UsuarioCEN
+public partial class AdminCEN
 {
-public void EliminarDireccion (string p_oid, int p_direccion)
+public void EliminarPedido (string p_oid)
 {
-        /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Usuario_eliminarDireccion) ENABLED START*/
+        /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Admin_eliminarPedido) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method EliminarDireccion() not yet implemented.");
+        throw new NotImplementedException ("Method EliminarPedido() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

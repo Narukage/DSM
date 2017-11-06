@@ -204,36 +204,6 @@ public void Destroy (int id
         }
 }
 
-public System.Collections.Generic.IList<PizzaEN> GetTodosProductos (int first, int size)
-{
-        System.Collections.Generic.IList<PizzaEN> result = null;
-        try
-        {
-                SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(PizzaEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<PizzaEN>();
-                else
-                        result = session.CreateCriteria (typeof(PizzaEN)).List<PizzaEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in PizzaCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
-
 //Sin e: ReadOID
 //Con e: PizzaEN
 public PizzaEN ReadOID (int id

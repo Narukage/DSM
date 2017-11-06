@@ -38,7 +38,7 @@ public IPedidoCAD get_IPedidoCAD ()
         return this._IPedidoCAD;
 }
 
-public int New_ (PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fecha, float p_precioTotal, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum p_tipoPago, int p_codigo, string p_usuario, string p_admin)
+public int New_ (PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fecha, double p_precioTotal, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum p_tipoPago, string p_usuario, string p_admin)
 {
         PedidoEN pedidoEN = null;
         int oid;
@@ -52,14 +52,6 @@ public int New_ (PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum p_es
         pedidoEN.PrecioTotal = p_precioTotal;
 
         pedidoEN.TipoPago = p_tipoPago;
-
-
-        if (p_codigo != -1) {
-                // El argumento p_codigo -> Property codigo es oid = false
-                // Lista de oids id
-                pedidoEN.Codigo = new PracticaGenNHibernate.EN.Practica.CodigoEN ();
-                pedidoEN.Codigo.Id = p_codigo;
-        }
 
 
         if (p_usuario != null) {
@@ -83,7 +75,7 @@ public int New_ (PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum p_es
         return oid;
 }
 
-public void Modify (int p_Pedido_OID, PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fecha, float p_precioTotal, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum p_tipoPago)
+public void Modify (int p_Pedido_OID, PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fecha, double p_precioTotal, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum p_tipoPago)
 {
         PedidoEN pedidoEN = null;
 

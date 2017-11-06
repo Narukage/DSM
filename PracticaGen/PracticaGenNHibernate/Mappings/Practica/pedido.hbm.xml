@@ -18,11 +18,14 @@
 					<property name="Fecha" type="date"> 
 						<column name="fecha"  not-null="true"/>
 					</property>
-					<property name="PrecioTotal" type="float"> 
+					<property name="PrecioTotal" type="double"> 
 						<column name="precioTotal"  not-null="true"/>
 					</property>
 					<property name="TipoPago" > 
 						<column name="tipoPago"  not-null="true"/>
+					</property>
+					<property name="Confirmado" type="boolean"> 
+						<column name="confirmado" />
 					</property>
 			
 			
@@ -59,6 +62,8 @@
 								<column name="FK_emailRegistrado_idAdmin"/> 
 						</many-to-one>
 											 					
+			
+					
 					
 					
 					

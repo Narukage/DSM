@@ -38,7 +38,7 @@ public IPredefinidaCAD get_IPredefinidaCAD ()
         return this._IPredefinidaCAD;
 }
 
-public int New_ (double p_precio, string p_nombre, string p_foto, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum p_tamaño, PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum p_masa, string p_descripcion)
+public int New_ (double p_precio, string p_nombre, string p_foto, int p_tamaño, int p_masa, string p_descripcion)
 {
         PredefinidaEN predefinidaEN = null;
         int oid;
@@ -63,7 +63,7 @@ public int New_ (double p_precio, string p_nombre, string p_foto, PracticaGenNHi
         return oid;
 }
 
-public void Modify (int p_Predefinida_OID, double p_precio, string p_nombre, string p_foto, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum p_tamaño, PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum p_masa, string p_descripcion)
+public void Modify (int p_Predefinida_OID, double p_precio, string p_nombre, string p_foto, int p_tamaño, int p_masa, string p_descripcion)
 {
         PredefinidaEN predefinidaEN = null;
 
@@ -92,6 +92,22 @@ public System.Collections.Generic.IList<PredefinidaEN> GetTodosProductos (int fi
         System.Collections.Generic.IList<PredefinidaEN> list = null;
 
         list = _IPredefinidaCAD.GetTodosProductos (first, size);
+        return list;
+}
+public PredefinidaEN ReadOID (int id
+                              )
+{
+        PredefinidaEN predefinidaEN = null;
+
+        predefinidaEN = _IPredefinidaCAD.ReadOID (id);
+        return predefinidaEN;
+}
+
+public System.Collections.Generic.IList<PredefinidaEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<PredefinidaEN> list = null;
+
+        list = _IPredefinidaCAD.ReadAll (first, size);
         return list;
 }
 }

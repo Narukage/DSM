@@ -38,7 +38,7 @@ public IPersonalizableCAD get_IPersonalizableCAD ()
         return this._IPersonalizableCAD;
 }
 
-public int New_ (double p_precio, string p_nombre, string p_foto, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum p_tamaño, PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum p_masa)
+public int New_ (double p_precio, string p_nombre, string p_foto, int p_tamaño, int p_masa)
 {
         PersonalizableEN personalizableEN = null;
         int oid;
@@ -61,7 +61,7 @@ public int New_ (double p_precio, string p_nombre, string p_foto, PracticaGenNHi
         return oid;
 }
 
-public void Modify (int p_Personalizable_OID, double p_precio, string p_nombre, string p_foto, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum p_tamaño, PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum p_masa)
+public void Modify (int p_Personalizable_OID, double p_precio, string p_nombre, string p_foto, int p_tamaño, int p_masa)
 {
         PersonalizableEN personalizableEN = null;
 

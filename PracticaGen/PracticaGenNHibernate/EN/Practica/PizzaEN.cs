@@ -10,27 +10,27 @@ public partial class PizzaEN                                                    
 /**
  *	Atributo tamaño
  */
-private PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum tamaño;
+private int tamaño;
 
 
 
 /**
  *	Atributo masa
  */
-private PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum masa;
+private int masa;
 
 
 
 
 
 
-public virtual PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum Tamaño {
+public virtual int Tamaño {
         get { return tamaño; } set { tamaño = value;  }
 }
 
 
 
-public virtual PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum Masa {
+public virtual int Masa {
         get { return masa; } set { masa = value;  }
 }
 
@@ -44,7 +44,7 @@ public PizzaEN() : base ()
 
 
 
-public PizzaEN(int id, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum tamaño, PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum masa
+public PizzaEN(int id, int tamaño, int masa
                , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
                )
 {
@@ -58,7 +58,7 @@ public PizzaEN(PizzaEN pizza)
 }
 
 private void init (int id
-                   , PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum tamaño, PracticaGenNHibernate.Enumerated.Practica.TipomasaEnum masa, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
+                   , int tamaño, int masa, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
 {
         this.Id = id;
 

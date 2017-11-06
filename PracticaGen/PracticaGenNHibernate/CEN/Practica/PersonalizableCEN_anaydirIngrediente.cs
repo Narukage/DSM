@@ -19,17 +19,16 @@ namespace PracticaGenNHibernate.CEN.Practica
 {
 public partial class PersonalizableCEN
 {
-public void AnaydirIngrediente (int p_Personalizable_OID, System.Collections.Generic.IList<int> p_ingrediente_OID)
+public void AnaydirIngrediente (int p_Personalizable_OID, System.Collections.Generic.IList<int> p_ingrediente_OIDs)
 {
-            /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Personalizable_anaydirIngrediente_customized)ENABLE START*/
-            PersonalizableEN per = _IPersonalizableCAD.ReadOID(p_Personalizable_OID);
-            per.Precio += new IngredienteCAD().ReadOIDDefault(p_ingrediente_OID[0]).Precio;
-            _IPersonalizableCAD.Modify(per);
-            _IPersonalizableCAD.AnaydirIngrediente(p_Personalizable_OID, p_ingrediente_OID);
+            /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Personalizable_anaydirIngrediente_customized) START*/
+            PersonalizableEN pizza = _IPersonalizableCAD.ReadOIDDefault(p_Personalizable_OID);
+            IngredienteEN ing = new IngredienteCEN().ReadOID(p_ingrediente_OIDs[0]);
+            pizza.Ingrediente.Add(ing);
+            _IPersonalizableCAD.ModifyDefault(pizza);
+        //Call to PersonalizableCAD
 
-            //Call to PersonalizableCAD
-
-            _IPersonalizableCAD.AnaydirIngrediente (p_Personalizable_OID, p_ingrediente_OID);
+        _IPersonalizableCAD.AnaydirIngrediente (p_Personalizable_OID, p_ingrediente_OIDs);
 
         /*PROTECTED REGION END*/
 }

@@ -12,7 +12,7 @@ using PracticaGenNHibernate.CEN.Practica;
 
 
 
-/*PROTECTED REGION ID(usingPracticaGenNHibernate.CP.Practica_Personalizable_relacionarIngrediente) ENABLED START*/
+/*PROTECTED REGION ID(usingPracticaGenNHibernate.CP.Practica_Personalizable_anaydirIngrediente) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
@@ -20,9 +20,9 @@ namespace PracticaGenNHibernate.CP.Practica
 {
 public partial class PersonalizableCP : BasicCP
 {
-public void RelacionarIngrediente (int p_Personalizable_OID, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.IngredienteEN> p_ingrediente_OIDs)
+public void AnaydirIngrediente (int p_Personalizable_OID, System.Collections.Generic.IList<int> p_ingrediente_OIDs)
 {
-        /*PROTECTED REGION ID(PracticaGenNHibernate.CP.Practica_Personalizable_relacionarIngrediente) ENABLED START*/
+        /*PROTECTED REGION ID(PracticaGenNHibernate.CP.Practica_Personalizable_anaydirIngrediente) ENABLED START*/
 
         IPersonalizableCAD personalizableCAD = null;
         PersonalizableCEN personalizableCEN = null;
@@ -39,7 +39,7 @@ public void RelacionarIngrediente (int p_Personalizable_OID, System.Collections.
 
                 // Write here your custom transaction ...
 
-                throw new NotImplementedException ("Method RelacionarIngrediente() not yet implemented.");
+                throw new NotImplementedException ("Method AnaydirIngrediente() not yet implemented.");
 
 
 

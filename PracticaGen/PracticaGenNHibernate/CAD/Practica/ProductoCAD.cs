@@ -232,17 +232,18 @@ public ProductoEN ReadOID (int id
         return productoEN;
 }
 
-public System.Collections.Generic.IList<ProductoEN> GetTodosProductos (int first, int size)
+public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ProductoEN> GetProductosNombre (string p_nombre)
 {
-        System.Collections.Generic.IList<ProductoEN> result = null;
+        System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ProductoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(ProductoEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<ProductoEN>();
-                else
-                        result = session.CreateCriteria (typeof(ProductoEN)).List<ProductoEN>();
+                //String sql = @"FROM ProductoEN self where FROM ProductoEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ProductoENgetProductosNombreHQL");
+                query.SetParameter ("p_nombre", p_nombre);
+
+                result = query.List<PracticaGenNHibernate.EN.Practica.ProductoEN>();
                 SessionCommit ();
         }
 
@@ -261,19 +262,17 @@ public System.Collections.Generic.IList<ProductoEN> GetTodosProductos (int first
 
         return result;
 }
-
-public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ProductoEN> GetProductosNombre (string p_nombre)
+public System.Collections.Generic.IList<ProductoEN> ReadAll (int first, int size)
 {
-        System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ProductoEN> result;
+        System.Collections.Generic.IList<ProductoEN> result = null;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where FROM ProductoEN";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("ProductoENgetProductosNombreHQL");
-                query.SetParameter ("p_nombre", p_nombre);
-
-                result = query.List<PracticaGenNHibernate.EN.Practica.ProductoEN>();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(ProductoEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<ProductoEN>();
+                else
+                        result = session.CreateCriteria (typeof(ProductoEN)).List<ProductoEN>();
                 SessionCommit ();
         }
 

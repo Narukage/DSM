@@ -87,16 +87,16 @@ public ProductoEN ReadOID (int id
         return productoEN;
 }
 
-public System.Collections.Generic.IList<ProductoEN> GetTodosProductos (int first, int size)
-{
-        System.Collections.Generic.IList<ProductoEN> list = null;
-
-        list = _IProductoCAD.GetTodosProductos (first, size);
-        return list;
-}
 public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ProductoEN> GetProductosNombre (string p_nombre)
 {
         return _IProductoCAD.GetProductosNombre (p_nombre);
+}
+public System.Collections.Generic.IList<ProductoEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<ProductoEN> list = null;
+
+        list = _IProductoCAD.ReadAll (first, size);
+        return list;
 }
 }
 }

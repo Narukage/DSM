@@ -97,5 +97,21 @@ public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.Usuari
 {
         return _IUsuarioCAD.GetUsuario (p_nombre);
 }
+public UsuarioEN ReadOID (string email
+                          )
+{
+        UsuarioEN usuarioEN = null;
+
+        usuarioEN = _IUsuarioCAD.ReadOID (email);
+        return usuarioEN;
+}
+
+public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<UsuarioEN> list = null;
+
+        list = _IUsuarioCAD.ReadAll (first, size);
+        return list;
+}
 }
 }

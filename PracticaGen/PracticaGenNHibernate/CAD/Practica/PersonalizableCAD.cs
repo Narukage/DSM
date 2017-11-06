@@ -199,7 +199,7 @@ public void Destroy (int id
         }
 }
 
-public void AnaydirIngrediente (int p_Personalizable_OID, System.Collections.Generic.IList<int> p_ingrediente_OID)
+public void AnaydirIngrediente (int p_Personalizable_OID, System.Collections.Generic.IList<int> p_ingrediente_OIDs)
 {
         PracticaGenNHibernate.EN.Practica.PersonalizableEN personalizableEN = null;
         try
@@ -211,7 +211,7 @@ public void AnaydirIngrediente (int p_Personalizable_OID, System.Collections.Gen
                         personalizableEN.Ingrediente = new System.Collections.Generic.List<PracticaGenNHibernate.EN.Practica.IngredienteEN>();
                 }
 
-                foreach (int item in p_ingrediente_OID) {
+                foreach (int item in p_ingrediente_OIDs) {
                         ingredienteENAux = new PracticaGenNHibernate.EN.Practica.IngredienteEN ();
                         ingredienteENAux = (PracticaGenNHibernate.EN.Practica.IngredienteEN)session.Load (typeof(PracticaGenNHibernate.EN.Practica.IngredienteEN), item);
                         ingredienteENAux.Personalizable.Add (personalizableEN);

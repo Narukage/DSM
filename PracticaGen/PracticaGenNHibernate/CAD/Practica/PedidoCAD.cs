@@ -106,6 +106,9 @@ public void ModifyDefault (PedidoEN pedido)
 
 
 
+
+                pedidoEN.Confirmado = pedido.Confirmado;
+
                 session.Update (pedidoEN);
                 SessionCommit ();
         }
@@ -130,13 +133,6 @@ public int New_ (PedidoEN pedido)
         try
         {
                 SessionInitializeTransaction ();
-                if (pedido.Codigo != null) {
-                        // Argumento OID y no colección.
-                        pedido.Codigo = (PracticaGenNHibernate.EN.Practica.CodigoEN)session.Load (typeof(PracticaGenNHibernate.EN.Practica.CodigoEN), pedido.Codigo.Id);
-
-                        pedido.Codigo.Pedido
-                        .Add (pedido);
-                }
                 if (pedido.Usuario != null) {
                         // Argumento OID y no colección.
                         pedido.Usuario = (PracticaGenNHibernate.EN.Practica.UsuarioEN)session.Load (typeof(PracticaGenNHibernate.EN.Practica.UsuarioEN), pedido.Usuario.Email);

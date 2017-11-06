@@ -221,5 +221,65 @@ public System.Collections.Generic.IList<ComplementoEN> GetTodosProductos (int fi
 
         return result;
 }
+
+//Sin e: ReadOID
+//Con e: ComplementoEN
+public ComplementoEN ReadOID (int id
+                              )
+{
+        ComplementoEN complementoEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                complementoEN = (ComplementoEN)session.Get (typeof(ComplementoEN), id);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in ComplementoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return complementoEN;
+}
+
+public System.Collections.Generic.IList<ComplementoEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<ComplementoEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(ComplementoEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<ComplementoEN>();
+                else
+                        result = session.CreateCriteria (typeof(ComplementoEN)).List<ComplementoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in ComplementoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

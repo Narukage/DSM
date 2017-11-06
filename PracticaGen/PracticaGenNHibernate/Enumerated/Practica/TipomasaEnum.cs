@@ -3,5 +3,5 @@ using System;
 
 namespace PracticaGenNHibernate.Enumerated.Practica
 {
-public enum TipomasaEnum { Extras_fina=1, Clasica=2, Gruesa=3, Rellena_de_queso=4 };
+public enum TipoMasaEnum { extra_fina=1, clasica=2, gruesa=3, rellena_de_queso=4 };
 }
