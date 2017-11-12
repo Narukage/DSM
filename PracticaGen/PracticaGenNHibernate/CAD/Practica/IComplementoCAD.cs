@@ -22,9 +22,6 @@ void Destroy (int id
               );
 
 
-System.Collections.Generic.IList<ComplementoEN> GetTodosProductos (int first, int size);
-
-
 ComplementoEN ReadOID (int id
                        );
 

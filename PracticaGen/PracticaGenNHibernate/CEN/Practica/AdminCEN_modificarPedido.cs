@@ -19,13 +19,17 @@ namespace PracticaGenNHibernate.CEN.Practica
 {
 public partial class AdminCEN
 {
-public void ModificarPedido (string p_oid)
+public void ModificarPedido (int p_oid, double p_precio, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum p_tipo_pago, Nullable<DateTime> p_fecha, PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum p_estado)
 {
         /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Admin_modificarPedido) ENABLED START*/
 
         // Write here your custom code...
+        PedidoCEN pedidoCEN = new PedidoCEN ();
 
-        throw new NotImplementedException ("Method ModificarPedido() not yet implemented.");
+        pedidoCEN.Modify (p_oid, p_estado, p_fecha, p_precio, p_tipo_pago);
+
+
+
 
         /*PROTECTED REGION END*/
 }

@@ -15,13 +15,6 @@ private System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.Pedid
 
 
 /**
- *	Atributo admin
- */
-private PracticaGenNHibernate.EN.Practica.AdminEN admin;
-
-
-
-/**
  *	Atributo direccion
  */
 private System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.DireccionEN> direccion;
@@ -40,12 +33,6 @@ private System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.Incid
 
 public virtual System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> Pedido {
         get { return pedido; } set { pedido = value;  }
-}
-
-
-
-public virtual PracticaGenNHibernate.EN.Practica.AdminEN Admin {
-        get { return admin; } set { admin = value;  }
 }
 
 
@@ -73,28 +60,26 @@ public UsuarioEN() : base ()
 
 
 
-public UsuarioEN(string email, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> pedido, PracticaGenNHibernate.EN.Practica.AdminEN admin, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.DireccionEN> direccion, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.IncidenciaEN> incidencia
+public UsuarioEN(string email, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> pedido, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.DireccionEN> direccion, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.IncidenciaEN> incidencia
                  , string nombre, String contrasenya, Nullable<DateTime> fecha_nac, int telefono
                  )
 {
-        this.init (Email, pedido, admin, direccion, incidencia, nombre, contrasenya, fecha_nac, telefono);
+        this.init (Email, pedido, direccion, incidencia, nombre, contrasenya, fecha_nac, telefono);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (Email, usuario.Pedido, usuario.Admin, usuario.Direccion, usuario.Incidencia, usuario.Nombre, usuario.Contrasenya, usuario.Fecha_nac, usuario.Telefono);
+        this.init (Email, usuario.Pedido, usuario.Direccion, usuario.Incidencia, usuario.Nombre, usuario.Contrasenya, usuario.Fecha_nac, usuario.Telefono);
 }
 
 private void init (string email
-                   , System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> pedido, PracticaGenNHibernate.EN.Practica.AdminEN admin, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.DireccionEN> direccion, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.IncidenciaEN> incidencia, string nombre, String contrasenya, Nullable<DateTime> fecha_nac, int telefono)
+                   , System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> pedido, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.DireccionEN> direccion, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.IncidenciaEN> incidencia, string nombre, String contrasenya, Nullable<DateTime> fecha_nac, int telefono)
 {
         this.Email = email;
 
 
         this.Pedido = pedido;
-
-        this.Admin = admin;
 
         this.Direccion = direccion;
 

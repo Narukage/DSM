@@ -19,7 +19,7 @@ namespace PracticaGenNHibernate.CEN.Practica
 {
 public partial class AdminCEN
 {
-public void EliminarPedido (string p_oid)
+public void EliminarPedido (int p_oid)
 {
         /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Admin_eliminarPedido) ENABLED START*/
 

@@ -97,7 +97,6 @@ public void ModifyDefault (CodigoEN codigo)
                 codigoEN.Tipo = codigo.Tipo;
 
 
-
                 session.Update (codigoEN);
                 SessionCommit ();
         }
@@ -122,13 +121,6 @@ public int New_ (CodigoEN codigo)
         try
         {
                 SessionInitializeTransaction ();
-                if (codigo.Admin != null) {
-                        // Argumento OID y no colección.
-                        codigo.Admin = (PracticaGenNHibernate.EN.Practica.AdminEN)session.Load (typeof(PracticaGenNHibernate.EN.Practica.AdminEN), codigo.Admin.Email);
-
-                        codigo.Admin.Codigo
-                        .Add (codigo);
-                }
 
                 session.Save (codigo);
                 SessionCommit ();

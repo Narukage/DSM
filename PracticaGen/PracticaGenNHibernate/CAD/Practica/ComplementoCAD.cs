@@ -192,36 +192,6 @@ public void Destroy (int id
         }
 }
 
-public System.Collections.Generic.IList<ComplementoEN> GetTodosProductos (int first, int size)
-{
-        System.Collections.Generic.IList<ComplementoEN> result = null;
-        try
-        {
-                SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(ComplementoEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<ComplementoEN>();
-                else
-                        result = session.CreateCriteria (typeof(ComplementoEN)).List<ComplementoEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in ComplementoCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
-
 //Sin e: ReadOID
 //Con e: ComplementoEN
 public ComplementoEN ReadOID (int id

@@ -19,7 +19,7 @@ namespace PracticaGenNHibernate.CEN.Practica
 {
 public partial class AdminCEN
 {
-public void AnyadirProducto (string p_oid)
+public void AnyadirProducto (int p_oid, double p_precio, string p_nombre, string p_foto)
 {
         /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Admin_anyadirProducto) ENABLED START*/
 

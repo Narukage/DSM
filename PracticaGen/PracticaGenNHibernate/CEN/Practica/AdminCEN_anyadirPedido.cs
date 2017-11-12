@@ -19,13 +19,17 @@ namespace PracticaGenNHibernate.CEN.Practica
 {
 public partial class AdminCEN
 {
-public void AnyadirPedido (string p_oid)
+public void AnyadirPedido (double p_precio, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum p_tipo_pago, Nullable<DateTime> p_fecha, PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum p_estado, string p_usuario)
 {
         /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Admin_anyadirPedido) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method AnyadirPedido() not yet implemented.");
+        PedidoCEN pedidoCEN = new PedidoCEN ();
+
+        int id = pedidoCEN.New_ (p_estado, p_fecha, p_precio, p_tipo_pago, p_usuario);
+
+        Console.WriteLine ("id: " + id);
 
         /*PROTECTED REGION END*/
 }

@@ -19,13 +19,16 @@ namespace PracticaGenNHibernate.CEN.Practica
 {
 public partial class AdminCEN
 {
-public void ModificarProducto (string p_oid)
+public void ModificarProducto (int p_oid, double p_precio, string p_nombre, string p_foto)
 {
         /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Admin_modificarProducto) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method ModificarProducto() not yet implemented.");
+        ProductoCEN productoCEN = new ProductoCEN ();
+
+        productoCEN.Modify (p_oid, p_precio, p_nombre, p_foto);
+
 
         /*PROTECTED REGION END*/
 }

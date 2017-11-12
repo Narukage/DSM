@@ -47,5 +47,6 @@
 		  
 		  <query name="ProductoENReadAllHQL">from ProductoEN</query>
 		  <query name="ProductoENgetProductosNombreHQL"><![CDATA[FROM ProductoEN]]></query>
+		  <query name="ProductoENbuscarProductoHQL"><![CDATA[FROM ProductoEN as pro where pro.Nombre= :nombre]]></query>
 		</hibernate-mapping>
 	

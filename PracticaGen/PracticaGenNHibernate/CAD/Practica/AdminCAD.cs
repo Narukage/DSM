@@ -90,10 +90,6 @@ public void ModifyDefault (AdminEN admin)
         {
                 SessionInitializeTransaction ();
                 AdminEN adminEN = (AdminEN)session.Load (typeof(AdminEN), admin.Email);
-
-
-
-
                 session.Update (adminEN);
                 SessionCommit ();
         }

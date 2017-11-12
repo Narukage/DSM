@@ -113,7 +113,6 @@
 			
 			
 			
-			<Compile Include="CEN\Practica\ProductoCEN_BuscarProducto.cs" />
 			
 			
 	<Compile Include="EN\Practica\ComplementoEN.cs" />
@@ -121,7 +120,6 @@
 	<Compile Include="CAD\Practica\IComplementoCAD.cs" />
 	<Compile Include="CAD\Practica\ComplementoCAD.cs" />
 	<Compile Include="CP\Practica\ComplementoCP.cs" />
-			
 			
 			
 			
@@ -137,13 +135,11 @@
 			
 			
 			
-			
 	<Compile Include="EN\Practica\IngredienteEN.cs" />
 	<Compile Include="CEN\Practica\IngredienteCEN.cs" />
 	<Compile Include="CAD\Practica\IIngredienteCAD.cs" />
 	<Compile Include="CAD\Practica\IngredienteCAD.cs" />
 	<Compile Include="CP\Practica\IngredienteCP.cs" />
-			
 			
 			
 			
@@ -164,7 +160,6 @@
 	<Compile Include="CAD\Practica\IPredefinidaCAD.cs" />
 	<Compile Include="CAD\Practica\PredefinidaCAD.cs" />
 	<Compile Include="CP\Practica\PredefinidaCP.cs" />
-			
 			
 			
 			
@@ -193,13 +188,21 @@
 			
 			
 			
-			<Compile Include="CEN\Practica\PedidoCEN_CalcularMedia.cs" />
-			
-			<Compile Include="CEN\Practica\PedidoCEN_AnyadirCodigo.cs" />
+			<Compile Include="CP\Practica\PedidoCP_CalcularMedia.cs" />
 			
 			<Compile Include="CEN\Practica\PedidoCEN_ConsultarEstado.cs" />
 			
 			<Compile Include="CEN\Practica\PedidoCEN_ConfirmarPedido.cs" />
+			
+			<Compile Include="CEN\Practica\PedidoCEN_SeleccionarFormaPago.cs" />
+			
+			<Compile Include="CEN\Practica\PedidoCEN_ConsultarHistorial.cs" />
+			
+			
+			
+			<Compile Include="CEN\Practica\PedidoCEN_GetTipoPago.cs" />
+			
+			<Compile Include="CEN\Practica\PedidoCEN_CambiarEstado.cs" />
 			
 	<Compile Include="EN\Practica\LineaPedidoEN.cs" />
 	<Compile Include="CEN\Practica\LineaPedidoCEN.cs" />
@@ -210,8 +213,6 @@
 			
 			
 			
-			
-			<Compile Include="CEN\Practica\LineaPedidoCEN_AnyadirProducto.cs" />
 			
 			<Compile Include="CEN\Practica\LineaPedidoCEN_ValorarLinea.cs" />
 			
@@ -233,16 +234,10 @@
 			
 			
 			
-			<Compile Include="CEN\Practica\UsuarioCEN_AnyadirDireccion.cs" />
 			
-			<Compile Include="CEN\Practica\UsuarioCEN_EliminarDireccion.cs" />
 			
 			<Compile Include="CEN\Practica\UsuarioCEN_LoginRRSS.cs" />
 			
-			<Compile Include="CEN\Practica\UsuarioCEN_SeleccionarFormaPago.cs" />
-			
-			
-			<Compile Include="CEN\Practica\UsuarioCEN_ConsultarHistorial.cs" />
 			
 			
 			
@@ -253,24 +248,6 @@
 	<Compile Include="CP\Practica\AdminCP.cs" />
 			
 			
-			
-			<Compile Include="CEN\Practica\AdminCEN_AnyadirPedido.cs" />
-			
-			<Compile Include="CEN\Practica\AdminCEN_EliminarPedido.cs" />
-			
-			<Compile Include="CEN\Practica\AdminCEN_ModificarPedido.cs" />
-			
-			<Compile Include="CEN\Practica\AdminCEN_AnyadirProducto.cs" />
-			
-			<Compile Include="CEN\Practica\AdminCEN_ElilminarProducto.cs" />
-			
-			<Compile Include="CEN\Practica\AdminCEN_ModificarProducto.cs" />
-			
-			<Compile Include="CEN\Practica\AdminCEN_AnyadirUsuario.cs" />
-			
-			<Compile Include="CEN\Practica\AdminCEN_EliminarUsuario.cs" />
-			
-			<Compile Include="CEN\Practica\AdminCEN_ModificarUsuario.cs" />
 			
 			
 			
@@ -284,7 +261,6 @@
 			
 			
 			
-			<Compile Include="CEN\Practica\RegistradoCEN_Login.cs" />
 			
 			<Compile Include="CEN\Practica\RegistradoCEN_RecuperarContrasenya.cs" />
 			
@@ -309,6 +285,8 @@
 			
 			
 			
+			
+			<Compile Include="CEN\Practica\IncidenciaCEN_CambiarEstado.cs" />
 			
 	<Compile Include="Enumerated\Practica\EstadoPedidoEnum.cs" />
 	<Compile Include="Enumerated\Practica\TipoCodigoEnum.cs" />

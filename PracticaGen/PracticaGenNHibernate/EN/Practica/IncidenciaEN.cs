@@ -33,13 +33,6 @@ private PracticaGenNHibernate.EN.Practica.UsuarioEN usuario;
 
 
 
-/**
- *	Atributo admin
- */
-private PracticaGenNHibernate.EN.Practica.AdminEN admin;
-
-
-
 
 
 
@@ -67,12 +60,6 @@ public virtual PracticaGenNHibernate.EN.Practica.UsuarioEN Usuario {
 
 
 
-public virtual PracticaGenNHibernate.EN.Practica.AdminEN Admin {
-        get { return admin; } set { admin = value;  }
-}
-
-
-
 
 
 public IncidenciaEN()
@@ -81,20 +68,20 @@ public IncidenciaEN()
 
 
 
-public IncidenciaEN(int id, string descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum estado, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, PracticaGenNHibernate.EN.Practica.AdminEN admin
+public IncidenciaEN(int id, string descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum estado, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario
                     )
 {
-        this.init (Id, descripcion, estado, usuario, admin);
+        this.init (Id, descripcion, estado, usuario);
 }
 
 
 public IncidenciaEN(IncidenciaEN incidencia)
 {
-        this.init (Id, incidencia.Descripcion, incidencia.Estado, incidencia.Usuario, incidencia.Admin);
+        this.init (Id, incidencia.Descripcion, incidencia.Estado, incidencia.Usuario);
 }
 
 private void init (int id
-                   , string descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum estado, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, PracticaGenNHibernate.EN.Practica.AdminEN admin)
+                   , string descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum estado, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario)
 {
         this.Id = id;
 
@@ -104,8 +91,6 @@ private void init (int id
         this.Estado = estado;
 
         this.Usuario = usuario;
-
-        this.Admin = admin;
 }
 
 public override bool Equals (object obj)

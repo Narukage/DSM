@@ -33,13 +33,6 @@
 							<one-to-many class="PracticaGenNHibernate.EN.Practica.PedidoEN"/>
 					    </bag>
 					
-			
-		  			
-						<many-to-one name="Admin" class="PracticaGenNHibernate.EN.Practica.AdminEN" >	
-								<column name="FK_emailRegistrado_idAdmin"/> 
-						</many-to-one>
-											 					
-					
 					
 					
 					

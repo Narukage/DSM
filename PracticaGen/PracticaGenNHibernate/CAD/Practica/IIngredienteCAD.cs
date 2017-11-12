@@ -22,9 +22,6 @@ void Destroy (int id
               );
 
 
-System.Collections.Generic.IList<IngredienteEN> GetTodosProductos (int first, int size);
-
-
 IngredienteEN ReadOID (int id
                        );
 

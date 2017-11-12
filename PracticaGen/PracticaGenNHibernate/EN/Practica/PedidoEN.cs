@@ -62,13 +62,6 @@ private PracticaGenNHibernate.EN.Practica.UsuarioEN usuario;
 
 
 /**
- *	Atributo admin
- */
-private PracticaGenNHibernate.EN.Practica.AdminEN admin;
-
-
-
-/**
  *	Atributo confirmado
  */
 private bool confirmado;
@@ -126,12 +119,6 @@ public virtual PracticaGenNHibernate.EN.Practica.UsuarioEN Usuario {
 
 
 
-public virtual PracticaGenNHibernate.EN.Practica.AdminEN Admin {
-        get { return admin; } set { admin = value;  }
-}
-
-
-
 public virtual bool Confirmado {
         get { return confirmado; } set { confirmado = value;  }
 }
@@ -147,20 +134,20 @@ public PedidoEN()
 
 
 
-public PedidoEN(int id, PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum estado, Nullable<DateTime> fecha, double precioTotal, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum tipoPago, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, PracticaGenNHibernate.EN.Practica.CodigoEN codigo, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, PracticaGenNHibernate.EN.Practica.AdminEN admin, bool confirmado
+public PedidoEN(int id, PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum estado, Nullable<DateTime> fecha, double precioTotal, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum tipoPago, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, PracticaGenNHibernate.EN.Practica.CodigoEN codigo, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, bool confirmado
                 )
 {
-        this.init (Id, estado, fecha, precioTotal, tipoPago, lineaPedido, codigo, usuario, admin, confirmado);
+        this.init (Id, estado, fecha, precioTotal, tipoPago, lineaPedido, codigo, usuario, confirmado);
 }
 
 
 public PedidoEN(PedidoEN pedido)
 {
-        this.init (Id, pedido.Estado, pedido.Fecha, pedido.PrecioTotal, pedido.TipoPago, pedido.LineaPedido, pedido.Codigo, pedido.Usuario, pedido.Admin, pedido.Confirmado);
+        this.init (Id, pedido.Estado, pedido.Fecha, pedido.PrecioTotal, pedido.TipoPago, pedido.LineaPedido, pedido.Codigo, pedido.Usuario, pedido.Confirmado);
 }
 
 private void init (int id
-                   , PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum estado, Nullable<DateTime> fecha, double precioTotal, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum tipoPago, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, PracticaGenNHibernate.EN.Practica.CodigoEN codigo, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, PracticaGenNHibernate.EN.Practica.AdminEN admin, bool confirmado)
+                   , PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum estado, Nullable<DateTime> fecha, double precioTotal, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum tipoPago, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, PracticaGenNHibernate.EN.Practica.CodigoEN codigo, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, bool confirmado)
 {
         this.Id = id;
 
@@ -178,8 +165,6 @@ private void init (int id
         this.Codigo = codigo;
 
         this.Usuario = usuario;
-
-        this.Admin = admin;
 
         this.Confirmado = confirmado;
 }

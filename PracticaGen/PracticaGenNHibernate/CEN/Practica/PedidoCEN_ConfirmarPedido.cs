@@ -24,9 +24,11 @@ public void ConfirmarPedido (int p_oid)
         /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Pedido_confirmarPedido) ENABLED START*/
 
         // Write here your custom code...
-        PedidoEN pedido = _IPedidoCAD.ReadOID (p_oid);
-        pedido.Confirmado = true;
-        _IPedidoCAD.ModifyDefault(pedido);
+
+        PedidoEN pedidoEN = _IPedidoCAD.ReadOID (p_oid);
+
+        pedidoEN.Confirmado = true;
+        _IPedidoCAD.Modify (pedidoEN);
 
         /*PROTECTED REGION END*/
 }

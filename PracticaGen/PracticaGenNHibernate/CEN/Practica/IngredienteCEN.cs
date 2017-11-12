@@ -78,13 +78,6 @@ public void Destroy (int id
         _IIngredienteCAD.Destroy (id);
 }
 
-public System.Collections.Generic.IList<IngredienteEN> GetTodosProductos (int first, int size)
-{
-        System.Collections.Generic.IList<IngredienteEN> list = null;
-
-        list = _IIngredienteCAD.GetTodosProductos (first, size);
-        return list;
-}
 public IngredienteEN ReadOID (int id
                               )
 {

@@ -87,11 +87,19 @@ public static void InitializeData ()
                 PredefinidaCEN producto2 = new PredefinidaCEN ();
                 ComplementoCEN producto3 = new ComplementoCEN ();
                 BebidaCEN producto4 = new BebidaCEN ();
+                LineaPedidoCEN lineaPedidoCEN = new LineaPedidoCEN ();
+
+
+                AdminCEN admin1 = new AdminCEN ();
+                String iadmin = admin1.New_ ("el_admin@alu.ua.es", "Senyor tomate", "1234", DateTime.Today, 647003256);
+                UsuarioCEN user1 = new UsuarioCEN ();
 
                 producto1.New_ (float.Parse ("1.0"), "Fanta de limon", "foto de la fanta");
                 producto2.New_ (float.Parse ("6.0"), "Pizza de cosas", "foto de pizza", 1, 1, "Es una deliciosa pizza de cosas");
                 producto3.New_ (float.Parse ("2.0"), "Alitas de pollos", "foto de pollo");
-                producto4.New_ (float.Parse ("1.0"), "Aguita fresca nene", "foto un agua");
+                int p4id = producto4.New_ (float.Parse ("1.0"), "Aguita fresca nene", "foto un agua");
+
+
 
 
                 //creamos algun user
@@ -102,11 +110,9 @@ public static void InitializeData ()
                 IList<DireccionEN> direcciones = new List<DireccionEN>();
                 direcciones.Add (dirCEN.get_IDireccionCAD ().ReadOIDDefault (id));
 
-                AdminCEN admin1 = new AdminCEN ();
-                String iadmin = admin1.New_ ("el_admin@alu.ua.es", "Senyor tomate", "1234", DateTime.Today, 647003256);
-                UsuarioCEN user1 = new UsuarioCEN ();
 
-                String user = user1.New_ ("tomate@alu.ua.es", "Senyor tommate", "12634", DateTime.Today, 647003256, admin1.get_IAdminCAD ().ReadOIDDefault (iadmin).Email, direcciones);
+
+                user1.New_ ("tomate@alu.ua.es", "Senyor tommate", "12634", DateTime.Today, 647003256);
 
                 IngredienteCEN ing1 = new IngredienteCEN ();
                 int idg = ing1.New_ (0.2, "Mozzarella", "foto1");
@@ -115,30 +121,36 @@ public static void InitializeData ()
                 IngredienteCEN ing3 = new IngredienteCEN ();
                 int idg3 = ing3.New_ (0.15, "Jamon", "foto3");
 
-                PersonalizableCEN hola = new PersonalizableCEN ();
-                int a = hola.New_ (3.0, "FFF", "FFF", 0, 0);
-                IList<int> cosas = new List<int>();
-                cosas.Add (idg);
-                hola.AnaydirIngrediente (a, cosas);
-                Console.WriteLine(hola.ReadOID(a).Ingrediente[0]);
 
-                /*
-                 PedidoCEN h = new PedidoCEN ();
-                PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum j = PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum.pendiente;
-                PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum s = PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum.contrarreembolso;
 
-                int id_pedido = h.New_ (j, DateTime.Today, 3.4, s, user, iadmin);
-                Console.Write("El estado actuale es: ");
-                Console.WriteLine(h.ReadOID (id_pedido).Confirmado);
-                Console.WriteLine("Lo confirmamos");
-                h.ConfirmarPedido(id_pedido);
-                Console.WriteLine("Ahora el estado es:" + h.ReadOID(id_pedido).Confirmado);*/
+                PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum h = PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum.pendiente;
+                PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum x = PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum.pendiente;
+                PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum v = PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum.contrarreembolso;
+                PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum w = PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum.paypal;
+                PedidoCEN pedidoCEN = new PedidoCEN ();
+                int id2 = pedidoCEN.New_ (h, DateTime.Today, 1.5, v, "tomate@alu.ua.es");
+                //admin1.AnyadirPedido(1.5, v, DateTime.Today, h, "tomate@alu.ua.es");
+                x = pedidoCEN.ConsultarEstado (id2);
+                Console.WriteLine (x);
+                pedidoCEN.SeleccionarFormaPago (id2, w);
+
+                Console.WriteLine (pedidoCEN.GetTipoPago (id2));
+
+                PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum val = PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.sin_valorar;
+                PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum val2 = PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.excelente;
+                int idmil = lineaPedidoCEN.New_ (p4id, id2, 5, val);
+
+                lineaPedidoCEN.ValorarLinea (idmil, val2);
+
+
+                //Console.WriteLine("El pedido: "+ pedidoCEN);
+
 
 
 
                 /*PROTECTED REGION END*/
-            }
-            catch (Exception ex)
+        }
+        catch (Exception ex)
         {
                 System.Console.WriteLine (ex.InnerException);
                 throw ex;

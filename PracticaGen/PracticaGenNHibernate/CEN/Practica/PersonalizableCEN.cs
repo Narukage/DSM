@@ -84,13 +84,6 @@ public void Destroy (int id
         _IPersonalizableCAD.Destroy (id);
 }
 
-public System.Collections.Generic.IList<PersonalizableEN> GetTodosProductos (int first, int size)
-{
-        System.Collections.Generic.IList<PersonalizableEN> list = null;
-
-        list = _IPersonalizableCAD.GetTodosProductos (first, size);
-        return list;
-}
 public PersonalizableEN ReadOID (int id
                                  )
 {
@@ -106,6 +99,12 @@ public System.Collections.Generic.IList<PersonalizableEN> ReadAll (int first, in
 
         list = _IPersonalizableCAD.ReadAll (first, size);
         return list;
+}
+public void EliminarIngrediente (int p_Personalizable_OID, System.Collections.Generic.IList<int> p_ingrediente_OIDs)
+{
+        //Call to PersonalizableCAD
+
+        _IPersonalizableCAD.EliminarIngrediente (p_Personalizable_OID, p_ingrediente_OIDs);
 }
 }
 }

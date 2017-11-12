@@ -192,36 +192,6 @@ public void Destroy (int id
         }
 }
 
-public System.Collections.Generic.IList<BebidaEN> GetTodosProductos (int first, int size)
-{
-        System.Collections.Generic.IList<BebidaEN> result = null;
-        try
-        {
-                SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(BebidaEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<BebidaEN>();
-                else
-                        result = session.CreateCriteria (typeof(BebidaEN)).List<BebidaEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in BebidaCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
-
 //Sin e: ReadOID
 //Con e: BebidaEN
 public BebidaEN ReadOID (int id

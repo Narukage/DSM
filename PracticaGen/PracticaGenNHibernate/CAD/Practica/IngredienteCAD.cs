@@ -193,36 +193,6 @@ public void Destroy (int id
         }
 }
 
-public System.Collections.Generic.IList<IngredienteEN> GetTodosProductos (int first, int size)
-{
-        System.Collections.Generic.IList<IngredienteEN> result = null;
-        try
-        {
-                SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(IngredienteEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<IngredienteEN>();
-                else
-                        result = session.CreateCriteria (typeof(IngredienteEN)).List<IngredienteEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in IngredienteCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
-
 //Sin e: ReadOID
 //Con e: IngredienteEN
 public IngredienteEN ReadOID (int id

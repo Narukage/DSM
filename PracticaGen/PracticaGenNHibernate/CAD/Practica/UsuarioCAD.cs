@@ -93,7 +93,6 @@ public void ModifyDefault (UsuarioEN usuario)
 
 
 
-
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -118,20 +117,6 @@ public string New_ (UsuarioEN usuario)
         try
         {
                 SessionInitializeTransaction ();
-                if (usuario.Admin != null) {
-                        // Argumento OID y no colección.
-                        usuario.Admin = (PracticaGenNHibernate.EN.Practica.AdminEN)session.Load (typeof(PracticaGenNHibernate.EN.Practica.AdminEN), usuario.Admin.Email);
-
-                        usuario.Admin.Usuario
-                        .Add (usuario);
-                }
-                if (usuario.Direccion != null) {
-                        foreach (PracticaGenNHibernate.EN.Practica.DireccionEN item in usuario.Direccion) {
-                                item.Usuario = new System.Collections.Generic.List<PracticaGenNHibernate.EN.Practica.UsuarioEN>();
-                                item.Usuario.Add (usuario);
-                                session.Save (item);
-                        }
-                }
 
                 session.Save (usuario);
                 SessionCommit ();
@@ -213,6 +198,83 @@ public void Destroy (string email
         }
 }
 
+public void AnyadirDireccion (string p_Usuario_OID, System.Collections.Generic.IList<int> p_direccion_OIDs)
+{
+        PracticaGenNHibernate.EN.Practica.UsuarioEN usuarioEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
+                PracticaGenNHibernate.EN.Practica.DireccionEN direccionENAux = null;
+                if (usuarioEN.Direccion == null) {
+                        usuarioEN.Direccion = new System.Collections.Generic.List<PracticaGenNHibernate.EN.Practica.DireccionEN>();
+                }
+
+                foreach (int item in p_direccion_OIDs) {
+                        direccionENAux = new PracticaGenNHibernate.EN.Practica.DireccionEN ();
+                        direccionENAux = (PracticaGenNHibernate.EN.Practica.DireccionEN)session.Load (typeof(PracticaGenNHibernate.EN.Practica.DireccionEN), item);
+                        direccionENAux.Usuario.Add (usuarioEN);
+
+                        usuarioEN.Direccion.Add (direccionENAux);
+                }
+
+
+                session.Update (usuarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void EliminarDireccion (string p_Usuario_OID, System.Collections.Generic.IList<int> p_direccion_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                PracticaGenNHibernate.EN.Practica.UsuarioEN usuarioEN = null;
+                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
+
+                PracticaGenNHibernate.EN.Practica.DireccionEN direccionENAux = null;
+                if (usuarioEN.Direccion != null) {
+                        foreach (int item in p_direccion_OIDs) {
+                                direccionENAux = (PracticaGenNHibernate.EN.Practica.DireccionEN)session.Load (typeof(PracticaGenNHibernate.EN.Practica.DireccionEN), item);
+                                if (usuarioEN.Direccion.Contains (direccionENAux) == true) {
+                                        usuarioEN.Direccion.Remove (direccionENAux);
+                                        direccionENAux.Usuario.Remove (usuarioEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_direccion_OIDs you are trying to unrelationer, doesn't exist in UsuarioEN");
+                        }
+                }
+
+                session.Update (usuarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
 public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.UsuarioEN> GetUsuario (string p_nombre)
 {
         System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.UsuarioEN> result;

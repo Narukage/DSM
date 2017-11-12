@@ -19,13 +19,19 @@ namespace PracticaGenNHibernate.CEN.Practica
 {
 public partial class PedidoCEN
 {
-public void ConsultarEstado (int p_oid)
+public PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum ConsultarEstado (int p_oid)
 {
         /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Pedido_consultarEstado) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method ConsultarEstado() not yet implemented.");
+        PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum consulta;
+        PedidoEN pedidoEN = new PedidoEN ();
+        pedidoEN = _IPedidoCAD.ReadOID (p_oid);
+        consulta = pedidoEN.Estado;
+
+        return consulta;
+
 
         /*PROTECTED REGION END*/
 }

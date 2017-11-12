@@ -17,54 +17,6 @@
 			
 					
 			
-			
-		  			
-						<bag name="Codigo" >
-							<key>
-							
-								
-								<column name="FK_emailRegistrado_idAdmin"/>
-					      	</key>
-							<one-to-many class="PracticaGenNHibernate.EN.Practica.CodigoEN"/>
-					    </bag>
-					
-			
-		  			
-						<bag name="Pedido" >
-							<key>
-							
-								
-								<column name="FK_emailRegistrado_idAdmin"/>
-					      	</key>
-							<one-to-many class="PracticaGenNHibernate.EN.Practica.PedidoEN"/>
-					    </bag>
-					
-			
-		  			
-						<bag name="Usuario" >
-							<key>
-							
-								
-								<column name="FK_emailRegistrado_idAdmin"/>
-					      	</key>
-							<one-to-many class="PracticaGenNHibernate.EN.Practica.UsuarioEN"/>
-					    </bag>
-					
-			
-		  			
-						<bag name="Incidencia" >
-							<key>
-							
-								
-								<column name="FK_emailRegistrado_idAdmin"/>
-					      	</key>
-							<one-to-many class="PracticaGenNHibernate.EN.Practica.IncidenciaEN"/>
-					    </bag>
-					
-					
-					
-					
-					
 		
  	  
 		 </joined-subclass>

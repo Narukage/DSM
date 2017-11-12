@@ -38,7 +38,7 @@ public ICodigoCAD get_ICodigoCAD ()
         return this._ICodigoCAD;
 }
 
-public int New_ (int p_descuento, PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum p_tipo, string p_admin)
+public int New_ (int p_descuento, PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum p_tipo)
 {
         CodigoEN codigoEN = null;
         int oid;
@@ -48,14 +48,6 @@ public int New_ (int p_descuento, PracticaGenNHibernate.Enumerated.Practica.Tipo
         codigoEN.Descuento = p_descuento;
 
         codigoEN.Tipo = p_tipo;
-
-
-        if (p_admin != null) {
-                // El argumento p_admin -> Property admin es oid = false
-                // Lista de oids id
-                codigoEN.Admin = new PracticaGenNHibernate.EN.Practica.AdminEN ();
-                codigoEN.Admin.Email = p_admin;
-        }
 
         //Call to CodigoCAD
 

@@ -38,7 +38,7 @@ public IIncidenciaCAD get_IIncidenciaCAD ()
         return this._IIncidenciaCAD;
 }
 
-public int New_ (string p_descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum p_estado, string p_usuario, string p_admin)
+public int New_ (string p_descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum p_estado, string p_usuario)
 {
         IncidenciaEN incidenciaEN = null;
         int oid;
@@ -55,14 +55,6 @@ public int New_ (string p_descripcion, PracticaGenNHibernate.Enumerated.Practica
                 // Lista de oids id
                 incidenciaEN.Usuario = new PracticaGenNHibernate.EN.Practica.UsuarioEN ();
                 incidenciaEN.Usuario.Email = p_usuario;
-        }
-
-
-        if (p_admin != null) {
-                // El argumento p_admin -> Property admin es oid = false
-                // Lista de oids id
-                incidenciaEN.Admin = new PracticaGenNHibernate.EN.Practica.AdminEN ();
-                incidenciaEN.Admin.Email = p_admin;
         }
 
         //Call to IncidenciaCAD

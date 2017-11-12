@@ -19,13 +19,11 @@ namespace PracticaGenNHibernate.CEN.Practica
 {
 public partial class UsuarioCEN
 {
-public void ConfirmarPedido (int p_oid)
+public void ConfirmarPedido (string p_oid)
 {
-            /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Usuario_confirmarPedido) ENABLED START*/
-            
-            PedidoEN pedido = pedidoCEN.ReadOID(p_oid);
-            pedido.Confirmado = true;
-                        
+        /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Usuario_confirmarPedido) ENABLED START*/
+
+        // Write here your custom code...
 
         throw new NotImplementedException ("Method ConfirmarPedido() not yet implemented.");
 

@@ -91,6 +91,10 @@ public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.Produc
 {
         return _IProductoCAD.GetProductosNombre (p_nombre);
 }
+public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ProductoEN> BuscarProducto (string nombre)
+{
+        return _IProductoCAD.BuscarProducto (nombre);
+}
 public System.Collections.Generic.IList<ProductoEN> ReadAll (int first, int size)
 {
         System.Collections.Generic.IList<ProductoEN> list = null;

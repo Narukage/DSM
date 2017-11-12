@@ -78,13 +78,6 @@ public void Destroy (int id
         _IComplementoCAD.Destroy (id);
 }
 
-public System.Collections.Generic.IList<ComplementoEN> GetTodosProductos (int first, int size)
-{
-        System.Collections.Generic.IList<ComplementoEN> list = null;
-
-        list = _IComplementoCAD.GetTodosProductos (first, size);
-        return list;
-}
 public ComplementoEN ReadOID (int id
                               )
 {

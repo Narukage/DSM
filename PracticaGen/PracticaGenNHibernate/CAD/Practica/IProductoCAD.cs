@@ -29,6 +29,8 @@ ProductoEN ReadOID (int id
 System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ProductoEN> GetProductosNombre (string p_nombre);
 
 
+System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ProductoEN> BuscarProducto (string nombre);
+
 
 System.Collections.Generic.IList<ProductoEN> ReadAll (int first, int size);
 }

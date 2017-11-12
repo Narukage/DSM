@@ -87,13 +87,6 @@ public void Destroy (int id
         _IPredefinidaCAD.Destroy (id);
 }
 
-public System.Collections.Generic.IList<PredefinidaEN> GetTodosProductos (int first, int size)
-{
-        System.Collections.Generic.IList<PredefinidaEN> list = null;
-
-        list = _IPredefinidaCAD.GetTodosProductos (first, size);
-        return list;
-}
 public PredefinidaEN ReadOID (int id
                               )
 {

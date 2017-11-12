@@ -106,7 +106,6 @@ public void ModifyDefault (PedidoEN pedido)
 
 
 
-
                 pedidoEN.Confirmado = pedido.Confirmado;
 
                 session.Update (pedidoEN);
@@ -138,13 +137,6 @@ public int New_ (PedidoEN pedido)
                         pedido.Usuario = (PracticaGenNHibernate.EN.Practica.UsuarioEN)session.Load (typeof(PracticaGenNHibernate.EN.Practica.UsuarioEN), pedido.Usuario.Email);
 
                         pedido.Usuario.Pedido
-                        .Add (pedido);
-                }
-                if (pedido.Admin != null) {
-                        // Argumento OID y no colección.
-                        pedido.Admin = (PracticaGenNHibernate.EN.Practica.AdminEN)session.Load (typeof(PracticaGenNHibernate.EN.Practica.AdminEN), pedido.Admin.Email);
-
-                        pedido.Admin.Pedido
                         .Add (pedido);
                 }
 
@@ -286,6 +278,69 @@ public System.Collections.Generic.IList<PedidoEN> ReadAll (int first, int size)
         }
 
         return result;
+}
+
+public void AnyadirCodigo (int p_Pedido_OID, int p_codigo_OID)
+{
+        PracticaGenNHibernate.EN.Practica.PedidoEN pedidoEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                pedidoEN = (PedidoEN)session.Load (typeof(PedidoEN), p_Pedido_OID);
+                pedidoEN.Codigo = (PracticaGenNHibernate.EN.Practica.CodigoEN)session.Load (typeof(PracticaGenNHibernate.EN.Practica.CodigoEN), p_codigo_OID);
+
+                pedidoEN.Codigo.Pedido.Add (pedidoEN);
+
+
+
+                session.Update (pedidoEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in PedidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void EliminarCodigo (int p_Pedido_OID, int p_codigo_OID)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                PracticaGenNHibernate.EN.Practica.PedidoEN pedidoEN = null;
+                pedidoEN = (PedidoEN)session.Load (typeof(PedidoEN), p_Pedido_OID);
+
+                if (pedidoEN.Codigo.Id == p_codigo_OID) {
+                        pedidoEN.Codigo = null;
+                }
+                else
+                        throw new ModelException ("The identifier " + p_codigo_OID + " in p_codigo_OID you are trying to unrelationer, doesn't exist in PedidoEN");
+
+                session.Update (pedidoEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in PedidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 }
 }

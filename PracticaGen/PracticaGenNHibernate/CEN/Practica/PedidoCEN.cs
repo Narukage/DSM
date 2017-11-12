@@ -38,7 +38,7 @@ public IPedidoCAD get_IPedidoCAD ()
         return this._IPedidoCAD;
 }
 
-public int New_ (PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fecha, double p_precioTotal, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum p_tipoPago, string p_usuario, string p_admin)
+public int New_ (PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fecha, double p_precioTotal, PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum p_tipoPago, string p_usuario)
 {
         PedidoEN pedidoEN = null;
         int oid;
@@ -59,14 +59,6 @@ public int New_ (PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum p_es
                 // Lista de oids id
                 pedidoEN.Usuario = new PracticaGenNHibernate.EN.Practica.UsuarioEN ();
                 pedidoEN.Usuario.Email = p_usuario;
-        }
-
-
-        if (p_admin != null) {
-                // El argumento p_admin -> Property admin es oid = false
-                // Lista de oids id
-                pedidoEN.Admin = new PracticaGenNHibernate.EN.Practica.AdminEN ();
-                pedidoEN.Admin.Email = p_admin;
         }
 
         //Call to PedidoCAD
@@ -112,6 +104,18 @@ public System.Collections.Generic.IList<PedidoEN> ReadAll (int first, int size)
 
         list = _IPedidoCAD.ReadAll (first, size);
         return list;
+}
+public void AnyadirCodigo (int p_Pedido_OID, int p_codigo_OID)
+{
+        //Call to PedidoCAD
+
+        _IPedidoCAD.AnyadirCodigo (p_Pedido_OID, p_codigo_OID);
+}
+public void EliminarCodigo (int p_Pedido_OID, int p_codigo_OID)
+{
+        //Call to PedidoCAD
+
+        _IPedidoCAD.EliminarCodigo (p_Pedido_OID, p_codigo_OID);
 }
 }
 }

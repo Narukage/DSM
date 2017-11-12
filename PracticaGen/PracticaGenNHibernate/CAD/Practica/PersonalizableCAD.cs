@@ -238,36 +238,6 @@ public void AnaydirIngrediente (int p_Personalizable_OID, System.Collections.Gen
         }
 }
 
-public System.Collections.Generic.IList<PersonalizableEN> GetTodosProductos (int first, int size)
-{
-        System.Collections.Generic.IList<PersonalizableEN> result = null;
-        try
-        {
-                SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(PersonalizableEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<PersonalizableEN>();
-                else
-                        result = session.CreateCriteria (typeof(PersonalizableEN)).List<PersonalizableEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in PersonalizableCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
-
 //Sin e: ReadOID
 //Con e: PersonalizableEN
 public PersonalizableEN ReadOID (int id
@@ -326,6 +296,45 @@ public System.Collections.Generic.IList<PersonalizableEN> ReadAll (int first, in
         }
 
         return result;
+}
+
+public void EliminarIngrediente (int p_Personalizable_OID, System.Collections.Generic.IList<int> p_ingrediente_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                PracticaGenNHibernate.EN.Practica.PersonalizableEN personalizableEN = null;
+                personalizableEN = (PersonalizableEN)session.Load (typeof(PersonalizableEN), p_Personalizable_OID);
+
+                PracticaGenNHibernate.EN.Practica.IngredienteEN ingredienteENAux = null;
+                if (personalizableEN.Ingrediente != null) {
+                        foreach (int item in p_ingrediente_OIDs) {
+                                ingredienteENAux = (PracticaGenNHibernate.EN.Practica.IngredienteEN)session.Load (typeof(PracticaGenNHibernate.EN.Practica.IngredienteEN), item);
+                                if (personalizableEN.Ingrediente.Contains (ingredienteENAux) == true) {
+                                        personalizableEN.Ingrediente.Remove (ingredienteENAux);
+                                        ingredienteENAux.Personalizable.Remove (personalizableEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_ingrediente_OIDs you are trying to unrelationer, doesn't exist in PersonalizableEN");
+                        }
+                }
+
+                session.Update (personalizableEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in PersonalizableCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 }
 }

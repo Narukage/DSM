@@ -78,13 +78,6 @@ public void Destroy (int id
         _IBebidaCAD.Destroy (id);
 }
 
-public System.Collections.Generic.IList<BebidaEN> GetTodosProductos (int first, int size)
-{
-        System.Collections.Generic.IList<BebidaEN> list = null;
-
-        list = _IBebidaCAD.GetTodosProductos (first, size);
-        return list;
-}
 public BebidaEN ReadOID (int id
                          )
 {

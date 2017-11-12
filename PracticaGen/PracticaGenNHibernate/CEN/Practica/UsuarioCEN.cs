@@ -38,7 +38,7 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public string New_ (string p_email, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono, string p_admin, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.DireccionEN> p_direccion)
+public string New_ (string p_email, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono)
 {
         UsuarioEN usuarioEN = null;
         string oid;
@@ -54,16 +54,6 @@ public string New_ (string p_email, string p_nombre, String p_contrasenya, Nulla
         usuarioEN.Fecha_nac = p_fecha_nac;
 
         usuarioEN.Telefono = p_telefono;
-
-
-        if (p_admin != null) {
-                // El argumento p_admin -> Property admin es oid = false
-                // Lista de oids email
-                usuarioEN.Admin = new PracticaGenNHibernate.EN.Practica.AdminEN ();
-                usuarioEN.Admin.Email = p_admin;
-        }
-
-        usuarioEN.Direccion = p_direccion;
 
         //Call to UsuarioCAD
 
@@ -93,6 +83,18 @@ public void Destroy (string email
         _IUsuarioCAD.Destroy (email);
 }
 
+public void AnyadirDireccion (string p_Usuario_OID, System.Collections.Generic.IList<int> p_direccion_OIDs)
+{
+        //Call to UsuarioCAD
+
+        _IUsuarioCAD.AnyadirDireccion (p_Usuario_OID, p_direccion_OIDs);
+}
+public void EliminarDireccion (string p_Usuario_OID, System.Collections.Generic.IList<int> p_direccion_OIDs)
+{
+        //Call to UsuarioCAD
+
+        _IUsuarioCAD.EliminarDireccion (p_Usuario_OID, p_direccion_OIDs);
+}
 public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.UsuarioEN> GetUsuario (string p_nombre)
 {
         return _IUsuarioCAD.GetUsuario (p_nombre);

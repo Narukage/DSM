@@ -22,12 +22,12 @@ void Destroy (string email
               );
 
 
+void AnyadirDireccion (string p_Usuario_OID, System.Collections.Generic.IList<int> p_direccion_OIDs);
 
-
+void EliminarDireccion (string p_Usuario_OID, System.Collections.Generic.IList<int> p_direccion_OIDs);
 
 
 System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.UsuarioEN> GetUsuario (string p_nombre);
-
 
 
 UsuarioEN ReadOID (string email

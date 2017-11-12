@@ -28,13 +28,6 @@
 								<column name="FK_emailRegistrado_idUsuario"/> 
 						</many-to-one>
 											 					
-			
-		  			
-						<many-to-one name="Admin" class="PracticaGenNHibernate.EN.Practica.AdminEN" >	
-								<column name="FK_emailRegistrado_idAdmin"/> 
-						</many-to-one>
-											 					
-					
 					
 					
 					

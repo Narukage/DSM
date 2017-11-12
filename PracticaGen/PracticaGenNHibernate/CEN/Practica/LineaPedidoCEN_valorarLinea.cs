@@ -19,13 +19,17 @@ namespace PracticaGenNHibernate.CEN.Practica
 {
 public partial class LineaPedidoCEN
 {
-public void ValorarLinea (int p_oid)
+public void ValorarLinea (int p_oid, PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum valoracion_linea)
 {
         /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_LineaPedido_valorarLinea) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method ValorarLinea() not yet implemented.");
+        LineaPedidoEN lineaPedidoEN = _ILineaPedidoCAD.ReadOID (p_oid);
+
+        lineaPedidoEN.Valoracion = valoracion_linea;
+
+        _ILineaPedidoCAD.Modify (lineaPedidoEN);
 
         /*PROTECTED REGION END*/
 }

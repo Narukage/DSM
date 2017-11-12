@@ -97,7 +97,6 @@ public void ModifyDefault (IncidenciaEN incidencia)
                 incidenciaEN.Estado = incidencia.Estado;
 
 
-
                 session.Update (incidenciaEN);
                 SessionCommit ();
         }
@@ -127,13 +126,6 @@ public int New_ (IncidenciaEN incidencia)
                         incidencia.Usuario = (PracticaGenNHibernate.EN.Practica.UsuarioEN)session.Load (typeof(PracticaGenNHibernate.EN.Practica.UsuarioEN), incidencia.Usuario.Email);
 
                         incidencia.Usuario.Incidencia
-                        .Add (incidencia);
-                }
-                if (incidencia.Admin != null) {
-                        // Argumento OID y no colección.
-                        incidencia.Admin = (PracticaGenNHibernate.EN.Practica.AdminEN)session.Load (typeof(PracticaGenNHibernate.EN.Practica.AdminEN), incidencia.Admin.Email);
-
-                        incidencia.Admin.Incidencia
                         .Add (incidencia);
                 }
 
