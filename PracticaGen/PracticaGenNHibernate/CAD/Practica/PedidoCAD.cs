@@ -342,5 +342,37 @@ public void EliminarCodigo (int p_Pedido_OID, int p_codigo_OID)
                 SessionClose ();
         }
 }
+public long PedidosMensuales (Nullable<DateTime> p_fecha)
+{
+        long result;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PedidoEN self where select count(*) from PedidoEN as ped where ped.Fecha>=:p_fecha";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENpedidosMensualesHQL");
+                query.SetParameter ("p_fecha", p_fecha);
+
+
+                result = query.UniqueResult<long>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in PedidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

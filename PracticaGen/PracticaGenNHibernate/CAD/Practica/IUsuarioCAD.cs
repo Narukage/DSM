@@ -38,5 +38,8 @@ System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size);
 
 
 long UsuariosMes (Nullable<DateTime> p_fecha);
+
+
+System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.UsuarioEN> BuscarUsuario (string p_nombre);
 }
 }

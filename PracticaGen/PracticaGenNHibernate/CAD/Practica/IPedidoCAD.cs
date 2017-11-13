@@ -37,5 +37,9 @@ System.Collections.Generic.IList<PedidoEN> ReadAll (int first, int size);
 void AnyadirCodigo (int p_Pedido_OID, int p_codigo_OID);
 
 void EliminarCodigo (int p_Pedido_OID, int p_codigo_OID);
+
+
+
+long PedidosMensuales (Nullable<DateTime> p_fecha);
 }
 }

@@ -400,5 +400,35 @@ public long UsuariosMes (Nullable<DateTime> p_fecha)
 
         return result;
 }
+public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.UsuarioEN> BuscarUsuario (string p_nombre)
+{
+        System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.UsuarioEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UsuarioEN self where from UsuarioEN usu where usu.Nombre like  :p_nombre";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENbuscarUsuarioHQL");
+                query.SetParameter ("p_nombre", p_nombre);
+
+                result = query.List<PracticaGenNHibernate.EN.Practica.UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }
