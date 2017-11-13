@@ -70,5 +70,6 @@
 		 </class>	
 		  
 		  <query name="PedidoENReadAllHQL">from PedidoEN</query>
+		  <query name="PedidoENpedidosMensualesHQL"><![CDATA[select count(*) from PedidoEN as ped where ped.Fecha>=:p_fecha]]></query>
 		</hibernate-mapping>
 	

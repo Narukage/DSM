@@ -204,6 +204,7 @@
 			
 			<Compile Include="CEN\Practica\PedidoCEN_CambiarEstado.cs" />
 			
+			
 	<Compile Include="EN\Practica\LineaPedidoEN.cs" />
 	<Compile Include="CEN\Practica\LineaPedidoCEN.cs" />
 	<Compile Include="CAD\Practica\ILineaPedidoCAD.cs" />
@@ -237,6 +238,7 @@
 			
 			
 			<Compile Include="CEN\Practica\UsuarioCEN_LoginRRSS.cs" />
+			
 			
 			
 			

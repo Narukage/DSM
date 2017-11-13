@@ -117,5 +117,9 @@ public void EliminarCodigo (int p_Pedido_OID, int p_codigo_OID)
 
         _IPedidoCAD.EliminarCodigo (p_Pedido_OID, p_codigo_OID);
 }
+public long PedidosMensuales (Nullable<DateTime> p_fecha)
+{
+        return _IPedidoCAD.PedidosMensuales (p_fecha);
+}
 }
 }

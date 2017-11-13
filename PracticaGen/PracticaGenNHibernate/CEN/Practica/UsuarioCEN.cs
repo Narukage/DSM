@@ -122,5 +122,9 @@ public long UsuariosMes (Nullable<DateTime> p_fecha)
 {
         return _IUsuarioCAD.UsuariosMes (p_fecha);
 }
+public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.UsuarioEN> BuscarUsuario (string p_nombre)
+{
+        return _IUsuarioCAD.BuscarUsuario (p_nombre);
+}
 }
 }

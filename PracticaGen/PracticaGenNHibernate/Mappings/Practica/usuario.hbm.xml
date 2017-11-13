@@ -60,5 +60,6 @@
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
 		  <query name="UsuarioENgetUsuarioHQL"><![CDATA[FROM UsuarioEN]]></query>
 		  <query name="UsuarioENUsuariosMesHQL"><![CDATA[SELECT count(*) FROM UsuarioEN as res where res.FechaRegistro >= :p_fecha]]></query>
+		  <query name="UsuarioENbuscarUsuarioHQL"><![CDATA[from UsuarioEN usu where usu.Nombre like  :p_nombre]]></query>
 		</hibernate-mapping>
 	
