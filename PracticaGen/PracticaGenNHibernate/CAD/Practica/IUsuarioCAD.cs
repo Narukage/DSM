@@ -35,5 +35,8 @@ UsuarioEN ReadOID (string email
 
 
 System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size);
+
+
+long UsuariosMes (Nullable<DateTime> p_fecha);
 }
 }

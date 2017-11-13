@@ -156,6 +156,9 @@ public void Modify (UsuarioEN usuario)
 
                 usuarioEN.Telefono = usuario.Telefono;
 
+
+                usuarioEN.FechaRegistro = usuario.FechaRegistro;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -346,6 +349,39 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
                                  SetFirstResult (first).SetMaxResults (size).List<UsuarioEN>();
                 else
                         result = session.CreateCriteria (typeof(UsuarioEN)).List<UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+
+public long UsuariosMes (Nullable<DateTime> p_fecha)
+{
+        long result;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UsuarioEN self where SELECT count(*) FROM UsuarioEN as res where res.FechaRegistro >= :p_fecha";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENUsuariosMesHQL");
+                query.SetParameter ("p_fecha", p_fecha);
+
+
+                result = query.UniqueResult<long>();
                 SessionCommit ();
         }
 

@@ -102,6 +102,9 @@ public void ModifyDefault (RegistradoEN registrado)
 
                 registradoEN.Telefono = registrado.Telefono;
 
+
+                registradoEN.FechaRegistro = registrado.FechaRegistro;
+
                 session.Update (registradoEN);
                 SessionCommit ();
         }
@@ -164,6 +167,9 @@ public void Modify (RegistradoEN registrado)
 
 
                 registradoEN.Telefono = registrado.Telefono;
+
+
+                registradoEN.FechaRegistro = registrado.FechaRegistro;
 
                 session.Update (registradoEN);
                 SessionCommit ();

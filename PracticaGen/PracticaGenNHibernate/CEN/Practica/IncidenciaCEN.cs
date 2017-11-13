@@ -38,7 +38,7 @@ public IIncidenciaCAD get_IIncidenciaCAD ()
         return this._IIncidenciaCAD;
 }
 
-public int New_ (string p_descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum p_estado, string p_usuario)
+public int New_ (string p_descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum p_estado, string p_usuario, Nullable<DateTime> p_fecha)
 {
         IncidenciaEN incidenciaEN = null;
         int oid;
@@ -57,13 +57,15 @@ public int New_ (string p_descripcion, PracticaGenNHibernate.Enumerated.Practica
                 incidenciaEN.Usuario.Email = p_usuario;
         }
 
+        incidenciaEN.Fecha = p_fecha;
+
         //Call to IncidenciaCAD
 
         oid = _IIncidenciaCAD.New_ (incidenciaEN);
         return oid;
 }
 
-public void Modify (int p_Incidencia_OID, string p_descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum p_estado)
+public void Modify (int p_Incidencia_OID, string p_descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum p_estado, Nullable<DateTime> p_fecha)
 {
         IncidenciaEN incidenciaEN = null;
 
@@ -72,6 +74,7 @@ public void Modify (int p_Incidencia_OID, string p_descripcion, PracticaGenNHibe
         incidenciaEN.Id = p_Incidencia_OID;
         incidenciaEN.Descripcion = p_descripcion;
         incidenciaEN.Estado = p_estado;
+        incidenciaEN.Fecha = p_fecha;
         //Call to IncidenciaCAD
 
         _IIncidenciaCAD.Modify (incidenciaEN);
@@ -98,6 +101,10 @@ public System.Collections.Generic.IList<IncidenciaEN> ReadAll (int first, int si
 
         list = _IIncidenciaCAD.ReadAll (first, size);
         return list;
+}
+public long IncidenciasMes (Nullable<DateTime> p_fecha)
+{
+        return _IIncidenciaCAD.IncidenciasMes (p_fecha);
 }
 }
 }

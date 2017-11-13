@@ -59,5 +59,6 @@
 		  
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
 		  <query name="UsuarioENgetUsuarioHQL"><![CDATA[FROM UsuarioEN]]></query>
+		  <query name="UsuarioENUsuariosMesHQL"><![CDATA[SELECT count(*) FROM UsuarioEN as res where res.FechaRegistro >= :p_fecha]]></query>
 		</hibernate-mapping>
 	

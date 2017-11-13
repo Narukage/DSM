@@ -97,6 +97,9 @@ public void ModifyDefault (IncidenciaEN incidencia)
                 incidenciaEN.Estado = incidencia.Estado;
 
 
+
+                incidenciaEN.Fecha = incidencia.Fecha;
+
                 session.Update (incidenciaEN);
                 SessionCommit ();
         }
@@ -160,6 +163,9 @@ public void Modify (IncidenciaEN incidencia)
 
 
                 incidenciaEN.Estado = incidencia.Estado;
+
+
+                incidenciaEN.Fecha = incidencia.Fecha;
 
                 session.Update (incidenciaEN);
                 SessionCommit ();
@@ -244,6 +250,39 @@ public System.Collections.Generic.IList<IncidenciaEN> ReadAll (int first, int si
                                  SetFirstResult (first).SetMaxResults (size).List<IncidenciaEN>();
                 else
                         result = session.CreateCriteria (typeof(IncidenciaEN)).List<IncidenciaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in IncidenciaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+
+public long IncidenciasMes (Nullable<DateTime> p_fecha)
+{
+        long result;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM IncidenciaEN self where SELECT count(*) FROM IncidenciaEN as inc where inc.Fecha >= :p_fecha";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("IncidenciaENIncidenciasMesHQL");
+                query.SetParameter ("p_fecha", p_fecha);
+
+
+                result = query.UniqueResult<long>();
                 SessionCommit ();
         }
 

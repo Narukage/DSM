@@ -38,7 +38,7 @@ public IAdminCAD get_IAdminCAD ()
         return this._IAdminCAD;
 }
 
-public string New_ (string p_email, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono)
+public string New_ (string p_email, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono, Nullable<DateTime> p_fechaRegistro)
 {
         AdminEN adminEN = null;
         string oid;
@@ -55,13 +55,15 @@ public string New_ (string p_email, string p_nombre, String p_contrasenya, Nulla
 
         adminEN.Telefono = p_telefono;
 
+        adminEN.FechaRegistro = p_fechaRegistro;
+
         //Call to AdminCAD
 
         oid = _IAdminCAD.New_ (adminEN);
         return oid;
 }
 
-public void Modify (string p_Admin_OID, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono)
+public void Modify (string p_Admin_OID, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono, Nullable<DateTime> p_fechaRegistro)
 {
         AdminEN adminEN = null;
 
@@ -72,6 +74,7 @@ public void Modify (string p_Admin_OID, string p_nombre, String p_contrasenya, N
         adminEN.Contrasenya = Utils.Util.GetEncondeMD5 (p_contrasenya);
         adminEN.Fecha_nac = p_fecha_nac;
         adminEN.Telefono = p_telefono;
+        adminEN.FechaRegistro = p_fechaRegistro;
         //Call to AdminCAD
 
         _IAdminCAD.Modify (adminEN);

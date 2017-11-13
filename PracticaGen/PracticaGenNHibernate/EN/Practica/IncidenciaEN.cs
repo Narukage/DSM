@@ -33,6 +33,13 @@ private PracticaGenNHibernate.EN.Practica.UsuarioEN usuario;
 
 
 
+/**
+ *	Atributo fecha
+ */
+private Nullable<DateTime> fecha;
+
+
+
 
 
 
@@ -60,6 +67,12 @@ public virtual PracticaGenNHibernate.EN.Practica.UsuarioEN Usuario {
 
 
 
+public virtual Nullable<DateTime> Fecha {
+        get { return fecha; } set { fecha = value;  }
+}
+
+
+
 
 
 public IncidenciaEN()
@@ -68,20 +81,20 @@ public IncidenciaEN()
 
 
 
-public IncidenciaEN(int id, string descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum estado, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario
+public IncidenciaEN(int id, string descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum estado, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, Nullable<DateTime> fecha
                     )
 {
-        this.init (Id, descripcion, estado, usuario);
+        this.init (Id, descripcion, estado, usuario, fecha);
 }
 
 
 public IncidenciaEN(IncidenciaEN incidencia)
 {
-        this.init (Id, incidencia.Descripcion, incidencia.Estado, incidencia.Usuario);
+        this.init (Id, incidencia.Descripcion, incidencia.Estado, incidencia.Usuario, incidencia.Fecha);
 }
 
 private void init (int id
-                   , string descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum estado, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario)
+                   , string descripcion, PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum estado, PracticaGenNHibernate.EN.Practica.UsuarioEN usuario, Nullable<DateTime> fecha)
 {
         this.Id = id;
 
@@ -91,6 +104,8 @@ private void init (int id
         this.Estado = estado;
 
         this.Usuario = usuario;
+
+        this.Fecha = fecha;
 }
 
 public override bool Equals (object obj)

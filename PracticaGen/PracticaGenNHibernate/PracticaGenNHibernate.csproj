@@ -241,6 +241,7 @@
 			
 			
 			
+			
 	<Compile Include="EN\Practica\AdminEN.cs" />
 	<Compile Include="CEN\Practica\AdminCEN.cs" />
 	<Compile Include="CAD\Practica\IAdminCAD.cs" />
@@ -287,6 +288,7 @@
 			
 			
 			<Compile Include="CEN\Practica\IncidenciaCEN_CambiarEstado.cs" />
+			
 			
 	<Compile Include="Enumerated\Practica\EstadoPedidoEnum.cs" />
 	<Compile Include="Enumerated\Practica\TipoCodigoEnum.cs" />

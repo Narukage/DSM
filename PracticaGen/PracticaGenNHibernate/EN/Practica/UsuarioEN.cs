@@ -61,20 +61,20 @@ public UsuarioEN() : base ()
 
 
 public UsuarioEN(string email, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> pedido, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.DireccionEN> direccion, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.IncidenciaEN> incidencia
-                 , string nombre, String contrasenya, Nullable<DateTime> fecha_nac, int telefono
+                 , string nombre, String contrasenya, Nullable<DateTime> fecha_nac, int telefono, Nullable<DateTime> fechaRegistro
                  )
 {
-        this.init (Email, pedido, direccion, incidencia, nombre, contrasenya, fecha_nac, telefono);
+        this.init (Email, pedido, direccion, incidencia, nombre, contrasenya, fecha_nac, telefono, fechaRegistro);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (Email, usuario.Pedido, usuario.Direccion, usuario.Incidencia, usuario.Nombre, usuario.Contrasenya, usuario.Fecha_nac, usuario.Telefono);
+        this.init (Email, usuario.Pedido, usuario.Direccion, usuario.Incidencia, usuario.Nombre, usuario.Contrasenya, usuario.Fecha_nac, usuario.Telefono, usuario.FechaRegistro);
 }
 
 private void init (string email
-                   , System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> pedido, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.DireccionEN> direccion, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.IncidenciaEN> incidencia, string nombre, String contrasenya, Nullable<DateTime> fecha_nac, int telefono)
+                   , System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> pedido, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.DireccionEN> direccion, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.IncidenciaEN> incidencia, string nombre, String contrasenya, Nullable<DateTime> fecha_nac, int telefono, Nullable<DateTime> fechaRegistro)
 {
         this.Email = email;
 
@@ -92,6 +92,8 @@ private void init (string email
         this.Fecha_nac = fecha_nac;
 
         this.Telefono = telefono;
+
+        this.FechaRegistro = fechaRegistro;
 }
 
 public override bool Equals (object obj)

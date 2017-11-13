@@ -38,7 +38,7 @@ public IRegistradoCAD get_IRegistradoCAD ()
         return this._IRegistradoCAD;
 }
 
-public string New_ (string p_email, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono)
+public string New_ (string p_email, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono, Nullable<DateTime> p_fechaRegistro)
 {
         RegistradoEN registradoEN = null;
         string oid;
@@ -55,13 +55,15 @@ public string New_ (string p_email, string p_nombre, String p_contrasenya, Nulla
 
         registradoEN.Telefono = p_telefono;
 
+        registradoEN.FechaRegistro = p_fechaRegistro;
+
         //Call to RegistradoCAD
 
         oid = _IRegistradoCAD.New_ (registradoEN);
         return oid;
 }
 
-public void Modify (string p_Registrado_OID, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono)
+public void Modify (string p_Registrado_OID, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono, Nullable<DateTime> p_fechaRegistro)
 {
         RegistradoEN registradoEN = null;
 
@@ -72,6 +74,7 @@ public void Modify (string p_Registrado_OID, string p_nombre, String p_contrasen
         registradoEN.Contrasenya = Utils.Util.GetEncondeMD5 (p_contrasenya);
         registradoEN.Fecha_nac = p_fecha_nac;
         registradoEN.Telefono = p_telefono;
+        registradoEN.FechaRegistro = p_fechaRegistro;
         //Call to RegistradoCAD
 
         _IRegistradoCAD.Modify (registradoEN);

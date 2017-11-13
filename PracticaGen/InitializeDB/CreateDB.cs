@@ -83,7 +83,7 @@ public static void InitializeData ()
                 // Insert the initilizations of entities using the CEN classes
 
                 //creamos unos productos
-                BebidaCEN producto1 = new BebidaCEN ();
+               /* BebidaCEN producto1 = new BebidaCEN ();
                 PredefinidaCEN producto2 = new PredefinidaCEN ();
                 ComplementoCEN producto3 = new ComplementoCEN ();
                 BebidaCEN producto4 = new BebidaCEN ();
@@ -91,7 +91,7 @@ public static void InitializeData ()
 
 
                 AdminCEN admin1 = new AdminCEN ();
-                String iadmin = admin1.New_ ("el_admin@alu.ua.es", "Senyor tomate", "1234", DateTime.Today, 647003256);
+                // String iadmin = admin1.New_ ("el_admin@alu.ua.es", "Senyor tomate", "1234", DateTime.Today, 647003256);
                 UsuarioCEN user1 = new UsuarioCEN ();
 
                 producto1.New_ (float.Parse ("1.0"), "Fanta de limon", "foto de la fanta");
@@ -112,7 +112,7 @@ public static void InitializeData ()
 
 
 
-                user1.New_ ("tomate@alu.ua.es", "Senyor tommate", "12634", DateTime.Today, 647003256);
+                // user1.New_ ("tomate@alu.ua.es", "Senyor tommate", "12634", DateTime.Today, 647003256);
 
                 IngredienteCEN ing1 = new IngredienteCEN ();
                 int idg = ing1.New_ (0.2, "Mozzarella", "foto1");
@@ -143,7 +143,32 @@ public static void InitializeData ()
                 lineaPedidoCEN.ValorarLinea (idmil, val2);
 
 
-                //Console.WriteLine("El pedido: "+ pedidoCEN);
+                //Console.WriteLine("El pedido: "+ pedidoCEN);*/
+
+
+                UsuarioCEN usuario1 = new UsuarioCEN ();
+                usuario1.New_ ("alberto@email.com", "Alberto", "123456", DateTime.Today, 647556372, DateTime.Today);
+                RegistradoCEN usuario2 = new RegistradoCEN ();
+                usuario2.New_ ("fer@email.com", "Fernando", "123456", DateTime.Today, 647556372, DateTime.Today);
+                RegistradoCEN usuario3 = new RegistradoCEN ();
+                usuario3.New_ ("juanluisio@email.com", "Juanlu", "123456", DateTime.Today, 647552372, DateTime.Today);
+                RegistradoCEN usuario4 = new RegistradoCEN ();
+                DateTime date1 = new DateTime (2008, 3, 1, 7, 0, 0);
+                usuario4.New_ ("felipe@email.com", "Felipe", "123456", DateTime.Today, 647556375, date1);
+                DateTime date2 = new DateTime (2017, 10, 11, 7, 0, 0);
+
+                IncidenciaCEN inc1 = new IncidenciaCEN ();
+                inc1.New_ ("Mi pizza esta mala", PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum.pendiente, "alberto@email.com", DateTime.Today);
+                IncidenciaCEN inc2 = new IncidenciaCEN ();
+                inc2.New_ ("Mi pizza esta pocha", PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum.pendiente, "alberto@email.com", DateTime.Today);
+
+                Console.WriteLine ("Numero de incidentes este mes: " + inc1.IncidenciasMes (date2));
+                //inc1.IncidenciasMes(date2);
+                Console.WriteLine ("Nuevos usuarios este mes :" + usuario1.UsuariosMes (date2));
+
+                
+
+
 
 
 

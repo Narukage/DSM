@@ -18,6 +18,9 @@
 					<property name="Estado" > 
 						<column name="estado"  not-null="true"/>
 					</property>
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -28,6 +31,8 @@
 								<column name="FK_emailRegistrado_idUsuario"/> 
 						</many-to-one>
 											 					
+			
+					
 					
 					
 					
@@ -36,5 +41,6 @@
 		 </class>	
 		  
 		  <query name="IncidenciaENReadAllHQL">from IncidenciaEN</query>
+		  <query name="IncidenciaENIncidenciasMesHQL"><![CDATA[SELECT count(*) FROM IncidenciaEN as inc where inc.Fecha >= :p_fecha]]></query>
 		</hibernate-mapping>
 	

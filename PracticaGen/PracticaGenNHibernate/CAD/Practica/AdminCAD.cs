@@ -153,6 +153,9 @@ public void Modify (AdminEN admin)
 
                 adminEN.Telefono = admin.Telefono;
 
+
+                adminEN.FechaRegistro = admin.FechaRegistro;
+
                 session.Update (adminEN);
                 SessionCommit ();
         }

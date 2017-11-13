@@ -40,6 +40,13 @@ private int telefono;
 
 
 
+/**
+ *	Atributo fechaRegistro
+ */
+private Nullable<DateTime> fechaRegistro;
+
+
+
 
 
 
@@ -73,6 +80,12 @@ public virtual int Telefono {
 
 
 
+public virtual Nullable<DateTime> FechaRegistro {
+        get { return fechaRegistro; } set { fechaRegistro = value;  }
+}
+
+
+
 
 
 public RegistradoEN()
@@ -81,20 +94,20 @@ public RegistradoEN()
 
 
 
-public RegistradoEN(string email, string nombre, String contrasenya, Nullable<DateTime> fecha_nac, int telefono
+public RegistradoEN(string email, string nombre, String contrasenya, Nullable<DateTime> fecha_nac, int telefono, Nullable<DateTime> fechaRegistro
                     )
 {
-        this.init (Email, nombre, contrasenya, fecha_nac, telefono);
+        this.init (Email, nombre, contrasenya, fecha_nac, telefono, fechaRegistro);
 }
 
 
 public RegistradoEN(RegistradoEN registrado)
 {
-        this.init (Email, registrado.Nombre, registrado.Contrasenya, registrado.Fecha_nac, registrado.Telefono);
+        this.init (Email, registrado.Nombre, registrado.Contrasenya, registrado.Fecha_nac, registrado.Telefono, registrado.FechaRegistro);
 }
 
 private void init (string email
-                   , string nombre, String contrasenya, Nullable<DateTime> fecha_nac, int telefono)
+                   , string nombre, String contrasenya, Nullable<DateTime> fecha_nac, int telefono, Nullable<DateTime> fechaRegistro)
 {
         this.Email = email;
 
@@ -106,6 +119,8 @@ private void init (string email
         this.Fecha_nac = fecha_nac;
 
         this.Telefono = telefono;
+
+        this.FechaRegistro = fechaRegistro;
 }
 
 public override bool Equals (object obj)

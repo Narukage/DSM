@@ -38,7 +38,7 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public string New_ (string p_email, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono)
+public string New_ (string p_email, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono, Nullable<DateTime> p_fechaRegistro)
 {
         UsuarioEN usuarioEN = null;
         string oid;
@@ -55,13 +55,15 @@ public string New_ (string p_email, string p_nombre, String p_contrasenya, Nulla
 
         usuarioEN.Telefono = p_telefono;
 
+        usuarioEN.FechaRegistro = p_fechaRegistro;
+
         //Call to UsuarioCAD
 
         oid = _IUsuarioCAD.New_ (usuarioEN);
         return oid;
 }
 
-public void Modify (string p_Usuario_OID, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono)
+public void Modify (string p_Usuario_OID, string p_nombre, String p_contrasenya, Nullable<DateTime> p_fecha_nac, int p_telefono, Nullable<DateTime> p_fechaRegistro)
 {
         UsuarioEN usuarioEN = null;
 
@@ -72,6 +74,7 @@ public void Modify (string p_Usuario_OID, string p_nombre, String p_contrasenya,
         usuarioEN.Contrasenya = Utils.Util.GetEncondeMD5 (p_contrasenya);
         usuarioEN.Fecha_nac = p_fecha_nac;
         usuarioEN.Telefono = p_telefono;
+        usuarioEN.FechaRegistro = p_fechaRegistro;
         //Call to UsuarioCAD
 
         _IUsuarioCAD.Modify (usuarioEN);
@@ -114,6 +117,10 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
 
         list = _IUsuarioCAD.ReadAll (first, size);
         return list;
+}
+public long UsuariosMes (Nullable<DateTime> p_fecha)
+{
+        return _IUsuarioCAD.UsuariosMes (p_fecha);
 }
 }
 }

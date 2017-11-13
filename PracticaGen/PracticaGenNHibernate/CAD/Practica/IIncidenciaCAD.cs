@@ -27,5 +27,9 @@ IncidenciaEN ReadOID (int id
 
 
 System.Collections.Generic.IList<IncidenciaEN> ReadAll (int first, int size);
+
+
+
+long IncidenciasMes (Nullable<DateTime> p_fecha);
 }
 }

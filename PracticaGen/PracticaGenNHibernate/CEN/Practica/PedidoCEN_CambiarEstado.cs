@@ -21,14 +21,14 @@ public partial class PedidoCEN
 {
 public void CambiarEstado (int p_oid, PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum estado)
 {
-            /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Pedido_cambiarEstado) ENABLED START*/
+        /*PROTECTED REGION ID(PracticaGenNHibernate.CEN.Practica_Pedido_cambiarEstado) ENABLED START*/
 
-            // Write here your custom code...
+        // Write here your custom code...
 
-            PedidoEN pedidoEN = _IPedidoCAD.ReadOID(p_oid);
+        PedidoEN pedidoEN = _IPedidoCAD.ReadOID (p_oid);
 
-            pedidoEN.Estado = estado;
-            _IPedidoCAD.Modify(pedidoEN);
+        pedidoEN.Estado = estado;
+        _IPedidoCAD.Modify (pedidoEN);
 
         /*PROTECTED REGION END*/
 }
