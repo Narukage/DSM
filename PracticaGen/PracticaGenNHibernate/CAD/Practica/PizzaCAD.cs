@@ -157,6 +157,9 @@ public void Modify (PizzaEN pizza)
                 pizzaEN.Foto = pizza.Foto;
 
 
+                pizzaEN.NumVeces = pizza.NumVeces;
+
+
                 pizzaEN.Tamaño = pizza.Tamaño;
 
 

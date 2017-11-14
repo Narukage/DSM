@@ -150,6 +150,9 @@ public void Modify (ComplementoEN complemento)
 
                 complementoEN.Foto = complemento.Foto;
 
+
+                complementoEN.NumVeces = complemento.NumVeces;
+
                 session.Update (complementoEN);
                 SessionCommit ();
         }

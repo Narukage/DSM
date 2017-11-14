@@ -121,5 +121,13 @@ public long PedidosMensuales (Nullable<DateTime> p_fecha)
 {
         return _IPedidoCAD.PedidosMensuales (p_fecha);
 }
+public long GetCodigosActivados ()
+{
+        return _IPedidoCAD.GetCodigosActivados ();
+}
+public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> DevolverPedidosUsuario (string usuario)
+{
+        return _IPedidoCAD.DevolverPedidosUsuario (usuario);
+}
 }
 }

@@ -38,7 +38,7 @@ public IIngredienteCAD get_IIngredienteCAD ()
         return this._IIngredienteCAD;
 }
 
-public int New_ (double p_precio, string p_nombre, string p_foto)
+public int New_ (double p_precio, string p_nombre, string p_foto, int p_numVeces)
 {
         IngredienteEN ingredienteEN = null;
         int oid;
@@ -51,13 +51,15 @@ public int New_ (double p_precio, string p_nombre, string p_foto)
 
         ingredienteEN.Foto = p_foto;
 
+        ingredienteEN.NumVeces = p_numVeces;
+
         //Call to IngredienteCAD
 
         oid = _IIngredienteCAD.New_ (ingredienteEN);
         return oid;
 }
 
-public void Modify (int p_Ingrediente_OID, double p_precio, string p_nombre, string p_foto)
+public void Modify (int p_Ingrediente_OID, double p_precio, string p_nombre, string p_foto, int p_numVeces)
 {
         IngredienteEN ingredienteEN = null;
 
@@ -67,6 +69,7 @@ public void Modify (int p_Ingrediente_OID, double p_precio, string p_nombre, str
         ingredienteEN.Precio = p_precio;
         ingredienteEN.Nombre = p_nombre;
         ingredienteEN.Foto = p_foto;
+        ingredienteEN.NumVeces = p_numVeces;
         //Call to IngredienteCAD
 
         _IIngredienteCAD.Modify (ingredienteEN);

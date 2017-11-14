@@ -42,28 +42,27 @@ public double CalcularMedia (int p_oid)
                 // Write here your custom transaction ...
 
                 pedidoEN = pedidoCEN.ReadOID (p_oid);
-                PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum val = PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.sin_valorar;
+
 
                 double count = 0.0;
                 foreach (LineaPedidoEN lineaped in pedidoEN.LineaPedido) {
-                        if (val == PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.mala) {
+                        if (lineaped.Valoracion == PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.mala) {
                                 acumulador += 1;
                         }
-                        if (val == PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.regular) {
+                        if (lineaped.Valoracion == PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.regular) {
                                 acumulador += 2;
                         }
-                        if (val == PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.buena) {
+                        if (lineaped.Valoracion == PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.buena) {
                                 acumulador += 3;
                         }
-                        if (val == PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.muybuena) {
+                        if (lineaped.Valoracion == PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.muybuena) {
                                 acumulador += 4;
                         }
-                        if (val == PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.excelente) {
+                        if (lineaped.Valoracion == PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.excelente) {
                                 acumulador += 5;
                         }
                         count++; //numero de lineas de pedido que tiene pedido
                 }
-
                 //calculando media
 
                 result = acumulador / count;

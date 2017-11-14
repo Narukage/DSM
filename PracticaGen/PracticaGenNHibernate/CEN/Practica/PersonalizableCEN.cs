@@ -38,7 +38,7 @@ public IPersonalizableCAD get_IPersonalizableCAD ()
         return this._IPersonalizableCAD;
 }
 
-public int New_ (double p_precio, string p_nombre, string p_foto, int p_tamaño, int p_masa)
+public int New_ (double p_precio, string p_nombre, string p_foto, int p_numVeces, int p_tamaño, int p_masa)
 {
         PersonalizableEN personalizableEN = null;
         int oid;
@@ -51,6 +51,8 @@ public int New_ (double p_precio, string p_nombre, string p_foto, int p_tamaño,
 
         personalizableEN.Foto = p_foto;
 
+        personalizableEN.NumVeces = p_numVeces;
+
         personalizableEN.Tamaño = p_tamaño;
 
         personalizableEN.Masa = p_masa;
@@ -61,7 +63,7 @@ public int New_ (double p_precio, string p_nombre, string p_foto, int p_tamaño,
         return oid;
 }
 
-public void Modify (int p_Personalizable_OID, double p_precio, string p_nombre, string p_foto, int p_tamaño, int p_masa)
+public void Modify (int p_Personalizable_OID, double p_precio, string p_nombre, string p_foto, int p_numVeces, int p_tamaño, int p_masa)
 {
         PersonalizableEN personalizableEN = null;
 
@@ -71,6 +73,7 @@ public void Modify (int p_Personalizable_OID, double p_precio, string p_nombre, 
         personalizableEN.Precio = p_precio;
         personalizableEN.Nombre = p_nombre;
         personalizableEN.Foto = p_foto;
+        personalizableEN.NumVeces = p_numVeces;
         personalizableEN.Tamaño = p_tamaño;
         personalizableEN.Masa = p_masa;
         //Call to PersonalizableCAD

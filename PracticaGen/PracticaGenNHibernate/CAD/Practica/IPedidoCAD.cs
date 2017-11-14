@@ -41,5 +41,11 @@ void EliminarCodigo (int p_Pedido_OID, int p_codigo_OID);
 
 
 long PedidosMensuales (Nullable<DateTime> p_fecha);
+
+
+long GetCodigosActivados ();
+
+
+System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> DevolverPedidosUsuario (string usuario);
 }
 }

@@ -38,7 +38,7 @@ public IComplementoCAD get_IComplementoCAD ()
         return this._IComplementoCAD;
 }
 
-public int New_ (double p_precio, string p_nombre, string p_foto)
+public int New_ (double p_precio, string p_nombre, string p_foto, int p_numVeces)
 {
         ComplementoEN complementoEN = null;
         int oid;
@@ -51,13 +51,15 @@ public int New_ (double p_precio, string p_nombre, string p_foto)
 
         complementoEN.Foto = p_foto;
 
+        complementoEN.NumVeces = p_numVeces;
+
         //Call to ComplementoCAD
 
         oid = _IComplementoCAD.New_ (complementoEN);
         return oid;
 }
 
-public void Modify (int p_Complemento_OID, double p_precio, string p_nombre, string p_foto)
+public void Modify (int p_Complemento_OID, double p_precio, string p_nombre, string p_foto, int p_numVeces)
 {
         ComplementoEN complementoEN = null;
 
@@ -67,6 +69,7 @@ public void Modify (int p_Complemento_OID, double p_precio, string p_nombre, str
         complementoEN.Precio = p_precio;
         complementoEN.Nombre = p_nombre;
         complementoEN.Foto = p_foto;
+        complementoEN.NumVeces = p_numVeces;
         //Call to ComplementoCAD
 
         _IComplementoCAD.Modify (complementoEN);

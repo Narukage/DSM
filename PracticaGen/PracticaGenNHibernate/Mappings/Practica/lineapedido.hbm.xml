@@ -43,5 +43,6 @@
 		 </class>	
 		  
 		  <query name="LineaPedidoENReadAllHQL">from LineaPedidoEN</query>
+		  <query name="LineaPedidoENtopVentasHQL"><![CDATA[SELECT Producto, count(*) FROM LineaPedidoEN ]]></query>
 		</hibernate-mapping>
 	

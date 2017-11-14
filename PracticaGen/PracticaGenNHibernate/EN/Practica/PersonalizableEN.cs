@@ -34,20 +34,20 @@ public PersonalizableEN() : base ()
 
 public PersonalizableEN(int id, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.IngredienteEN> ingrediente
                         , int tamaño, int masa
-                        , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
+                        , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, int numVeces
                         )
 {
-        this.init (Id, ingrediente, tamaño, masa, precio, nombre, foto, lineaPedido);
+        this.init (Id, ingrediente, tamaño, masa, precio, nombre, foto, lineaPedido, numVeces);
 }
 
 
 public PersonalizableEN(PersonalizableEN personalizable)
 {
-        this.init (Id, personalizable.Ingrediente, personalizable.Tamaño, personalizable.Masa, personalizable.Precio, personalizable.Nombre, personalizable.Foto, personalizable.LineaPedido);
+        this.init (Id, personalizable.Ingrediente, personalizable.Tamaño, personalizable.Masa, personalizable.Precio, personalizable.Nombre, personalizable.Foto, personalizable.LineaPedido, personalizable.NumVeces);
 }
 
 private void init (int id
-                   , System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.IngredienteEN> ingrediente, int tamaño, int masa, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
+                   , System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.IngredienteEN> ingrediente, int tamaño, int masa, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, int numVeces)
 {
         this.Id = id;
 
@@ -65,6 +65,8 @@ private void init (int id
         this.Foto = foto;
 
         this.LineaPedido = lineaPedido;
+
+        this.NumVeces = numVeces;
 }
 
 public override bool Equals (object obj)

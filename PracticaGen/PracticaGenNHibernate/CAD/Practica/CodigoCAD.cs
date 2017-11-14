@@ -97,6 +97,9 @@ public void ModifyDefault (CodigoEN codigo)
                 codigoEN.Tipo = codigo.Tipo;
 
 
+
+                codigoEN.Numero = codigo.Numero;
+
                 session.Update (codigoEN);
                 SessionCommit ();
         }
@@ -153,6 +156,9 @@ public void Modify (CodigoEN codigo)
 
 
                 codigoEN.Tipo = codigo.Tipo;
+
+
+                codigoEN.Numero = codigo.Numero;
 
                 session.Update (codigoEN);
                 SessionCommit ();

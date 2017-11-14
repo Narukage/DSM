@@ -107,5 +107,9 @@ public System.Collections.Generic.IList<LineaPedidoEN> ReadAll (int first, int s
         list = _ILineaPedidoCAD.ReadAll (first, size);
         return list;
 }
+public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> TopVentas ()
+{
+        return _ILineaPedidoCAD.TopVentas ();
+}
 }
 }

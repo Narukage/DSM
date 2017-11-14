@@ -114,7 +114,6 @@
 			
 			
 			
-			
 	<Compile Include="EN\Practica\ComplementoEN.cs" />
 	<Compile Include="CEN\Practica\ComplementoCEN.cs" />
 	<Compile Include="CAD\Practica\IComplementoCAD.cs" />
@@ -192,7 +191,7 @@
 			
 			<Compile Include="CEN\Practica\PedidoCEN_ConsultarEstado.cs" />
 			
-			<Compile Include="CEN\Practica\PedidoCEN_ConfirmarPedido.cs" />
+			<Compile Include="CP\Practica\PedidoCP_ConfirmarPedido.cs" />
 			
 			<Compile Include="CEN\Practica\PedidoCEN_SeleccionarFormaPago.cs" />
 			
@@ -205,6 +204,10 @@
 			<Compile Include="CEN\Practica\PedidoCEN_CambiarEstado.cs" />
 			
 			
+			
+			
+			<Compile Include="CP\Practica\PedidoCP_CalcularPrecio.cs" />
+			
 	<Compile Include="EN\Practica\LineaPedidoEN.cs" />
 	<Compile Include="CEN\Practica\LineaPedidoCEN.cs" />
 	<Compile Include="CAD\Practica\ILineaPedidoCAD.cs" />
@@ -216,6 +219,7 @@
 			
 			
 			<Compile Include="CEN\Practica\LineaPedidoCEN_ValorarLinea.cs" />
+			
 			
 	<Compile Include="EN\Practica\CodigoEN.cs" />
 	<Compile Include="CEN\Practica\CodigoCEN.cs" />
@@ -264,10 +268,9 @@
 			
 			
 			
+			<Compile Include="CP\Practica\RegistradoCP_Login.cs" />
 			
 			<Compile Include="CEN\Practica\RegistradoCEN_RecuperarContrasenya.cs" />
-			
-			<Compile Include="CEN\Practica\RegistradoCEN_CerrarSesion.cs" />
 			
 	<Compile Include="EN\Practica\DireccionEN.cs" />
 	<Compile Include="CEN\Practica\DireccionCEN.cs" />

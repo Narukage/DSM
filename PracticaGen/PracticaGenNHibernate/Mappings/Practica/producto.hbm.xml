@@ -21,6 +21,9 @@
 					<property name="Foto" type="string"> 
 						<column name="foto"  not-null="true"/>
 					</property>
+					<property name="NumVeces" type="integer"> 
+						<column name="numVeces"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -37,6 +40,8 @@
 							<one-to-many class="PracticaGenNHibernate.EN.Practica.LineaPedidoEN"/>
 					    </bag>
 					
+			
+					
 					
 					
 					
@@ -46,7 +51,6 @@
 		 </class>	
 		  
 		  <query name="ProductoENReadAllHQL">from ProductoEN</query>
-		  <query name="ProductoENgetProductosNombreHQL"><![CDATA[FROM ProductoEN]]></query>
 		  <query name="ProductoENbuscarProductoHQL"><![CDATA[FROM ProductoEN as pro where pro.Nombre= :nombre]]></query>
 		</hibernate-mapping>
 	

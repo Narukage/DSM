@@ -5,10 +5,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
-using NHibernate;
-using NHibernate.Cfg;
-using NHibernate.Criterion;
-using NHibernate.Exceptions;
 using PracticaGenNHibernate.EN.Practica;
 using PracticaGenNHibernate.CEN.Practica;
 using PracticaGenNHibernate.CAD.Practica;
@@ -161,43 +157,6 @@ public static void InitializeData ()
                 usuario4.New_ ("felipe@email.com", "Felipe", "123456", DateTime.Today, 647556375, date1);
                 DateTime date2 = new DateTime (2017, 10, 11, 7, 0, 0);
 
-                BebidaCEN producto1 = new BebidaCEN();
-                int p4id = producto1.New_(float.Parse("1.0"), "Fanta de limon", "foto de la fanta");
-
-                PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum h = PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum.pendiente;
-                PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum v = PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum.contrarreembolso;
-
-                PedidoCEN pedidoCEN = new PedidoCEN();
-                int id2 = pedidoCEN.New_(h, DateTime.Today, 1.5, v, "tomate@alu.ua.es");
-
-                PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum val2 = PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.excelente;
-                PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum val = PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.sin_valorar;
-                PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum val3 = PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.muybuena;
-
-                LineaPedidoCEN lineaPedidoCEN = new LineaPedidoCEN();
-                LineaPedidoCEN lineaPedidoCEN2 = new LineaPedidoCEN();
-                LineaPedidoCEN lineaPedidoCEN3 = new LineaPedidoCEN();
-                LineaPedidoCEN lineaPedidoCEN4 = new LineaPedidoCEN();
-                int idmil = lineaPedidoCEN.New_(p4id, id2, 5, val);
-                int idmil2 = lineaPedidoCEN2.New_(p4id, id2, 5, val2);
-                int idmil3 = lineaPedidoCEN3.New_(p4id, id2, 5, val3);
-                int idmil4 = lineaPedidoCEN4.New_(p4id, id2, 5, val2);
-
-                /*ISession session = NHibernateHelper.OpenSession();
-                ITransaction elCP = session.BeginTransaction();
-                PedidoCAD pedidoprueba = new PedidoCAD(session);*/
-               
-
-                PracticaGenNHibernate.CP.Practica.PedidoCP pedidoCP = new PracticaGenNHibernate.CP.Practica.PedidoCP();
-
-                double media = pedidoCP.CalcularMedia(id2);
-
-                Console.WriteLine("Media: " + media);
-
-
-
-
-
                 IncidenciaCEN inc1 = new IncidenciaCEN ();
                 inc1.New_ ("Mi pizza esta mala", PracticaGenNHibernate.Enumerated.Practica.EstadoIncidenciaEnum.pendiente, "alberto@email.com", DateTime.Today);
                 IncidenciaCEN inc2 = new IncidenciaCEN ();
@@ -207,17 +166,61 @@ public static void InitializeData ()
                 //inc1.IncidenciasMes(date2);
                 Console.WriteLine ("Nuevos usuarios este mes :" + usuario1.UsuariosMes (date2));
 
-                Console.WriteLine (usuario1.BuscarUsuario ("Alberto") [0].Telefono);
+                Console.WriteLine (usuario1.BuscarUsuario ("ber") [0].Telefono);
 
-            /*PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum h = PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum.pendiente;
-                  PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum x = PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum.pendiente;
-                  PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum v = PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum.contrarreembolso;
-                  PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum w = PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum.paypal;
-                  PedidoCEN pedidoCEN = new PedidoCEN ();
-                  int id2 = pedidoCEN.New_(h, date1, 1.5, v, "alberto@email.com");
-                 
-            Console.WriteLine(pedidoCEN.PedidosMensuales(date2));*/
-                
+                PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum h = PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum.pendiente;
+                PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum x = PracticaGenNHibernate.Enumerated.Practica.EstadoPedidoEnum.pendiente;
+                PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum v = PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum.contrarreembolso;
+                PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum w = PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum.paypal;
+                PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum valor = PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.buena;
+                PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum tipo = PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum.pizza;
+                PedidoCEN pedidoCEN = new PedidoCEN ();
+                int id2 = pedidoCEN.New_ (h, date1, 1.5, v, "alberto@email.com");
+                PedidoCEN pedido = new PedidoCEN ();
+                int id8 = pedido.New_ (h, date1, 2.8, v, "alberto@email.com");
+
+                IList <PedidoEN> listica = pedido.DevolverPedidosUsuario ("alberto@email.com");
+
+                Console.WriteLine ("esto es el precio total" + listica [0].PrecioTotal);
+
+                CodigoCEN codigoCEN = new CodigoCEN ();
+                int cod = codigoCEN.New_ (20, tipo, "34005");
+
+                ProductoCEN pro1 = new ProductoCEN ();
+                ProductoCEN pro2 = new ProductoCEN ();
+                ProductoCEN pro3 = new ProductoCEN ();
+
+                int pr1 = pro1.New_ (1.5, "la ostia", "el culo");
+                int pr2 = pro2.New_ (1.9, "la pene", "el culo");
+                int pr3 = pro3.New_ (1.5, "la pito", "el culo");
+
+                LineaPedidoCEN li1 = new LineaPedidoCEN ();
+                li1.New_ (pr1, id2, 3, valor);
+
+                LineaPedidoCEN li2 = new LineaPedidoCEN ();
+                li2.New_ (pr2, id2, 3, valor);
+                LineaPedidoCEN li3 = new LineaPedidoCEN ();
+                li3.New_ (pr3, id2, 3, valor);
+
+
+
+
+
+
+
+
+                pedidoCEN.AnyadirCodigo (id2, cod);
+                pedido.AnyadirCodigo (id8, cod);
+
+                long total = pedidoCEN.GetCodigosActivados ();
+
+                Console.WriteLine ("Estos son los codigos que hay activados:" + total);
+
+                Console.WriteLine (pedidoCEN.PedidosMensuales (date2));
+                PracticaGenNHibernate.CP.Practica.PedidoCP pedidoCP = new PracticaGenNHibernate.CP.Practica.PedidoCP ();
+
+                Console.WriteLine (pedidoCP.CalcularPrecio (id2));  // o al pedido que querais acceder
+
 
 
 

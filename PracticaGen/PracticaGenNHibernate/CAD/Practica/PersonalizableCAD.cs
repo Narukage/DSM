@@ -152,6 +152,9 @@ public void Modify (PersonalizableEN personalizable)
                 personalizableEN.Foto = personalizable.Foto;
 
 
+                personalizableEN.NumVeces = personalizable.NumVeces;
+
+
                 personalizableEN.Tamaño = personalizable.Tamaño;
 
 

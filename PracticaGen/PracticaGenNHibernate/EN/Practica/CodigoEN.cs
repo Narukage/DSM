@@ -33,6 +33,13 @@ private System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.Pedid
 
 
 
+/**
+ *	Atributo numero
+ */
+private string numero;
+
+
+
 
 
 
@@ -60,6 +67,12 @@ public virtual System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practic
 
 
 
+public virtual string Numero {
+        get { return numero; } set { numero = value;  }
+}
+
+
+
 
 
 public CodigoEN()
@@ -69,20 +82,20 @@ public CodigoEN()
 
 
 
-public CodigoEN(int id, int descuento, PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum tipo, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> pedido
+public CodigoEN(int id, int descuento, PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum tipo, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> pedido, string numero
                 )
 {
-        this.init (Id, descuento, tipo, pedido);
+        this.init (Id, descuento, tipo, pedido, numero);
 }
 
 
 public CodigoEN(CodigoEN codigo)
 {
-        this.init (Id, codigo.Descuento, codigo.Tipo, codigo.Pedido);
+        this.init (Id, codigo.Descuento, codigo.Tipo, codigo.Pedido, codigo.Numero);
 }
 
 private void init (int id
-                   , int descuento, PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum tipo, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> pedido)
+                   , int descuento, PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum tipo, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PedidoEN> pedido, string numero)
 {
         this.Id = id;
 
@@ -92,6 +105,8 @@ private void init (int id
         this.Tipo = tipo;
 
         this.Pedido = pedido;
+
+        this.Numero = numero;
 }
 
 public override bool Equals (object obj)

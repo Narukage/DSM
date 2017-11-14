@@ -38,7 +38,7 @@ public ICodigoCAD get_ICodigoCAD ()
         return this._ICodigoCAD;
 }
 
-public int New_ (int p_descuento, PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum p_tipo)
+public int New_ (int p_descuento, PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum p_tipo, string p_numero)
 {
         CodigoEN codigoEN = null;
         int oid;
@@ -49,13 +49,15 @@ public int New_ (int p_descuento, PracticaGenNHibernate.Enumerated.Practica.Tipo
 
         codigoEN.Tipo = p_tipo;
 
+        codigoEN.Numero = p_numero;
+
         //Call to CodigoCAD
 
         oid = _ICodigoCAD.New_ (codigoEN);
         return oid;
 }
 
-public void Modify (int p_Codigo_OID, int p_descuento, PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum p_tipo)
+public void Modify (int p_Codigo_OID, int p_descuento, PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum p_tipo, string p_numero)
 {
         CodigoEN codigoEN = null;
 
@@ -64,6 +66,7 @@ public void Modify (int p_Codigo_OID, int p_descuento, PracticaGenNHibernate.Enu
         codigoEN.Id = p_Codigo_OID;
         codigoEN.Descuento = p_descuento;
         codigoEN.Tipo = p_tipo;
+        codigoEN.Numero = p_numero;
         //Call to CodigoCAD
 
         _ICodigoCAD.Modify (codigoEN);

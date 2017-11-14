@@ -33,20 +33,20 @@ public PredefinidaEN() : base ()
 
 public PredefinidaEN(int id, string descripcion
                      , int tamaño, int masa
-                     , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
+                     , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, int numVeces
                      )
 {
-        this.init (Id, descripcion, tamaño, masa, precio, nombre, foto, lineaPedido);
+        this.init (Id, descripcion, tamaño, masa, precio, nombre, foto, lineaPedido, numVeces);
 }
 
 
 public PredefinidaEN(PredefinidaEN predefinida)
 {
-        this.init (Id, predefinida.Descripcion, predefinida.Tamaño, predefinida.Masa, predefinida.Precio, predefinida.Nombre, predefinida.Foto, predefinida.LineaPedido);
+        this.init (Id, predefinida.Descripcion, predefinida.Tamaño, predefinida.Masa, predefinida.Precio, predefinida.Nombre, predefinida.Foto, predefinida.LineaPedido, predefinida.NumVeces);
 }
 
 private void init (int id
-                   , string descripcion, int tamaño, int masa, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
+                   , string descripcion, int tamaño, int masa, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, int numVeces)
 {
         this.Id = id;
 
@@ -64,6 +64,8 @@ private void init (int id
         this.Foto = foto;
 
         this.LineaPedido = lineaPedido;
+
+        this.NumVeces = numVeces;
 }
 
 public override bool Equals (object obj)

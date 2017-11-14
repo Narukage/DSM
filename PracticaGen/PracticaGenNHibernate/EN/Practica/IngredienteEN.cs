@@ -33,20 +33,20 @@ public IngredienteEN() : base ()
 
 
 public IngredienteEN(int id, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PersonalizableEN> personalizable
-                     , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
+                     , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, int numVeces
                      )
 {
-        this.init (Id, personalizable, precio, nombre, foto, lineaPedido);
+        this.init (Id, personalizable, precio, nombre, foto, lineaPedido, numVeces);
 }
 
 
 public IngredienteEN(IngredienteEN ingrediente)
 {
-        this.init (Id, ingrediente.Personalizable, ingrediente.Precio, ingrediente.Nombre, ingrediente.Foto, ingrediente.LineaPedido);
+        this.init (Id, ingrediente.Personalizable, ingrediente.Precio, ingrediente.Nombre, ingrediente.Foto, ingrediente.LineaPedido, ingrediente.NumVeces);
 }
 
 private void init (int id
-                   , System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PersonalizableEN> personalizable, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
+                   , System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PersonalizableEN> personalizable, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, int numVeces)
 {
         this.Id = id;
 
@@ -60,6 +60,8 @@ private void init (int id
         this.Foto = foto;
 
         this.LineaPedido = lineaPedido;
+
+        this.NumVeces = numVeces;
 }
 
 public override bool Equals (object obj)

@@ -151,6 +151,9 @@ public void Modify (IngredienteEN ingrediente)
 
                 ingredienteEN.Foto = ingrediente.Foto;
 
+
+                ingredienteEN.NumVeces = ingrediente.NumVeces;
+
                 session.Update (ingredienteEN);
                 SessionCommit ();
         }

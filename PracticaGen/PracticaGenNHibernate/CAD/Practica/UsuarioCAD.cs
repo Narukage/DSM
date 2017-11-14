@@ -406,7 +406,7 @@ public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.Usuari
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM UsuarioEN self where from UsuarioEN usu where usu.Nombre like  :p_nombre";
+                //String sql = @"FROM UsuarioEN self where from UsuarioEN usu where usu.Nombre like  '%'+:p_nombre+'%'";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENbuscarUsuarioHQL");
                 query.SetParameter ("p_nombre", p_nombre);

@@ -27,5 +27,9 @@ LineaPedidoEN ReadOID (int id
 
 
 System.Collections.Generic.IList<LineaPedidoEN> ReadAll (int first, int size);
+
+
+
+System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> TopVentas ();
 }
 }

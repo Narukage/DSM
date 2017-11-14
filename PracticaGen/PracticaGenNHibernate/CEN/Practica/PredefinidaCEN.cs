@@ -38,7 +38,7 @@ public IPredefinidaCAD get_IPredefinidaCAD ()
         return this._IPredefinidaCAD;
 }
 
-public int New_ (double p_precio, string p_nombre, string p_foto, int p_tamaño, int p_masa, string p_descripcion)
+public int New_ (double p_precio, string p_nombre, string p_foto, int p_numVeces, int p_tamaño, int p_masa, string p_descripcion)
 {
         PredefinidaEN predefinidaEN = null;
         int oid;
@@ -50,6 +50,8 @@ public int New_ (double p_precio, string p_nombre, string p_foto, int p_tamaño,
         predefinidaEN.Nombre = p_nombre;
 
         predefinidaEN.Foto = p_foto;
+
+        predefinidaEN.NumVeces = p_numVeces;
 
         predefinidaEN.Tamaño = p_tamaño;
 
@@ -63,7 +65,7 @@ public int New_ (double p_precio, string p_nombre, string p_foto, int p_tamaño,
         return oid;
 }
 
-public void Modify (int p_Predefinida_OID, double p_precio, string p_nombre, string p_foto, int p_tamaño, int p_masa, string p_descripcion)
+public void Modify (int p_Predefinida_OID, double p_precio, string p_nombre, string p_foto, int p_numVeces, int p_tamaño, int p_masa, string p_descripcion)
 {
         PredefinidaEN predefinidaEN = null;
 
@@ -73,6 +75,7 @@ public void Modify (int p_Predefinida_OID, double p_precio, string p_nombre, str
         predefinidaEN.Precio = p_precio;
         predefinidaEN.Nombre = p_nombre;
         predefinidaEN.Foto = p_foto;
+        predefinidaEN.NumVeces = p_numVeces;
         predefinidaEN.Tamaño = p_tamaño;
         predefinidaEN.Masa = p_masa;
         predefinidaEN.Descripcion = p_descripcion;

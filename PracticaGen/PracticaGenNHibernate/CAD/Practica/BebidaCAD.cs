@@ -150,6 +150,9 @@ public void Modify (BebidaEN bebida)
 
                 bebidaEN.Foto = bebida.Foto;
 
+
+                bebidaEN.NumVeces = bebida.NumVeces;
+
                 session.Update (bebidaEN);
                 SessionCommit ();
         }

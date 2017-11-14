@@ -71,5 +71,7 @@
 		  
 		  <query name="PedidoENReadAllHQL">from PedidoEN</query>
 		  <query name="PedidoENpedidosMensualesHQL"><![CDATA[select count(*) from PedidoEN as ped where ped.Fecha>=:p_fecha]]></query>
+		  <query name="PedidoENgetCodigosActivadosHQL"><![CDATA[SELECT count(*) FROM PedidoEN as ped.Codigo.Numero !=null]]></query>
+		  <query name="PedidoENdevolverPedidosUsuarioHQL"><![CDATA[FROM PedidoEN as ped where ped.Usuario.Email = :usuario]]></query>
 		</hibernate-mapping>
 	

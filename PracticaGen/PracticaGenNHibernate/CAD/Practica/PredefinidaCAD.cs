@@ -154,6 +154,9 @@ public void Modify (PredefinidaEN predefinida)
                 predefinidaEN.Foto = predefinida.Foto;
 
 
+                predefinidaEN.NumVeces = predefinida.NumVeces;
+
+
                 predefinidaEN.Tamaño = predefinida.Tamaño;
 
 

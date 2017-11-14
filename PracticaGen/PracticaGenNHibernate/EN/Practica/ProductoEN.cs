@@ -40,6 +40,13 @@ private System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.Linea
 
 
 
+/**
+ *	Atributo numVeces
+ */
+private int numVeces;
+
+
+
 
 
 
@@ -73,6 +80,12 @@ public virtual System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practic
 
 
 
+public virtual int NumVeces {
+        get { return numVeces; } set { numVeces = value;  }
+}
+
+
+
 
 
 public ProductoEN()
@@ -82,20 +95,20 @@ public ProductoEN()
 
 
 
-public ProductoEN(int id, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
+public ProductoEN(int id, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, int numVeces
                   )
 {
-        this.init (Id, precio, nombre, foto, lineaPedido);
+        this.init (Id, precio, nombre, foto, lineaPedido, numVeces);
 }
 
 
 public ProductoEN(ProductoEN producto)
 {
-        this.init (Id, producto.Precio, producto.Nombre, producto.Foto, producto.LineaPedido);
+        this.init (Id, producto.Precio, producto.Nombre, producto.Foto, producto.LineaPedido, producto.NumVeces);
 }
 
 private void init (int id
-                   , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
+                   , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, int numVeces)
 {
         this.Id = id;
 
@@ -107,6 +120,8 @@ private void init (int id
         this.Foto = foto;
 
         this.LineaPedido = lineaPedido;
+
+        this.NumVeces = numVeces;
 }
 
 public override bool Equals (object obj)

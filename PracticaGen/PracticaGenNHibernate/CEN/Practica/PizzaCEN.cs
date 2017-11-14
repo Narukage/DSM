@@ -38,7 +38,7 @@ public IPizzaCAD get_IPizzaCAD ()
         return this._IPizzaCAD;
 }
 
-public int New_ (double p_precio, string p_nombre, string p_foto, int p_tamaño, int p_masa)
+public int New_ (double p_precio, string p_nombre, string p_foto, int p_numVeces, int p_tamaño, int p_masa)
 {
         PizzaEN pizzaEN = null;
         int oid;
@@ -51,6 +51,8 @@ public int New_ (double p_precio, string p_nombre, string p_foto, int p_tamaño,
 
         pizzaEN.Foto = p_foto;
 
+        pizzaEN.NumVeces = p_numVeces;
+
         pizzaEN.Tamaño = p_tamaño;
 
         pizzaEN.Masa = p_masa;
@@ -61,7 +63,7 @@ public int New_ (double p_precio, string p_nombre, string p_foto, int p_tamaño,
         return oid;
 }
 
-public void Modify (int p_Pizza_OID, double p_precio, string p_nombre, string p_foto, int p_tamaño, int p_masa)
+public void Modify (int p_Pizza_OID, double p_precio, string p_nombre, string p_foto, int p_numVeces, int p_tamaño, int p_masa)
 {
         PizzaEN pizzaEN = null;
 
@@ -71,6 +73,7 @@ public void Modify (int p_Pizza_OID, double p_precio, string p_nombre, string p_
         pizzaEN.Precio = p_precio;
         pizzaEN.Nombre = p_nombre;
         pizzaEN.Foto = p_foto;
+        pizzaEN.NumVeces = p_numVeces;
         pizzaEN.Tamaño = p_tamaño;
         pizzaEN.Masa = p_masa;
         //Call to PizzaCAD

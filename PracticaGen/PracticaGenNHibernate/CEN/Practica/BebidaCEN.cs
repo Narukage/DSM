@@ -38,7 +38,7 @@ public IBebidaCAD get_IBebidaCAD ()
         return this._IBebidaCAD;
 }
 
-public int New_ (double p_precio, string p_nombre, string p_foto)
+public int New_ (double p_precio, string p_nombre, string p_foto, int p_numVeces)
 {
         BebidaEN bebidaEN = null;
         int oid;
@@ -51,13 +51,15 @@ public int New_ (double p_precio, string p_nombre, string p_foto)
 
         bebidaEN.Foto = p_foto;
 
+        bebidaEN.NumVeces = p_numVeces;
+
         //Call to BebidaCAD
 
         oid = _IBebidaCAD.New_ (bebidaEN);
         return oid;
 }
 
-public void Modify (int p_Bebida_OID, double p_precio, string p_nombre, string p_foto)
+public void Modify (int p_Bebida_OID, double p_precio, string p_nombre, string p_foto, int p_numVeces)
 {
         BebidaEN bebidaEN = null;
 
@@ -67,6 +69,7 @@ public void Modify (int p_Bebida_OID, double p_precio, string p_nombre, string p
         bebidaEN.Precio = p_precio;
         bebidaEN.Nombre = p_nombre;
         bebidaEN.Foto = p_foto;
+        bebidaEN.NumVeces = p_numVeces;
         //Call to BebidaCAD
 
         _IBebidaCAD.Modify (bebidaEN);

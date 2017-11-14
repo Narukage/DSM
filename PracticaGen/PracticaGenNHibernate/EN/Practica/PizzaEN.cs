@@ -45,20 +45,20 @@ public PizzaEN() : base ()
 
 
 public PizzaEN(int id, int tamaño, int masa
-               , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
+               , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, int numVeces
                )
 {
-        this.init (Id, tamaño, masa, precio, nombre, foto, lineaPedido);
+        this.init (Id, tamaño, masa, precio, nombre, foto, lineaPedido, numVeces);
 }
 
 
 public PizzaEN(PizzaEN pizza)
 {
-        this.init (Id, pizza.Tamaño, pizza.Masa, pizza.Precio, pizza.Nombre, pizza.Foto, pizza.LineaPedido);
+        this.init (Id, pizza.Tamaño, pizza.Masa, pizza.Precio, pizza.Nombre, pizza.Foto, pizza.LineaPedido, pizza.NumVeces);
 }
 
 private void init (int id
-                   , int tamaño, int masa, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
+                   , int tamaño, int masa, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, int numVeces)
 {
         this.Id = id;
 
@@ -74,6 +74,8 @@ private void init (int id
         this.Foto = foto;
 
         this.LineaPedido = lineaPedido;
+
+        this.NumVeces = numVeces;
 }
 
 public override bool Equals (object obj)

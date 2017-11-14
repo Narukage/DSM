@@ -18,6 +18,9 @@
 					<property name="Tipo" > 
 						<column name="tipo"  not-null="true"/>
 					</property>
+					<property name="Numero" type="string"> 
+						<column name="numero"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -32,6 +35,8 @@
 					      	</key>
 							<one-to-many class="PracticaGenNHibernate.EN.Practica.PedidoEN"/>
 					    </bag>
+					
+			
 					
 					
 					

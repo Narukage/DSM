@@ -100,6 +100,9 @@ public void ModifyDefault (ProductoEN producto)
                 productoEN.Foto = producto.Foto;
 
 
+
+                productoEN.NumVeces = producto.NumVeces;
+
                 session.Update (productoEN);
                 SessionCommit ();
         }
@@ -159,6 +162,9 @@ public void Modify (ProductoEN producto)
 
 
                 productoEN.Foto = producto.Foto;
+
+
+                productoEN.NumVeces = producto.NumVeces;
 
                 session.Update (productoEN);
                 SessionCommit ();
@@ -232,36 +238,6 @@ public ProductoEN ReadOID (int id
         return productoEN;
 }
 
-public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ProductoEN> GetProductosNombre (string p_nombre)
-{
-        System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ProductoEN> result;
-        try
-        {
-                SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where FROM ProductoEN";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("ProductoENgetProductosNombreHQL");
-                query.SetParameter ("p_nombre", p_nombre);
-
-                result = query.List<PracticaGenNHibernate.EN.Practica.ProductoEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in ProductoCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
 public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ProductoEN> BuscarProducto (string nombre)
 {
         System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ProductoEN> result;

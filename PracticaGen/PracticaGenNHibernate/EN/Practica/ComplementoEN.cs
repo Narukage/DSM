@@ -14,20 +14,20 @@ public ComplementoEN() : base ()
 
 
 public ComplementoEN(int id,
-                     double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido
+                     double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, int numVeces
                      )
 {
-        this.init (Id, precio, nombre, foto, lineaPedido);
+        this.init (Id, precio, nombre, foto, lineaPedido, numVeces);
 }
 
 
 public ComplementoEN(ComplementoEN complemento)
 {
-        this.init (Id, complemento.Precio, complemento.Nombre, complemento.Foto, complemento.LineaPedido);
+        this.init (Id, complemento.Precio, complemento.Nombre, complemento.Foto, complemento.LineaPedido, complemento.NumVeces);
 }
 
 private void init (int id
-                   , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido)
+                   , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, int numVeces)
 {
         this.Id = id;
 
@@ -39,6 +39,8 @@ private void init (int id
         this.Foto = foto;
 
         this.LineaPedido = lineaPedido;
+
+        this.NumVeces = numVeces;
 }
 
 public override bool Equals (object obj)
