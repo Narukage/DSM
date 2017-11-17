@@ -27,5 +27,8 @@ ComplementoEN ReadOID (int id
 
 
 System.Collections.Generic.IList<ComplementoEN> ReadAll (int first, int size);
+
+
+System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ComplementoEN> TopVentas ();
 }
 }

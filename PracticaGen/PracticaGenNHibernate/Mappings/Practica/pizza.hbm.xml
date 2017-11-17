@@ -16,10 +16,10 @@
 
 			
 					
-					<property name="Tamaño" type="integer"> 
+					<property name="Tamaño" > 
 						<column name="tamaño"  not-null="true"/>
 					</property>
-					<property name="Masa" type="integer"> 
+					<property name="Masa" > 
 						<column name="masa"  not-null="true"/>
 					</property>
 			

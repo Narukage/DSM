@@ -27,5 +27,8 @@ PredefinidaEN ReadOID (int id
 
 
 System.Collections.Generic.IList<PredefinidaEN> ReadAll (int first, int size);
+
+
+System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PredefinidaEN> TopVentas ();
 }
 }

@@ -38,7 +38,7 @@ public IPersonalizableCAD get_IPersonalizableCAD ()
         return this._IPersonalizableCAD;
 }
 
-public int New_ (double p_precio, string p_nombre, string p_foto, int p_numVeces, int p_tamaño, int p_masa)
+public int New_ (double p_precio, string p_nombre, string p_foto, int p_numVeces, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum p_tamaño, PracticaGenNHibernate.Enumerated.Practica.TipoMasaEnum p_masa)
 {
         PersonalizableEN personalizableEN = null;
         int oid;
@@ -63,7 +63,7 @@ public int New_ (double p_precio, string p_nombre, string p_foto, int p_numVeces
         return oid;
 }
 
-public void Modify (int p_Personalizable_OID, double p_precio, string p_nombre, string p_foto, int p_numVeces, int p_tamaño, int p_masa)
+public void Modify (int p_Personalizable_OID, double p_precio, string p_nombre, string p_foto, int p_numVeces, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum p_tamaño, PracticaGenNHibernate.Enumerated.Practica.TipoMasaEnum p_masa)
 {
         PersonalizableEN personalizableEN = null;
 
@@ -108,6 +108,10 @@ public void EliminarIngrediente (int p_Personalizable_OID, System.Collections.Ge
         //Call to PersonalizableCAD
 
         _IPersonalizableCAD.EliminarIngrediente (p_Personalizable_OID, p_ingrediente_OIDs);
+}
+public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PersonalizableEN> TopVentas ()
+{
+        return _IPersonalizableCAD.TopVentas ();
 }
 }
 }

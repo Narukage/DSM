@@ -38,14 +38,13 @@ public void ConfirmarPedido (int p_oid)
 
 
                 // Write here your custom transaction ...
-                PedidoEN pedidoEN = pedidoCEN.ReadOID(p_oid);
+                PedidoEN pedidoEN = pedidoCEN.ReadOID (p_oid);
                 pedidoEN.Confirmado = true;
 
-                foreach (LineaPedidoEN linea in pedidoEN.LineaPedido)
-                {
-                    linea.Producto.NumVeces += linea.Cantidad;
+                foreach (LineaPedidoEN linea in pedidoEN.LineaPedido) {
+                        linea.Producto.NumVeces += linea.Cantidad;
                 }
-                pedidoCAD.ModifyDefault(pedidoEN);
+                pedidoCAD.ModifyDefault (pedidoEN);
 
 
 

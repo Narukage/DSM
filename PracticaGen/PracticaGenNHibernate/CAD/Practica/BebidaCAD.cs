@@ -254,5 +254,35 @@ public System.Collections.Generic.IList<BebidaEN> ReadAll (int first, int size)
 
         return result;
 }
+
+public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.BebidaEN> TopVentas ()
+{
+        System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.BebidaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM BebidaEN self where FROM BebidaEN as bebida order by bebida.NumVeces DESC";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("BebidaENtopVentasHQL");
+
+                result = query.List<PracticaGenNHibernate.EN.Practica.BebidaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in BebidaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

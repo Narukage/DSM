@@ -254,5 +254,35 @@ public System.Collections.Generic.IList<ComplementoEN> ReadAll (int first, int s
 
         return result;
 }
+
+public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ComplementoEN> TopVentas ()
+{
+        System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ComplementoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ComplementoEN self where FROM ComplementoEN  as complemento order by complemento.NumVeces DESC";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ComplementoENtopVentasHQL");
+
+                result = query.List<PracticaGenNHibernate.EN.Practica.ComplementoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in ComplementoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

@@ -34,5 +34,6 @@
 		 </joined-subclass>
 		  
 		  <query name="PersonalizableENReadAllHQL">from PersonalizableEN</query>
+		  <query name="PersonalizableENtopVentasHQL"><![CDATA[FROM PersonalizableEN as pizza order by pizza.NumVeces DESC]]></query>
 		</hibernate-mapping>
 	

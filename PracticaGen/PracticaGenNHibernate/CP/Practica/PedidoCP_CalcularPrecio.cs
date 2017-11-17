@@ -45,7 +45,7 @@ public double CalcularPrecio (int p_oid)
                 }
                 pedidoEN.PrecioTotal = preciototal;
 
-                pedidoCAD.ModifyDefault(pedidoEN);
+                pedidoCAD.ModifyDefault (pedidoEN);
 
                 // Write here your custom transaction ...
 

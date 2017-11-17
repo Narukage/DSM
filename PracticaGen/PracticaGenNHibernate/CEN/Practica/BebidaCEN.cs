@@ -97,5 +97,9 @@ public System.Collections.Generic.IList<BebidaEN> ReadAll (int first, int size)
         list = _IBebidaCAD.ReadAll (first, size);
         return list;
 }
+public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.BebidaEN> TopVentas ()
+{
+        return _IBebidaCAD.TopVentas ();
+}
 }
 }

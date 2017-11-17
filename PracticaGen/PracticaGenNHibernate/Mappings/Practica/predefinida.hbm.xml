@@ -27,5 +27,6 @@
 		 </joined-subclass>
 		  
 		  <query name="PredefinidaENReadAllHQL">from PredefinidaEN</query>
+		  <query name="PredefinidaENtopVentasHQL"><![CDATA[FROM PredefinidaEN as pizza order by pizza.NumVeces DESC]]></query>
 		</hibernate-mapping>
 	

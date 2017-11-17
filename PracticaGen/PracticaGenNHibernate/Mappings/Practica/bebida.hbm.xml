@@ -22,5 +22,6 @@
 		 </joined-subclass>
 		  
 		  <query name="BebidaENReadAllHQL">from BebidaEN</query>
+		  <query name="BebidaENtopVentasHQL"><![CDATA[FROM BebidaEN as bebida order by bebida.NumVeces DESC]]></query>
 		</hibernate-mapping>
 	

@@ -174,6 +174,8 @@ public static void InitializeData ()
                 PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum w = PracticaGenNHibernate.Enumerated.Practica.TipoPagoEnum.paypal;
                 PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum valor = PracticaGenNHibernate.Enumerated.Practica.TipoValoracionEnum.buena;
                 PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum tipo = PracticaGenNHibernate.Enumerated.Practica.TipoCodigoEnum.pizza;
+                PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum tamanyo = PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum.familiar;
+                PracticaGenNHibernate.Enumerated.Practica.TipoMasaEnum masa = PracticaGenNHibernate.Enumerated.Practica.TipoMasaEnum.clasica;
                 PedidoCEN pedidoCEN = new PedidoCEN ();
                 int id2 = pedidoCEN.New_ (h, date1, 1.5, v, "alberto@email.com");
                 PedidoCEN pedido = new PedidoCEN ();
@@ -186,21 +188,22 @@ public static void InitializeData ()
                 CodigoCEN codigoCEN = new CodigoCEN ();
                 int cod = codigoCEN.New_ (20, tipo, "34005");
 
-                ProductoCEN pro1 = new ProductoCEN ();
-                ProductoCEN pro2 = new ProductoCEN ();
-                ProductoCEN pro3 = new ProductoCEN ();
+                PersonalizableCEN pro1 = new PersonalizableCEN ();
+                PersonalizableCEN pro2 = new PersonalizableCEN ();
+                PersonalizableCEN pro3 = new PersonalizableCEN ();
 
-                int pr1 = pro1.New_ (1.5, "la ostia", "el culo");
-                int pr2 = pro2.New_ (1.9, "la pene", "el culo");
-                int pr3 = pro3.New_ (1.5, "la pito", "el culo");
+
+                int pr1 = pro1.New_ (1.5, "la ostia", "el culo", 0, tamanyo, masa);
+                int pr2 = pro2.New_ (1.9, "la pene", "el culo", 0, tamanyo, masa);
+                int pr3 = pro3.New_ (1.5, "la pito", "el culo", 0, tamanyo, masa);
 
                 LineaPedidoCEN li1 = new LineaPedidoCEN ();
-                li1.New_ (pr1, id2, 3, valor);
+                li1.New_ (pr1, id2, 8, valor);
 
                 LineaPedidoCEN li2 = new LineaPedidoCEN ();
-                li2.New_ (pr2, id2, 3, valor);
+                li2.New_ (pr2, id2, 1, valor);
                 LineaPedidoCEN li3 = new LineaPedidoCEN ();
-                li3.New_ (pr3, id2, 3, valor);
+                li3.New_ (pr3, id2, 5, valor);
 
 
 
@@ -211,6 +214,9 @@ public static void InitializeData ()
 
                 pedidoCEN.AnyadirCodigo (id2, cod);
                 pedido.AnyadirCodigo (id8, cod);
+                ;
+
+
 
                 long total = pedidoCEN.GetCodigosActivados ();
 
@@ -218,8 +224,12 @@ public static void InitializeData ()
 
                 Console.WriteLine (pedidoCEN.PedidosMensuales (date2));
                 PracticaGenNHibernate.CP.Practica.PedidoCP pedidoCP = new PracticaGenNHibernate.CP.Practica.PedidoCP ();
+                pedidoCP.ConfirmarPedido (id2);
+                foreach (PersonalizableEN res in pro1.TopVentas ()) {
+                        Console.Write (res.Nombre + ": ");
+                        Console.WriteLine (res.NumVeces);
+                }
 
-                Console.WriteLine (pedidoCP.CalcularPrecio (id2));  // o al pedido que querais acceder
 
 
 

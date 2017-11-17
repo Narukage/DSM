@@ -38,7 +38,7 @@ public IPredefinidaCAD get_IPredefinidaCAD ()
         return this._IPredefinidaCAD;
 }
 
-public int New_ (double p_precio, string p_nombre, string p_foto, int p_numVeces, int p_tamaño, int p_masa, string p_descripcion)
+public int New_ (double p_precio, string p_nombre, string p_foto, int p_numVeces, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum p_tamaño, PracticaGenNHibernate.Enumerated.Practica.TipoMasaEnum p_masa, string p_descripcion)
 {
         PredefinidaEN predefinidaEN = null;
         int oid;
@@ -65,7 +65,7 @@ public int New_ (double p_precio, string p_nombre, string p_foto, int p_numVeces
         return oid;
 }
 
-public void Modify (int p_Predefinida_OID, double p_precio, string p_nombre, string p_foto, int p_numVeces, int p_tamaño, int p_masa, string p_descripcion)
+public void Modify (int p_Predefinida_OID, double p_precio, string p_nombre, string p_foto, int p_numVeces, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum p_tamaño, PracticaGenNHibernate.Enumerated.Practica.TipoMasaEnum p_masa, string p_descripcion)
 {
         PredefinidaEN predefinidaEN = null;
 
@@ -105,6 +105,10 @@ public System.Collections.Generic.IList<PredefinidaEN> ReadAll (int first, int s
 
         list = _IPredefinidaCAD.ReadAll (first, size);
         return list;
+}
+public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PredefinidaEN> TopVentas ()
+{
+        return _IPredefinidaCAD.TopVentas ();
 }
 }
 }

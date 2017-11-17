@@ -266,5 +266,35 @@ public System.Collections.Generic.IList<PredefinidaEN> ReadAll (int first, int s
 
         return result;
 }
+
+public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PredefinidaEN> TopVentas ()
+{
+        System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PredefinidaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PredefinidaEN self where FROM PredefinidaEN as pizza order by pizza.NumVeces DESC";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PredefinidaENtopVentasHQL");
+
+                result = query.List<PracticaGenNHibernate.EN.Practica.PredefinidaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in PredefinidaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

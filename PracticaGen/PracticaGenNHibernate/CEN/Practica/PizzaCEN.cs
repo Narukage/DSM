@@ -38,7 +38,7 @@ public IPizzaCAD get_IPizzaCAD ()
         return this._IPizzaCAD;
 }
 
-public int New_ (double p_precio, string p_nombre, string p_foto, int p_numVeces, int p_tamaño, int p_masa)
+public int New_ (double p_precio, string p_nombre, string p_foto, int p_numVeces, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum p_tamaño, PracticaGenNHibernate.Enumerated.Practica.TipoMasaEnum p_masa)
 {
         PizzaEN pizzaEN = null;
         int oid;
@@ -63,7 +63,7 @@ public int New_ (double p_precio, string p_nombre, string p_foto, int p_numVeces
         return oid;
 }
 
-public void Modify (int p_Pizza_OID, double p_precio, string p_nombre, string p_foto, int p_numVeces, int p_tamaño, int p_masa)
+public void Modify (int p_Pizza_OID, double p_precio, string p_nombre, string p_foto, int p_numVeces, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum p_tamaño, PracticaGenNHibernate.Enumerated.Practica.TipoMasaEnum p_masa)
 {
         PizzaEN pizzaEN = null;
 

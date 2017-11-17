@@ -27,5 +27,8 @@ BebidaEN ReadOID (int id
 
 
 System.Collections.Generic.IList<BebidaEN> ReadAll (int first, int size);
+
+
+System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.BebidaEN> TopVentas ();
 }
 }

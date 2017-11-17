@@ -33,7 +33,7 @@ public PersonalizableEN() : base ()
 
 
 public PersonalizableEN(int id, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.IngredienteEN> ingrediente
-                        , int tamaño, int masa
+                        , PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum tamaño, PracticaGenNHibernate.Enumerated.Practica.TipoMasaEnum masa
                         , double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, int numVeces
                         )
 {
@@ -47,7 +47,7 @@ public PersonalizableEN(PersonalizableEN personalizable)
 }
 
 private void init (int id
-                   , System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.IngredienteEN> ingrediente, int tamaño, int masa, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, int numVeces)
+                   , System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.IngredienteEN> ingrediente, PracticaGenNHibernate.Enumerated.Practica.TamanyoEnum tamaño, PracticaGenNHibernate.Enumerated.Practica.TipoMasaEnum masa, double precio, string nombre, string foto, System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> lineaPedido, int numVeces)
 {
         this.Id = id;
 

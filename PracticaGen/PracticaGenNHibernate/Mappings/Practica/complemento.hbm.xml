@@ -22,5 +22,6 @@
 		 </joined-subclass>
 		  
 		  <query name="ComplementoENReadAllHQL">from ComplementoEN</query>
+		  <query name="ComplementoENtopVentasHQL"><![CDATA[FROM ComplementoEN  as complemento order by complemento.NumVeces DESC]]></query>
 		</hibernate-mapping>
 	

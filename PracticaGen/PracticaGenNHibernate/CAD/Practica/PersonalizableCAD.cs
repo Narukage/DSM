@@ -339,5 +339,34 @@ public void EliminarIngrediente (int p_Personalizable_OID, System.Collections.Ge
                 SessionClose ();
         }
 }
+public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PersonalizableEN> TopVentas ()
+{
+        System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PersonalizableEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PersonalizableEN self where FROM PersonalizableEN as pizza order by pizza.NumVeces DESC";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PersonalizableENtopVentasHQL");
+
+                result = query.List<PracticaGenNHibernate.EN.Practica.PersonalizableEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in PersonalizableCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

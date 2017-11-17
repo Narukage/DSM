@@ -97,5 +97,9 @@ public System.Collections.Generic.IList<ComplementoEN> ReadAll (int first, int s
         list = _IComplementoCAD.ReadAll (first, size);
         return list;
 }
+public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.ComplementoEN> TopVentas ()
+{
+        return _IComplementoCAD.TopVentas ();
+}
 }
 }

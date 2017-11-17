@@ -124,11 +124,13 @@
 			
 			
 			
+			
 	<Compile Include="EN\Practica\BebidaEN.cs" />
 	<Compile Include="CEN\Practica\BebidaCEN.cs" />
 	<Compile Include="CAD\Practica\IBebidaCAD.cs" />
 	<Compile Include="CAD\Practica\BebidaCAD.cs" />
 	<Compile Include="CP\Practica\BebidaCP.cs" />
+			
 			
 			
 			
@@ -164,6 +166,7 @@
 			
 			
 			
+			
 	<Compile Include="EN\Practica\PersonalizableEN.cs" />
 	<Compile Include="CEN\Practica\PersonalizableCEN.cs" />
 	<Compile Include="CAD\Practica\IPersonalizableCAD.cs" />
@@ -173,6 +176,7 @@
 			
 			
 			<Compile Include="CEN\Practica\PersonalizableCEN_AnaydirIngrediente.cs" />
+			
 			
 			
 			
@@ -219,7 +223,6 @@
 			
 			
 			<Compile Include="CEN\Practica\LineaPedidoCEN_ValorarLinea.cs" />
-			
 			
 	<Compile Include="EN\Practica\CodigoEN.cs" />
 	<Compile Include="CEN\Practica\CodigoCEN.cs" />

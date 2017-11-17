@@ -32,5 +32,7 @@ System.Collections.Generic.IList<PersonalizableEN> ReadAll (int first, int size)
 
 
 void EliminarIngrediente (int p_Personalizable_OID, System.Collections.Generic.IList<int> p_ingrediente_OIDs);
+
+System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.PersonalizableEN> TopVentas ();
 }
 }

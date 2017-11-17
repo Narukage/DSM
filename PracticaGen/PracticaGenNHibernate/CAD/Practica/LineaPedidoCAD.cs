@@ -270,35 +270,5 @@ public System.Collections.Generic.IList<LineaPedidoEN> ReadAll (int first, int s
 
         return result;
 }
-
-public System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> TopVentas ()
-{
-        System.Collections.Generic.IList<PracticaGenNHibernate.EN.Practica.LineaPedidoEN> result;
-        try
-        {
-                SessionInitializeTransaction ();
-                //String sql = @"FROM LineaPedidoEN self where SELECT Producto, count(*) FROM LineaPedidoEN ";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("LineaPedidoENtopVentasHQL");
-
-                result = query.List<PracticaGenNHibernate.EN.Practica.LineaPedidoEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is PracticaGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new PracticaGenNHibernate.Exceptions.DataLayerException ("Error in LineaPedidoCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
 }
 }
