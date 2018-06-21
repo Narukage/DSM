@@ -1,0 +1,36 @@
+﻿@model MvcApplication1.Models.Incidencia
+
+@{
+    ViewBag.Title = "Reportar incidencia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <a id="back" href='@Url.Action("Index", "Home")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a>
+
+    <fieldset>
+        <legend>Incidencia</legend>
+
+        @Html.HiddenFor(model => model.iduser)
+        @Html.HiddenFor(model => model.fecha)
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.descripcion, new { cols = 200, @rows = 15 })
+            @Html.ValidationMessageFor(model => model.descripcion)
+        </div>
+        <p>
+            <input type="submit" value="Reportar" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Roboto+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/themes/admin.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/themes/Cesta.css">
+    <link rel="stylesheet" href="~/Content/themes/back.css">
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row header">
+            <div class="col logo">
+                <a href='@Url.Action("PanelAdmin", "Home")'><img src="~/Content/themes/base/images/logo.png" class="img-fluid float-left" id="logo" width="200" height="200"></a>
+            </div>
+            <div class="col">
+                <h1 class="text-center" id="panel-title">Panel del Administrador</h1>
+            </div>
+            <div class="col">
+                @if (@User.Identity.Name != "admin@epizza.com")
+                {
+                    <span class="float-right"> Hola, @User.Identity.Name </span>
+                }
+                <div class="panel-group float-right">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#collapse1" class="float-right"><i class="fa fa-user fa-2x" id="admin-profile-button" aria-hidden="true"></i></a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse float-right">
+                            <div class="panel-body">
+                                @Html.ActionLink("Mi perfil", "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Administrar" })
+                            </div>
+                            <div class="panel-body">
+                                @Html.ActionLink("Panel", "PanelAdmin", "Home")
+                            </div>
+                            <div class="panel-body">
+                                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <a href="javascript:document.getElementById('logoutForm').submit()">Desconectar</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,54 @@
+﻿@model MvcApplication1.Models.Ingrediente
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar Ingrediente</h2>
+
+@using (Html.BeginForm("Edit", "Ingrediente", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Ingrediente</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nombre)
+            @Html.ValidationMessageFor(model => model.Nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.precio)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.precio, new { @type = "number", @min = "0", @step = "0.01", @value = "0" })
+            @Html.ValidationMessageFor(model => model.precio)
+        </div>
+
+        <div class="editor-label">
+            @Html.EditorFor(model => model.Foto)
+        </div>
+        <div class="editor-field">
+            <img height="800" width="600" src="@Model.Foto" />
+        </div>
+        <div>
+            <input type="file" name="file" />
+        </div>
+
+        <p>
+            <input type="submit" value="Guardar" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

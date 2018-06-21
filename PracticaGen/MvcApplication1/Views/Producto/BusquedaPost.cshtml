@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MvcApplication1.Models.Producto>
+
+@{
+    ViewBag.Title = "BusquedaPost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Resultado de la búsqueda</h2>
+@{
+
+if (Model.Any()) {
+
+foreach (var item in Model)
+{
+  
+    <div class="producto">
+        <div> <img height="250" width="250" src="@Html.DisplayFor(modelItem => item.Foto)" />@Html.ActionLink("+", "AddCarrito", "LineaPedido", new { u = User.Identity.Name, p = item.Id, c = 1 }, new { @class = "add" })</div>
+        <table>
+            <tr class="nombre_producto"><td>@Html.DisplayFor(modelItem => item.Nombre)</td></tr>
+            <tr><td>@Html.DisplayFor(modelItem => item.Precio)</td></tr>
+        </table>
+    </div>
+}
+}
+else
+{
+    <tr>No se ha encontrado ningún producto</tr>
+}
+   
+}

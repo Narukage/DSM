@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MvcApplication1.Models.Complemento>
+
+@{
+    ViewBag.Title = "Top";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Top Complementos</h2>
+
+<table>
+    <tr>
+        <th>
+            Nº
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            Cantidad
+        </th>
+    </tr>
+    @{ int cont = 1;}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @cont
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numVeces)
+            </td>
+        </tr>
+        cont++;
+    }
+
+</table>

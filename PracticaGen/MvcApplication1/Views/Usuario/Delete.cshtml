@@ -1,0 +1,69 @@
+﻿@model MvcApplication1.Models.Usuario
+
+@{
+    ViewBag.Title = "Delete";
+    if (User.Identity.Name.Equals("admin@epizza.com"))
+    {
+        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+}
+
+
+<h2 class="tit_inicio"><a id="back" href='@Url.Action("PanelAdmin", "Home")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a> Dar de baja</h2>
+
+<h3 class="tit_inicio">¿Esta seguro que desea de dar de baja a este usuario?</h3>
+
+<div class="container-fluid">
+    <div class="col text-center">
+        <fieldset>
+            <legend class="tit_inicio">Usuario</legend>
+
+            <div class="display-label titulares">
+                @Html.DisplayNameFor(model => model.email)
+            </div>
+            <div class="display-field secundarios">
+                @Html.DisplayFor(model => model.email)
+            </div>
+
+            <div class="display-label titulares">
+                @Html.DisplayNameFor(model => model.nombre)
+            </div>
+            <div class="display-field secundarios">
+                @Html.DisplayFor(model => model.nombre)
+            </div>
+
+            <div class="display-label titulares">
+                @Html.DisplayNameFor(model => model.telefono)
+            </div>
+            <div class="display-field secundarios">
+                @Html.DisplayFor(model => model.telefono)
+            </div>
+
+            <div class="display-label titulares">
+                @Html.DisplayNameFor(model => model.fecha_reg)
+            </div>
+            <div class="display-field secundarios">
+                @Html.DisplayFor(model => model.fecha_reg)
+            </div>
+
+            <div class="display-label titulares">
+                @Html.DisplayNameFor(model => model.fecha_nac)
+            </div>
+            <div class="display-field secundarios">
+                @Html.DisplayFor(model => model.fecha_nac)
+            </div>
+        </fieldset>
+    </div>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Dar de baja" class="boton_confirmacion btn btn-success" />
+    </p>
+}

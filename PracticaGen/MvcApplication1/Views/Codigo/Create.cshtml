@@ -1,0 +1,61 @@
+﻿@model MvcApplication1.Models.Codigo
+
+@{
+    ViewBag.Title = "Añadir";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<a id="back" href='@Url.Action("Index", "Codigo")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a>
+
+<h2 class="text-center">Añadir nuevo código</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="row justify-content-center">
+
+        <div class="col-md-2 col-md-offset-5 text-center">
+
+            <hr>
+            <fieldset>
+
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Descuento)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Descuento)
+                    @Html.ValidationMessageFor(model => model.Descuento)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Numero)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Numero)
+                    @Html.ValidationMessageFor(model => model.Numero)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Tipo)
+                </div>
+                <div class="editor-field">
+                    @Html.RadioButtonFor(model => model.Tipo, "pizza")<span>Pizza</span>
+                    @Html.RadioButtonFor(model => model.Tipo, "complemento")<span>Complementos</span>
+                    @Html.RadioButtonFor(model => model.Tipo, "bebida")<span>Bebida</span>
+                </div>
+                <p>
+                    <input class="admin_boton_crear btn btn-success" type="submit" value="Añadir" />
+                </p>
+            </fieldset>
+
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

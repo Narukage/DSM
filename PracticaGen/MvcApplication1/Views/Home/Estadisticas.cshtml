@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Estadisticas";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<a id="back" href='@Url.Action("PanelAdmin", "Home")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a>
+
+
+<fieldset>
+    <legend><h3 class="text-center">Estadísticas</h3></legend>
+
+
+    <div class="row">
+        <div class="col-4 text-center">
+            <span>Visitas mensuales: 1.554</span>
+        </div>
+        <div class="col-4 text-center">
+            <span>Usuarios nuevos hoy: @ViewData["usuarios"]</span>
+        </div>
+        <div class="col-4 text-center">
+            <span>Inicidencias: @ViewData["incidencia"]</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 text-center">
+            <span>Pedidos mensuales: @ViewData["pedidos"]</span>
+        </div>
+        <div class="col-4 text-center">
+            <span>Usuarios dados de baja: ?</span>
+        </div>
+        <div class="col-4 text-center">
+            <span>Codigos activados: @ViewData["codigos"]</span>
+        </div>
+    </div>
+    <p class="text-center">@Html.ActionLink("Pedidos mensuales", "PedidosMensualesPost", "pedido", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+    <p class="text-center">@Html.ActionLink("Incidencias mensuales", "IncidenciasMensualesPost", "incidencia", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+    <p class="text-center">@Html.ActionLink("Códigos en activo", "CodigosActivados", "Pedido", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+    <p class="text-center">@Html.ActionLink("Top ventas", "TopVentasPost", "Producto", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+    <div class="row">
+        <div class="col-4 text-center">
+            <p class="text-center">@Html.ActionLink("Pizzas Predefinidas", "Top", "Predefinida", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+        </div>
+        <div class="col-4 text-center">
+            <p class="text-center">@Html.ActionLink("Complementos", "Top", "Complemento", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+        </div>
+        <div class="col-4 text-center">
+            <p class="text-center">@Html.ActionLink("Bebidas", "Top", "Bebida", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+        </div>
+    </div>
+</fieldset>

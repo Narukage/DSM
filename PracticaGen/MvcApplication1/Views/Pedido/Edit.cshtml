@@ -1,0 +1,78 @@
+﻿@model MvcApplication1.Models.Pedido
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2 class="text-center">Editar pedido</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    <div class="container-fluid">
+        <div class="col text-center">
+            <fieldset>
+
+
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.PrecioTotal)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.PrecioTotal)
+                    @Html.ValidationMessageFor(model => model.PrecioTotal)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Fecha)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Fecha)
+                    @Html.ValidationMessageFor(model => model.Fecha)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Confirmado)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Confirmado)
+                    @Html.ValidationMessageFor(model => model.Confirmado)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Estado)
+                </div>
+                <div class="editor-field">
+                    @Html.RadioButtonFor(model => model.Estado, "pendiente")<span>Pendiente</span>
+                    @Html.RadioButtonFor(model => model.Estado, "recibido")<span>Recibido</span>
+                    @Html.RadioButtonFor(model => model.Estado, "rechazado")<span>Rechazado</span>
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.TipoPago)
+                </div>
+                <div class="editor-field">
+                    @Html.RadioButtonFor(model => model.TipoPago, "paypal")<span>Paypal</span>
+                    @Html.RadioButtonFor(model => model.TipoPago, "tarjeta")<span>Tarjeta</span>
+                    @Html.RadioButtonFor(model => model.TipoPago, "contrarreembolso")<span>Contrarreembolso</span>
+
+                </div>
+
+
+
+                <p>
+                    <input class="admin_boton_crear btn btn-success" type="submit" value="Guardar" />
+                </p>
+            </fieldset>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

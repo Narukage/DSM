@@ -1,0 +1,114 @@
+﻿html
+{
+	width: 			100%;
+	height: 		100%;
+}
+
+
+body
+{
+	width: 			100%;
+	height:			100%;
+}
+.cestica
+{
+    margin-top: 20px;
+}
+
+.titulo_cesta
+{
+	font-family: 	'barlow Condensed';
+	text-decoration: underline;
+	color: #D10505;
+}
+.subtitulo_cesta
+{
+	font-family: 	'barlow Condensed';
+}
+
+.tabla_productos_cesta
+{
+    width: 100%;
+}
+
+.cesta_productos
+{
+	border: solid;
+	margin-right: 10px;
+	margin-left: 20px;
+}
+
+.productos_cesta
+{
+    overflow-y: scroll;
+    height: 200px;
+}
+
+.productos_cesta_item
+{
+    font-size: 16px;
+}
+
+.productos_cesta, .direcciones_cesta, .otra_direccion
+{
+	height: 450px;
+	margin: 20px;
+	
+}
+
+.direcciones_cesta
+{
+    overflow-y: scroll;
+}
+.otra_direccion
+{
+    height:auto;
+}
+
+.direcciones_cesta_item
+{
+	font-family: 'Roboto Condensed';
+	margin-left: 50px;
+}
+
+.cesta_direcciones
+{
+	border: solid;
+	margin: 0 10px;
+    height: 600px;
+	
+}
+.cesta_formaPago
+{
+	
+	margin: 0 10px;
+	margin-right: 20px;
+}
+
+.titulo_cesta_precio
+{
+	font-family: 'Roboto Condensed';
+	text-decoration: none;
+}
+
+.precio_cesta
+{
+	font-family: 'Roboto Condensed';
+	font-size: 1.5em;
+	color: #D10505;
+}
+
+.boton_comprar.btn.btn-outline-danger.btn-block.text-center
+{
+	color: white;
+	background-color: #D10505;
+}
+.enlace_cesta, .enlace_cesta:hover
+{
+	color: #D10505;
+}
+.b_cesta
+{
+    color: black;
+    font-family: 'Roboto Condensed';
+}

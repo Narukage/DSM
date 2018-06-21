@@ -1,0 +1,37 @@
+﻿@model IEnumerable<MvcApplication1.Models.Predefinida>
+
+@{
+    ViewBag.Title = "Top";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Top Predefinidas</h2>
+
+<table>
+    <tr>
+        <th>
+           Nº
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            Cantidad
+        </th>
+    </tr>
+    @{ int cont =1;}
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           @cont
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumVeces)
+        </td>
+    </tr>
+     cont++;
+}
+
+</table>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MvcApplication1.Models.Usuario>
+
+@{
+    ViewBag.Title = "ResultadoBusqueda2";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("ResultadoBusqueda2", "usuario", null, FormMethod.Post, new { @class = "form-search form-horizontal pull-right", @id = "custom-search-form" }))
+{
+    <div class="input-append span12">
+        <button type="submit" class="btn pull-right"><i class="fa fa-search"></i></button>
+
+        @Html.TextBox("nombre", null, new { @class = "search-query" })
+
+    </div>
+}
+<h2>Resultado Busqueda</h2>
+
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contrasenya)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_reg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_nac)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contrasenya)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_reg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_nac)
+        </td>
+        <td>
+            <i class="fa fa-trash fa"> @Html.ActionLink("Dar de baja", "Delete", new { id = item.id }, new { @class = "b_delete" })</i>
+        </td>
+    </tr>
+}
+
+</table>

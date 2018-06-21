@@ -1,0 +1,98 @@
+﻿@model MvcApplication1.Models.Personalizada
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Detalles de la pizza personalizada</h2>
+
+
+<div class="container-fluid">
+    <div class="row detalles_pedido_admin">
+        <div class="col cesta_productos_admin">
+            <h2>Detalles generales</h2>
+            <table class="tabla_detalles_pedido">
+                <tr>
+                    <td>
+                        <p>Id de la pizza: </p>
+                    </td>
+                    <td>
+                        <p>@Html.DisplayFor(model => model.Id)</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p>Precio de la pizza: </p>
+                    </td>
+                    <td>
+                        <p>@Html.DisplayFor(model => model.Precio)</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p>Nombre de la pizza: </p>
+                    </td>
+                    <td>
+                        <p>@Html.DisplayFor(model => model.Nombre)</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p>Masa de la pizza: </p>
+                    </td>
+                    <td>
+                        <p>@Html.DisplayFor(model => model.masa)</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p>Tamaño de la pizza: </p>
+                    </td>
+                    <td>
+                        <p>@Html.DisplayFor(model => model.tamaño)</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col cesta_productos_admin">
+            <h2>Detalles de los ingredientes</h2>
+            <table class="tabla_detalles_pedido">
+                <tr>
+                    <th>
+                        <p>Foto</p>
+                    </th>
+                    <th>
+                        <p>Nombre</p>
+                    </th>
+                    <th>
+                        <p>Precio</p>
+                    </th>
+
+                </tr>
+                @foreach (var item in Model.ingredientes)
+                {
+                    <tr>
+                        <td>
+                            <p class=""><img src="@item.Foto" height="100" width="100" /></p>
+                        </td>
+                        <td>
+                            <p class="">@item.Nombre</p>
+                        </td>
+                        <td>
+                            <p class="">@item.precio €</p>
+                        </td>
+                    </tr>
+                }
+
+
+            </table>
+        </div>
+    </div>
+</div>
+
+

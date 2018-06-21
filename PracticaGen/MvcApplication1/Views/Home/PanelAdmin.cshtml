@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "PanelAdmin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>PanelAdmin</h2>
+<div class="row menu">
+    <div class="col">
+        <p class="text-center" id="icono"><i class="fa fa-user fa-2x"></i></p>
+        <fieldset>
+            <legend><h3 class="text-center">Gestión de usuarios</h3></legend>
+            <p class="text-center">@Html.ActionLink("Dar de alta", "Create", "Usuario", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+            <p class="text-center">@Html.ActionLink("Consultar datos", "Index", "Usuario", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+            <p class="text-center">@Html.ActionLink("Dar de baja", "DeleteList", "Usuario", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+        </fieldset>
+    </div>
+    <div class="col">
+        <p class="text-center" id="icono"><i class="fa fa-cutlery fa-2x"></i></p>
+        <fieldset>
+            <legend><h3 class="text-center">Gestión de productos</h3></legend>
+            <p class="text-center">@Html.ActionLink("Dar de alta", "seleccionTipo", "producto", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+            <p class="text-center">@Html.ActionLink("Modificar", "IndexEdit", "producto", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+            <p class="text-center">@Html.ActionLink("Dar de baja", "IndexDel", "producto", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+        </fieldset>
+    </div>
+    <div class="col">
+        <p class="text-center" id="icono"><i class="fa fa-shopping-cart fa-2x"></i></p>
+        <fieldset>
+            <legend><h3 class="text-center">Gestión de pedidos</h3></legend>
+            <p class="text-center">@Html.ActionLink("Dar de alta", "Create", "Pedido", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+            <p class="text-center">@Html.ActionLink("Modificar", "IndexEdit", "Pedido", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+            <p class="text-center">@Html.ActionLink("Añadir linea pedido", "Create", "LineaPedido", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+            <!-- <p class="text-center"><a href="" class="btn btn-outline-danger btn-block" role="button">Estado del pedido</a></p> -->
+            <p class="text-center">@Html.ActionLink("Dar de baja", "IndexDel", "Pedido", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+            <p class="text-center">@Html.ActionLink("Listado de pedidos", "Index", "Pedido", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+            <p class="text-center">@Html.ActionLink("Consultar pedidos por id", "Busqueda", "Pedido", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+            <p class="text-center">@Html.ActionLink("Consultar pedidos por usuario", "BusquedaPorUsuario", "Pedido", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+
+        </fieldset>
+    </div>
+    <div class="col">
+        <p class="text-center" id="icono"><i class="fa fa-window-maximize fa-2x"></i></p>
+        <fieldset>
+            <legend><h3 class="text-center">Otras gestiones</h3></legend>
+            <p class="text-center">@Html.ActionLink("Incidencias", "Index", "incidencia", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+            <p class="text-center">@Html.ActionLink("Gestionar códigos", "Index", "codigo", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+        </fieldset>
+    </div>
+
+</div>
+<hr>
+<div class="row stats">
+    <br>
+    <div class="col-12">
+        <p class="text-center"><i class="fa fa-bar-chart"></i>@Html.ActionLink("Consultar estadísticas", "Estadisticas", "Home", null, new { @class = "btn btn-outline-danger btn-block" })</p>
+    </div>
+
+</div>

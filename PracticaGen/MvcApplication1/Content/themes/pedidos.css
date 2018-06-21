@@ -1,0 +1,52 @@
+﻿.checked {
+color: orange;
+}
+
+.pedido_container
+{
+    width: 700px;
+    height:  auto;
+
+    display: block;
+    margin: auto;
+    margin-bottom: 75px;
+    font-family: 'Barlow Condensed';
+}
+.pedido_container h2
+{
+    font-size: 2em;
+}
+
+.pedido_container_datos
+{
+    width: 700px;
+    height: 250px;
+
+    display: block;
+    margin: auto;
+}
+.pedido_container_datos_productos
+{
+     width: 700px;
+     height: 250px;
+     overflow-y: scroll;
+     border: solid;
+}
+.nombre_pedidos
+{
+     margin-bottom: 0 !important;
+}
+.fecha_pedido
+{
+    font-size: 24px;
+    text-align: right;
+    margin-bottom: 0 !important;
+}
+
+.tabla_detalles_hist_pedidos
+{
+    width: 100%;
+    text-align:left;
+   
+}
+

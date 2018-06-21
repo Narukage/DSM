@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MvcApplication1.Models.LineaPedido>
+
+@{
+    ViewBag.Title = "LineaPedido";
+}
+
+<h2>Lineas de pedidos</h2>
+
+
+  
+<table>
+    @if (Model.Any())
+    {
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valoracion)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.producto)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Subtotal)
+            </th>
+
+
+           
+            <th></th>
+        </tr>
+    }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valoracion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subtotal)
+            </td>
+                
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

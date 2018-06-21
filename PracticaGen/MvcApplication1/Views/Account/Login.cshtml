@@ -1,0 +1,63 @@
+﻿@model MvcApplication1.Models.LoginModel
+
+@{
+    ViewBag.Title = "Iniciar sesión";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section id="loginForm">
+    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+
+
+        <div class="container-fluid">
+            <div class="col text-center">
+                <fieldset>
+                    <legend class="tit_inicio">Iniciar sesión</legend>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            @Html.LabelFor(m => m.UserName)
+                        </div>
+                        <div class="col-sm-1">
+                            @Html.TextBoxFor(m => m.UserName)
+                            @Html.ValidationMessageFor(m => m.UserName)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            @Html.LabelFor(m => m.Password)
+                        </div>
+                        <div class="col-sm-1">
+                            @Html.PasswordFor(m => m.Password)
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Iniciar sesión"  class="btn btn-success"/>
+                </fieldset>
+
+                <p class="tit_inicio">
+                    @Html.ActionLink("Regístrese", "Register", "Account", new { @class = "linko" }) si no tiene ninguna cuenta.
+                </p>
+            </div>
+        </div>
+    }
+</section>
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

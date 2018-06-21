@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="PracticaGenNHibernate"
+		                   namespace="PracticaGenNHibernate.EN.Practica">
+		    
+		    
+			
+				<class name="DireccionEN" table="Direccion"> 
+				  	
+						<id name="Id" column="idDireccion" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Localidad" type="string"> 
+						<column name="localidad"  not-null="true"/>
+					</property>
+					<property name="Provincia" type="string"> 
+						<column name="provincia"  not-null="true"/>
+					</property>
+					<property name="Calle" type="string"> 
+						<column name="calle"  not-null="true"/>
+					</property>
+					<property name="Codp" type="integer"> 
+						<column name="codp"  not-null="true"/>
+					</property>
+					<property name="Numero" type="integer"> 
+						<column name="numero"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Usuario" table="[usuario_direccion]" inverse="true" >
+							<key>
+								
+									<column name="FK_idDireccion_idDireccion"/> 
+							</key>
+      						<many-to-many class="PracticaGenNHibernate.EN.Practica.UsuarioEN">
+									<column name="FK_id_idUsuario"/> 
+      						</many-to-many>
+    					</bag>
+			
+			
+		  			
+						<bag name="Pedido" >
+							<key>
+							
+								
+								<column name="FK_idDireccion_idDireccion"/>
+					      	</key>
+							<one-to-many class="PracticaGenNHibernate.EN.Practica.PedidoEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="DireccionENReadAllHQL">from DireccionEN</query>
+		</hibernate-mapping>
+	

@@ -1,0 +1,23 @@
+﻿@model MvcApplication1.Models.Pedido
+
+@{
+    ViewBag.Title = "Buscar pedido por Id";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<a id="back" href='@Url.Action("PanelAdmin", "Home")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a>
+
+<h2 class="text-center">Búsqueda de pedido por Id</h2>
+
+@using (Html.BeginForm("BusquedaPost", "Pedido"))
+{
+    <p class="text-center">
+        @Html.TextBox("id")
+        <br />
+        <input type="submit" value="Buscar" class="admin_boton_crear btn btn-success" />
+        
+       
+    </p>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,71 @@
+﻿@model MvcApplication1.Models.Usuario
+
+@{
+    ViewBag.Title = "Perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2 class="titulo_perfil"><a id="back" href='@Url.Action("Index", "Home")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a> Perfil</h2>
+<div class="row">
+    <div class="col">
+        <fieldset>
+            <legend class="titulo_perfil">Datos del usuario</legend>
+
+            <div class="display-label datos_usuarios">
+                <p><span class="cat_datos">@Html.DisplayNameFor(model => model.nombre):</span> @Html.DisplayFor(model => model.nombre)</p>
+            </div>
+
+            <div class="display-label datos_usuarios">
+                <p><span class="cat_datos">@Html.DisplayNameFor(model => model.email):</span> @Html.DisplayFor(model => model.email)</p> 
+            </div>
+
+            <div class="display-label datos_usuarios">
+                <p><span class="cat_datos">@Html.DisplayNameFor(model => model.telefono):</span> @Html.DisplayFor(model => model.telefono)</p>
+            </div>
+
+            <div class="display-label datos_usuarios">
+                <p><span class="cat_datos">@Html.DisplayNameFor(model => model.fecha_reg):</span> @Html.DisplayFor(model => model.fecha_reg)</p>
+            </div>
+
+            <div class="display-label datos_usuarios">
+                <p><span class="cat_datos">@Html.DisplayNameFor(model => model.fecha_nac):</span> @Html.DisplayFor(model => model.fecha_nac)</p>
+            </div>
+        </fieldset>
+
+        <p class="datos_usuarios">
+            @Html.ActionLink("Modificar datos", "Edit", "Usuario", new { id = Model.id }, new { @class = "edit" })
+        </p>
+    </div>
+    <div class="col">
+       <h2 class="titulo_perfil">Direcciones de envio</h2> 
+        @if(Model.direccion.Any()){
+            foreach( var item in Model.direccion){
+                
+                <p>
+                    <span class="categorias_direcciones">Provincia: </span> <span class="direcciones">@Html.DisplayFor(modelItem => item.provincia)</span>
+                    <span class="categorias_direcciones">Localidad:</span> <span class ="direcciones">@Html.DisplayFor(modelItem => item.localidad)</span>
+                    <span class="categorias_direcciones">Dir. Postal:</span> <span class="direcciones">@Html.DisplayFor(modelItem => item.codp)</span>
+                    <span class="categorias_direcciones">Calle: </span> <span class="direcciones">@Html.DisplayFor(modelItem => item.calle)</span>
+                    <span class="categorias_direcciones">Nº </span><span class="direcciones">@Html.DisplayFor(modelItem => item.numero)</span>
+                    @Html.ActionLink("Editar", "Edit", "Direccion", new { id = item.id }, new { @class="edit" })
+                    @Html.ActionLink("Eliminar", "Delete", "Direccion", new { id = item.id }, new { @class = "edit" })
+                </p>
+             
+            }
+        }
+        else
+        {
+            <span>No hay ninguna dirección asociada</span>    
+        }
+        @Html.ActionLink("Añadir dirección", "Create", "Direccion", null,new { @class = "edit" })
+    </div>
+
+    
+    </div>
+<div class="row">
+    <div class="col">
+        @Html.ActionLink("Eliminar cuenta", "Delete", "Usuario", new { id = Model.id }, new { @class = "edit" })
+    </div>
+</div>

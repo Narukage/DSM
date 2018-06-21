@@ -1,0 +1,56 @@
+﻿@model MvcApplication1.Models.RegisterModel
+@{
+    ViewBag.Title = "Registrarse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <hr />
+    <h1 class="tit_inicio">Cree una cuenta nueva.</h1>
+
+    <div class="container-fluid">
+        <div class="col text-center">
+            <fieldset>
+                <legend class="tit_inicio">Formulario de registro</legend>
+
+                <div class="row">
+                    <div class="col-sm-1">
+                        @Html.LabelFor(m => m.UserName)
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.TextBoxFor(m => m.UserName)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1">
+                        @Html.LabelFor(m => m.Password)
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.PasswordFor(m => m.Password)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1">
+                        @Html.LabelFor(m => m.ConfirmPassword)
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.PasswordFor(m => m.ConfirmPassword)
+                    </div>
+                </div>
+                @Html.HiddenFor(m => Model.id)
+
+                <input type="submit" value="Registrarse" class="boton_confirmacion btn btn-success" />
+            </fieldset>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

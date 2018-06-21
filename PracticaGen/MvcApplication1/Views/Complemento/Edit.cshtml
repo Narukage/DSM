@@ -1,0 +1,56 @@
+﻿@model MvcApplication1.Models.Complemento
+
+@{
+    ViewBag.Title = "Editar";
+}
+<a id="back" href='@Url.Action("Index", "Complemento")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a>
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm(Html.BeginForm("Edit", "Complemento", FormMethod.Post, new { enctype = "multipart/form-data" })))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Complemento</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.precio)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.precio, new { @type = "number", @min = "0", @step = "0.01", @value = "0" })
+            @Html.ValidationMessageFor(model => model.precio)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nombre)
+            @Html.ValidationMessageFor(model => model.nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.EditorFor(model => model.foto)
+        </div>
+        <div class="editor-field">
+            <img height="400" width="400" src="@Model.foto" />
+        </div>
+        <div>
+            <input type="file" name="file" />
+        </div>
+
+        <p>
+            <input type="submit" value="Guardar" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

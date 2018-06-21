@@ -1,0 +1,49 @@
+﻿
+
+.titulo
+{
+    font-family:    'Barlow Condensed';
+    font-size:      48px;
+    font-weight:    bold;
+    text-align:     center;
+    margin-top:     20px;
+}
+
+.titulo-oferta
+{
+    font-family:    'Barlow Condensed';
+    font-size:      36px;
+    font-weight:    bold;
+    text-align:     center;
+    margin-top:     20px;
+}
+
+.titulo-pizza
+{
+    font-weight:    bold;
+}
+
+p
+{
+    font-family:    'Roboto Condensed';
+    font-size:      25px;
+}
+.fecha
+{
+    font-weight:    bold;
+}
+
+.pedido-link
+{
+    color: black;
+    text-decoration: underline;
+}
+
+.pedido-link:hover
+{
+    color: #4CDC3E;
+}
+.imagen_oferta
+{
+    width: 75%;
+}

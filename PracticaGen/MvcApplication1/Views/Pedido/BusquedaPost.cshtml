@@ -1,0 +1,86 @@
+﻿@model IEnumerable<MvcApplication1.Models.Pedido>
+
+@{
+    ViewBag.Title = "BusquedaPost";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<a id="back" href='@Url.Action("PanelAdmin", "Home")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a>
+
+<h2>Resultado de la búsqueda</h2>
+<table>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                Id pedido
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Estado del pedido
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Fecha del pedido
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Precio total
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioTotal)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Tipo de pago
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoPago)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ¿Confirmado?
+            </td>
+            @if (item.Confirmado == true)
+            {
+
+                <td>Confirmado</td>
+
+            }
+            else
+            {
+
+                <td>Sin confirmar</td>
+
+            }
+        </tr>
+        <tr>
+            <td>
+                +info
+            </td>
+            <td>
+                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "b_otro" })
+
+
+            </td>
+        </tr>
+
+    }
+</table>

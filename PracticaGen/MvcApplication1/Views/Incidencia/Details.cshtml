@@ -1,0 +1,35 @@
+﻿@model MvcApplication1.Models.Incidencia
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="w-25 p-3">Detalles de la Incidencia</h2>
+<div class="content">
+
+        <div class="h4">
+            @Html.DisplayNameFor(model => model.iduser)
+        </div>
+    <div class="display-field px-2">
+        @Html.DisplayFor(model => model.iduser)
+    </div>
+
+        <div class="h4">
+            @Html.DisplayNameFor(model => model.fecha)
+        </div>
+    <div class="display-field px-2">
+        @Html.DisplayFor(model => model.fecha)
+    </div>
+
+        <div class="h4">
+            @Html.DisplayNameFor(model => model.descripcion)
+        </div>
+    <div class="display-field px-2">
+        @Html.DisplayFor(model => model.descripcion)
+    </div>
+        <p>
+            @Html.ActionLink("Volver", "Index", null, new { @class = "b_otro" })
+        </p>
+ 
+</div>

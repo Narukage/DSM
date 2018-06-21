@@ -1,0 +1,19 @@
+﻿@model MvcApplication1.Models.Producto
+
+@{
+    ViewBag.Title = "Añadir nuevo producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>¡Busca tu producto!</h2>
+
+@using (Html.BeginForm("BusquedaPost", "Producto"))
+{
+    <p>
+        <input type="submit" value="Buscar" />
+        @Html.TextBox("nombre")
+    </p>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

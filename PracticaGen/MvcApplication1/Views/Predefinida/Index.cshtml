@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MvcApplication1.Models.Predefinida>
+
+@{
+    ViewBag.Title = "Pizzas Predefinidas";
+}
+
+<h2>PIZZAS PREDEFINIDAS</h2>
+
+<p>
+    @Html.ActionLink("Añadir", "Create")
+</p>
+@{
+    
+if (Model.Any()) {
+
+}
+else
+{
+    <tr>No hay productos existentes</tr>
+}
+}
+@foreach (var item in Model)
+{
+    <div style="display:inline-block">
+            <img height="140" width="140 " src="@Html.DisplayFor(modelItem => item.Foto)" />
+    <table>
+           <tr><td>@Html.DisplayFor(modelItem => item.Nombre)</td></tr>
+       
+           <tr><td>@Html.DisplayFor(modelItem => item.Descripcion)</td></tr>
+
+        <tr><td> @Html.DisplayFor(modelItem => item.precio)</td></tr>
+        <tr><td>
+    @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            <td></tr>
+</table>
+       </div>
+      
+  
+}

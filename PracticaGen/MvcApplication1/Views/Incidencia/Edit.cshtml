@@ -1,0 +1,61 @@
+﻿@model MvcApplication1.Models.Incidencia
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Editar incidencia</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Incidencia</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.iduser)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.iduser)
+            @Html.ValidationMessageFor(model => model.iduser)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fecha)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.fecha)
+            @Html.ValidationMessageFor(model => model.fecha)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.descripcion)
+            @Html.ValidationMessageFor(model => model.descripcion)
+        </div>
+
+        <div class="editor-label h4">
+            @Html.LabelFor(model => model.estado)
+        </div>
+        <div class="editor-field px-2">
+            @Html.RadioButtonFor(model => model.estado, "pendiente")<span>Pendiente</span>
+            @Html.RadioButtonFor(model => model.estado, "resuelta")<span>Resuelto</span>
+        </div>
+
+        <p>
+            <input type="submit" value="Guardar" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

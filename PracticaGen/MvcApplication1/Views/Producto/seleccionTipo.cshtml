@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "seleccionTipo";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<a id="back" href='@Url.Action("PanelAdmin", "Home")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a>
+
+<h2 class="text-center">Seleccionar tipo</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img src="~/Images/pizzawena.jpg" class="img-fluid float-left img_tipo_prod" width="200" height="200">
+        </div>
+        <div class="col">
+            <img src="~/Images/chicken-nuggets-308448_960_720.png" class="img-fluid float-left img_tipo_prod" width="200" height="200">
+        </div>
+        <div class="col">
+            <img src="~/Images/Drinks-24_icon-icons.com_61949.png" class="img-fluid float-left img_tipo_prod" width="200" height="200">
+        </div>
+        <div class="col">
+            <img src="~/Images/ingre.jpg" class="img-fluid float-left img_tipo_prod" width="200" height="200">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <a class="b_otro link_tipo_prod" href='@Url.Action("Create", "Predefinida")'>Pizza</a>
+        </div>
+    </div>
+    <div class="col text-center">
+        <a class="b_otro link_tipo_prod" href='@Url.Action("Create", "Complemento")'>Complemento</a>
+    </div>
+    <div class="col text-center">
+        <a class="b_otro link_tipo_prod" href='@Url.Action("Create", "Bebida")'>Bebida</a>
+    </div>
+    <div class="col text-center">
+        <a class="b_otro link_tipo_prod" href='@Url.Action("Create", "Ingrediente")'>Ingrediente</a>
+    </div>
+</div>
+</div>

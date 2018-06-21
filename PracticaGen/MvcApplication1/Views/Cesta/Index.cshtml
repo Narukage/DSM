@@ -1,0 +1,172 @@
+﻿@model IEnumerable<MvcApplication1.Models.Cesta>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+@using (Html.BeginForm("Index", "Cesta", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="container-fluid">
+        <div class="row cestica">
+            <div class="col cesta_productos">
+                <h2 class="titulo_cesta text-center">Cesta</h2>
+                <div class="productos_cesta">
+                    <table class="tabla_productos_cesta">
+                        @foreach (var item in Model)
+                        {
+                            if (item.pedido.LinPed.Any())
+                            {
+                                foreach (var item2 in item.pedido.LinPed)
+                                {
+                                    <tr>
+                                        <td>
+                                            <p class="productos_cesta_item"><img width="50" height="50" src="@Html.DisplayFor(itemModel => item2.producto.Foto)" /> </p>
+                                        </td>
+                                        <td>
+                                            <p class="productos_cesta_item">@Html.DisplayFor(itemModel => item2.producto.Nombre)</p>
+                                        </td>
+                                        <td>
+                                            <p class="productos_cesta_item">@Html.DisplayFor(itemModel => item2.producto.Precio)</p>
+                                        </td>
+                                        <td>
+                                            <p class="productos_cesta_item"> x @Html.DisplayFor(itemModel => item2.Cantidad)</p>
+                                        </td>
+                                        <td>
+                                            <p class="productos_cesta_item"><i class="fa fa-trash fa"> @Html.ActionLink("Borrar", "BorrarLineaCesta", "LineaPedido", new { id = item2.Id }, new { @class = "b_cesta" })</i></p>
+                                        </td>
+                                        <td>
+                                            <p class="productos_cesta_item">@Html.ActionLink(" + ", "anyadirCantidadLinea", "LineaPedido", new { id = item2.Id }, new { @class = "b_cesta" })</p>
+                                        </td>
+                                        <td>
+                                            <p class="productos_cesta_item">@Html.ActionLink(" - ", "restarCantidadLinea", "LineaPedido", new { id = item2.Id }, new { @class = "b_cesta" })</p>
+                                        </td>
+                                    </tr>
+
+                                }
+                            }
+                            else
+                            {
+                                <p> La cesta no contiene ningún producto</p>
+                            }
+                        }
+                    </table>
+                </div>
+            </div>
+
+            <div class="col cesta_direcciones">
+
+                <h2 class="titulo_cesta text-center">Dirección de envio</h2>
+                <div class="direcciones_cesta">
+                    <h3 class="subtitulo_cesta">¿A donde quieres que te lo llevemos?</h3>
+                    @foreach (var item in Model)
+                    {
+                        if (item.usuario.direccion.Any())
+                        {
+                            for (int i = 0; i < item.usuario.direccion.Count(); i++)
+                            {
+                                <div class="radio">
+
+                                    <label class="direcciones_cesta_item"> @Html.RadioButtonFor(model => model.Last().usuario.direccion[0].id, Model.Last().usuario.direccion[i].id) @Html.DisplayFor(itemModel => item.usuario.direccion[i].calle) Nº @Html.DisplayFor(itemModel => item.usuario.direccion[i].numero), @Html.DisplayFor(itemModel => item.usuario.direccion[i].localidad)</label>
+
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <p>@Html.ActionLink(" Introduce una dirección", "Create", "Direccion", null, new { @class = "enlace_cesta" })</p>
+                        }
+
+                    }
+                </div>
+                <div class="otra_direccion">
+                    <h3 class="subtitulo_cesta">¿Estas en otro sitio?, @Html.ActionLink(" dinos donde", "Create", "Direccion", null, new { @class = "enlace_cesta" })</h3>
+                    <div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col cesta_formaPago">
+                <h2 class="titulo_cesta text-center">Forma de pago</h2>
+                <div class="formaPago_cesta">
+                    <h3 class="subtitulo_cesta">Elige como aflojar la pasta: </h3>
+                    <div class="radio">
+                        <label class="direcciones_cesta_item">
+                            @Html.RadioButtonFor(model => model.Last().pedido.TipoPago, "Contrarreembolso") Contrarreembolso
+                        </label>
+                    </div>
+
+                    <div class="radio">
+                        <label class="direcciones_cesta_item">
+                            @Html.RadioButtonFor(model => model.Last().pedido.TipoPago, "paypal") Paypal
+                        </label>
+                    </div>
+                    <div class="radio disabled">
+                         <label class="direcciones_cesta_item">
+                            @Html.RadioButtonFor(model => model.Last().pedido.TipoPago, "tarjeta") Tarjeta de crédito
+                         </label>
+                    </div>
+
+                    <h2 class="titulo_cesta_precio text-center">Total del pedido:<span class="precio_cesta"> @foreach (var item in Model)
+                    {@Html.DisplayFor(itemModel => item.pedido.PrecioTotal)}</span></h2>
+
+                    <div class="text-center">
+
+
+                        @Html.HiddenFor(model => model.Last().pedido.Id)
+                        @Html.HiddenFor(model => model.Last().pedido.Fecha)
+                        @Html.HiddenFor(model => model.Last().pedido.Estado)
+                        @Html.HiddenFor(model => model.Last().pedido.iduser)
+                        @Html.HiddenFor(model => model.Last().pedido.valoracion)
+                        @Html.HiddenFor(model => model.Last().pedido.LinPed)
+                        @Html.HiddenFor(model => model.Last().pedido.Confirmado)
+                        @Html.HiddenFor(model => model.Last().pedido.PrecioTotal)
+                        @Html.HiddenFor(model => model.Last().usuario.id)
+                        
+
+                        @if (Model.Last().pedido.LinPed.Count == 0 || !Model.Last().usuario.direccion.Any())
+                        {
+                            <p>
+                                <input type="submit" value="Confirmar pedido" class="boton_comprar btn btn-outline-danger btn-block text-center" disabled />
+                            </p>
+                        }
+                        else
+                        {
+                            <p>
+                                <input type="submit" value="Confirmar pedido" class="boton_comprar btn btn-outline-danger btn-block text-center" />
+                            </p>
+                        }
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+}
+
+<div class="comprobar_codigo">
+    <h2 class="titulo_cesta text-center">¿Tienes algún código promocional?</h2>
+
+    @using (Html.BeginForm("Comprobar", "Codigo"))
+    {
+        <p> @Html.TextBox("cod") </p>
+
+        <div>
+            <input type="submit" value="Aplicar descuento" class="boton_confirmacion btn btn-success" />
+        </div>
+
+    }
+
+</div>

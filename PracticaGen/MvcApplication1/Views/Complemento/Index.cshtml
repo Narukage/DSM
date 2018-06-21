@@ -1,0 +1,60 @@
+﻿@model IEnumerable<PracticaGenNHibernate.EN.Practica.ComplementoEN>
+
+@{
+    ViewBag.Title = "Complementos";
+}
+
+<h2>Complementos</h2>
+
+<p>
+    @Html.ActionLink("Añadir complemento", "Create")
+</p>
+<table>
+@{
+    
+    if (Model.Any())
+    {
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Foto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumVeces)
+            </th>
+            <th></th>
+        </tr>
+    }
+    else
+    {
+        <tr>No hay complementos disponibles</tr>
+    }
+}
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Foto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumVeces)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

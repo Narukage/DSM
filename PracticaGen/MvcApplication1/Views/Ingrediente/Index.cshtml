@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MvcApplication1.Models.Ingrediente>
+
+@{
+    ViewBag.Title = "Ingredientes";
+}
+
+<h2>INGREDIENTES</h2>
+
+<p>
+    @Html.ActionLink("Añadir", "Create")
+</p>
+
+    @{
+
+        if (Model.Any())
+        {
+
+        }
+        else
+        {
+            <span>No hay ingredientes existentes</span>
+        }
+    }
+    @foreach (var item in Model)
+    {
+        <div style="display:inline-block">
+            <img height="140" width="140 " src="@Html.DisplayFor(modelItem => item.Foto)" />
+            <table>
+                <tr><td> @Html.DisplayFor(modelItem => item.Nombre)</td></tr>
+
+                <tr><td>@Html.DisplayFor(modelItem => item.Precio)</td></tr>
+                <tr>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    }
+

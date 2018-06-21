@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="PracticaGenNHibernate"
+		                   namespace="PracticaGenNHibernate.EN.Practica">
+		    
+		    
+			
+				
+<joined-subclass name="BebidaEN" extends="PracticaGenNHibernate.EN.Practica.ProductoEN" table="Bebida"> 
+	<key>
+    	
+				<column name="idProducto"/>
+		
+    	
+   	</key>
+
+			
+					
+			
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="BebidaENReadAllHQL">from BebidaEN</query>
+		  <query name="BebidaENtopVentasHQL"><![CDATA[FROM BebidaEN as bebida order by bebida.NumVeces DESC]]></query>
+		</hibernate-mapping>
+	

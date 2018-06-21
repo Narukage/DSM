@@ -1,0 +1,161 @@
+﻿@model MvcApplication1.Models.Pedido
+
+@{
+    ViewBag.Title = "Detalles del pedido";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="titulo_detalles_pedido">Detalles del pedido</h2>
+
+<div class="container-fluid"></div>
+<div class="row detalles_pedido_admin">
+    <div class="col cesta_productos_admin">
+        <h2>Detalles generales</h2>
+        <table class="tabla_detalles_pedido">
+            <tr>
+                <td>
+                    <p>Id del pedido: </p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(model => model.Id)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Id del usuario: </p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(model => model.iduser)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Confirmado: </p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(model => model.Confirmado)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Precio total del pedido: </p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(model => model.PrecioTotal)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Fecha de realización: </p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(model => model.Fecha)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Estado del pedido: </p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(model => model.Estado)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Valoración del pedido: </p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(model => model.valoracion) / 5</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col cesta_productos_admin">
+        <h2>Dirección de envio del pedido</h2>
+        <table class="tabla_detalles_pedido">
+            <tr>
+                <td>
+                    <p>Provincia: </p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(model => model.direcion.provincia)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Localidad: </p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(model => model.direcion.localidad)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Código postal: </p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(model => model.direcion.codp)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Calle del usuario: </p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(model => model.direcion.calle)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Número de la calle: </p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(model => model.direcion.numero)</p>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+    <div class="col cesta_productos_admin">
+        <h2>Lineas del pedido</h2>
+        <table class="tabla_detalles_pedido">
+            <tr>
+                <th>
+                    <p>Producto</p>
+                </th>
+                <th>
+                    <p>Cantidad</p>
+                </th>
+                <th>
+                    <p>Precio total</p>
+                </th>
+
+            </tr>
+
+            @foreach (MvcApplication1.Models.LineaPedido l in Model.LinPed)
+            {
+                <tr>
+                    <td>
+                        @if (l.producto.Nombre == "Pizza Personalizada")
+                        {
+                            <p class="text-center">@l.producto.Nombre @Html.ActionLink("(Ver detalles)", "Details", "Personalizada", new { id = l.producto.Id }, new { @class = "b_otro" })</p>
+                        }
+                        else
+                        {
+                            <p class="text-center">@l.producto.Nombre</p>
+                        }
+                    </td>
+                    <td>
+                        <p class="text-center">x @l.Cantidad</p>
+                    </td>
+                    <td>
+                        <p class="text-center">@l.Subtotal €</p>
+                    </td>
+                </tr>
+
+            }
+
+        </table>
+    </div>
+</div>

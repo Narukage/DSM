@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "RecuperarContrasenya";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 class="tit_recup">Recuperar contraseña</h2>
+
+@using (Html.BeginForm("RecuperarContrasenya", "Usuario"))
+{
+    <p>Introduzca su correo electrónico </p>
+    <p> @Html.TextBox("correo", "") </p>
+
+    <div>
+        <input type="submit" value="Enviar" class="admin_boton_crear btn btn-success" />
+       
+
+    </div>
+}
+   

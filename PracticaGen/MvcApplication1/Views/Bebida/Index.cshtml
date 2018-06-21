@@ -1,0 +1,57 @@
+﻿@model IEnumerable<PracticaGenNHibernate.EN.Practica.BebidaEN>
+
+@{
+    ViewBag.Title = "Bebidas";
+}
+
+@Html.ActionLink("Añadir bebida", "Create")
+
+@{if (Model.Any())
+{
+ 
+}
+  else
+  {
+    <h2 class="titulo_seccion">No hay bebidas.</h2>
+   
+  }
+}
+
+<br /><br /><br /><br /><br />
+
+@foreach (var item in Model)
+{
+   <div>
+     
+       <table>
+           <tr>@Html.DisplayFor(modelitem => item.Foto)</tr>
+           <tr>@Html.DisplayFor(modelItem => item.Nombre)</tr>
+           <tr>@Html.DisplayFor(modelItem => item.Precio)</tr>
+
+        @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+
+       </table>
+
+
+    </div>
+
+
+    /*<div>
+        <div>
+            <img height="140" width="140 " src="@Html.DisplayFor(modelItem => item.Foto)" />
+        </div>
+        <p>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </p>
+        <div>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </div>
+    </div>*/
+}
+
+

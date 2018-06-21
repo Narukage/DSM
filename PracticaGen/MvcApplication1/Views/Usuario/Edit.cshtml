@@ -1,0 +1,64 @@
+﻿@model MvcApplication1.Models.Usuario
+
+@{
+    ViewBag.Title = "Editar datos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a id="back" href='@Url.Action("Perfil", "Account")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a>
+
+<h2>Editar datos</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Usuario</legend>
+
+@Html.HiddenFor(model => model.id)
+@Html.HiddenFor(model => model.email)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nombre)
+            @Html.ValidationMessageFor(model => model.nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.telefono)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.telefono)
+            @Html.ValidationMessageFor(model => model.telefono)
+        </div>
+        @Html.HiddenFor(model => model.contrasenya) <!-- Al estar cifrada la contrasenya y volverse a pasar, se vuelve a cifrar y luego no deja volver a entrar con ese usuario -->
+        @Html.HiddenFor(model => model.fecha_reg)
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fecha_nac)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.fecha_nac)
+            @Html.ValidationMessageFor(model => model.fecha_nac)
+        </div>
+
+        <p>
+            <input type="submit" value="Guardar" />
+        </p>
+    </fieldset>
+
+
+}
+<div>
+ @Html.ActionLink("Cambiar contraseña", "Manage","Account", null ,new { @class="edit" })
+</div>
+
+<div>
+    @Html.ActionLink("Volver al perfil", "Perfil","Account")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

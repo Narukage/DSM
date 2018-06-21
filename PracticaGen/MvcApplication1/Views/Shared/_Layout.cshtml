@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" href="~/Content/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="~/Content/themes/pie_pagina_privacidad.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet" href="~/Content/themes/heber.css">
+        <link rel="stylesheet" href="~/Content/themes/ofertas.css">
+        <link rel="stylesheet" href="~/Content/themes/perfil.css">
+        <link rel="stylesheet" href="~/Content/themes/Cesta.css">
+        <link rel="stylesheet" href="~/Content/themes/back.css">
+        <link rel="stylesheet" href="~/Content/themes/carousel.css">
+        <link rel="stylesheet" href="~/Content/formularios.css">
+        <link rel="stylesheet" href="~/Content/themes/pedidos.css">
+
+
+        <meta name="viewport" content="width=device-width" />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row header" id="header">
+                <div class="col-2 logo">
+                    <a href='@Url.Action("Index", "Home")'><img src="~/Content/themes/base/images/logo.png" class="img-fluid float-left" id="logo" width="200" height="200"></a>
+                </div>
+               
+                <div class="col-2 busqueda">
+                    <div class="span12">
+                        @using (Html.BeginForm("BusquedaPost", "Producto", null, FormMethod.Post, new { @class = "form-search form-horizontal pull-right", @id="custom-search-form"}))
+                        {
+                            <div class="input-append span12">
+                                <button type="submit" class="btn pull-right"><i class="fa fa-search"></i></button>
+                                
+                                @Html.TextBox("nombre", null, new {@class="search-query" })
+                               
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col-4" id="thelongscreen">
+                    <ul>
+                        <li>@Html.ActionLink("Pizzas", "IndexUser", "Predefinida")</li>
+                        <li>@Html.ActionLink("Complementos", "IndexUser", "complemento")</li>
+                        <li>@Html.ActionLink("Bebidas", "IndexUser", "bebida")</li>
+                        <li>@Html.ActionLink("Ofertas", "Ofertas", "Home")</li>
+                    </ul>
+                </div>
+
+                <div id="theshortscreen">
+                    <button data-toggle="collapse" data-target="#demo"><img src="~/Images/burger.png" width="50"></button>
+
+                    <div id="demo" class="collapse">
+                        <ul>
+                            <li>@Html.ActionLink("Pizzas", "IndexUser", "Predefinida")</li>
+                            <br />
+                            <li>@Html.ActionLink("Complementos", "IndexUser", "complemento")</li>
+                            <br />
+                            <li>@Html.ActionLink("Bebidas", "IndexUser", "bebida")</li>
+                            <br />
+                            <li>@Html.ActionLink("Ofertas", "Ofertas", "Home")</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-4" id="identif">
+                    <ul id="identificarse">
+                        @Html.Partial("_LoginPartial")
+                        
+                    </ul>
+                </div>
+            </div>
+       </div>
+
+
+
+
+            <div id="body">
+                @RenderSection("featured", required: false)
+                <section class="content-wrapper main-content clear-fix">
+                    @RenderBody()
+                </section>
+            </div>
+
+
+
+            <div class="row footer">
+                <div class="col-3">
+                    <p>@Html.ActionLink("Conoce quienes somos", "QuienesSomos", "Home")</p>
+                </div>
+                <div class="col-3">
+                    <p>@Html.ActionLink("Contacta con nosotros", "Contacto", "Home")</p>
+                </div>
+                <div class="col-3">
+                    <p>@Html.ActionLink("Politica de privacidad", "PoliticaPrivacidad", "Home")</p>
+                </div>
+                <div class="col-3">
+                    <p>@Html.ActionLink("Preguntas frecuentes", "PreguntasFrecuentes", "Home")</p>
+                </div>
+            </div>
+
+            @Scripts.Render("~/bundles/jquery")
+            @RenderSection("scripts", required: false)
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+

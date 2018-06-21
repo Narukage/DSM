@@ -1,0 +1,71 @@
+﻿@model MvcApplication1.Models.LineaPedido
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">Añadir linea de pedido</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    <div class="container-fluid">
+        <div class="col text-center">
+            <fieldset>
+
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.idpedido)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.idpedido)
+                    @Html.ValidationMessageFor(model => model.idpedido)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.idproducto)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.idproducto)
+                    @Html.ValidationMessageFor(model => model.idproducto)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Cantidad)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Cantidad)
+                    @Html.ValidationMessageFor(model => model.Cantidad)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Valoracion)
+                </div>
+                <div class="editor-field">
+                    @Html.RadioButtonFor(model => model.Valoracion, "sin_valorar")<span>Sin valorar</span>
+                    @Html.RadioButtonFor(model => model.Valoracion, "mala")<span>Mala</span>
+                    @Html.RadioButtonFor(model => model.Valoracion, "regular")<span>Regular</span>
+                    @Html.RadioButtonFor(model => model.Valoracion, "buena")<span>Buena</span>
+                    @Html.RadioButtonFor(model => model.Valoracion, "muybuena")<span>Muy Buena</span>
+                    @Html.RadioButtonFor(model => model.Valoracion, "excelente")<span>Excelente</span>
+                </div>
+
+                <p>
+                    <input type="submit" value="Añadir" class="admin_boton_crear btn btn-success" />
+                </p>
+            </fieldset>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

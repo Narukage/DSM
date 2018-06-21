@@ -1,0 +1,9 @@
+﻿.content-wrapper main-content clear-fix {
+    text-align: center!important;
+}
+
+
+.col-sm-1 {
+    flex: none!important;
+    max-width: none!important;
+}

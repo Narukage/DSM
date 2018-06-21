@@ -1,0 +1,67 @@
+﻿@model IEnumerable<MvcApplication1.Models.Personalizada>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Foto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.masa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ingredientes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tamaño)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Foto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.masa)
+        </td>
+   
+        <td>
+            @Html.DisplayFor(modelItem => item.tamaño)
+        </td>
+        <td>
+
+
+            @foreach (var item2 in item.ingredientes)
+            {
+                @Html.DisplayFor(modelItem => item2.Nombre)
+                <span> / </span>
+            }
+
+        </td>
+
+    </tr>
+}
+
+</table>

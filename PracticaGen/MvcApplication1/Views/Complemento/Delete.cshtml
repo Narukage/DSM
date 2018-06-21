@@ -1,0 +1,41 @@
+﻿@model MvcApplication1.Models.Complemento
+
+@{
+    ViewBag.Title = "Delete";
+}
+<a id="back" href='@Url.Action("Index", "Complemento")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a>
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Complemento</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.precio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.precio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.foto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.foto)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MvcApplication1.Models.Usuario>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h2><a id="back" href='@Url.Action("PanelAdmin", "Home")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a> Usuarios</h2>
+@using (Html.BeginForm("ResultadoBusqueda", "usuario", null, FormMethod.Post, new { @class = "form-search form-horizontal pull-right", @id = "custom-search-form" }))
+{
+    <div class="input-append span12">
+        <button type="submit" class="btn pull-right"><i class="fa fa-search"></i></button>
+
+        @Html.TextBox("nombre", null, new { @class = "search-query" })
+
+    </div>
+}
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contrasenya)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_reg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_nac)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contrasenya)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_reg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_nac)
+            </td>
+        </tr>
+    }
+
+</table>

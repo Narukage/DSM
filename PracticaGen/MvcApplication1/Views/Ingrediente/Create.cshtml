@@ -1,0 +1,59 @@
+﻿@model MvcApplication1.Models.Ingrediente
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<a id="back" href='@Url.Action("seleccionTipo", "Producto")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a>
+
+<h2 class="text-center">Añadir nuevo ingrediente</h2>
+
+@using (Html.BeginForm("Create", "Ingrediente", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    <div class="container-fluid">
+        <div class="col text-center">
+            <fieldset>
+
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Nombre)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Nombre)
+                    @Html.ValidationMessageFor(model => model.Nombre)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.precio)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.precio, new { @type = "number", @min = "0", @step = "0.01", @value = "0" })
+                    @Html.ValidationMessageFor(model => model.precio)
+                </div>
+
+                <div class="editor-field">
+                    @Html.LabelFor(model => model.Foto)
+                </div>
+                <div>
+                    <input type="file" name="file" />
+                </div>
+
+                <p>
+                    <input type="submit" value="Añadir" class="admin_boton_crear btn btn-success" />
+                </p>
+            </fieldset>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("vOL", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

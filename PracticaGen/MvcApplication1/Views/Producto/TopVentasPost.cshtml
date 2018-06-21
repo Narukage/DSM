@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MvcApplication1.Models.Producto>
+
+@{
+    ViewBag.Title = "TopVentasPost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Top Ventas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table border="1" cellpadding="5" style="margin: 0 auto;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+          Veces pedido
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumVeces)
+            </td>
+        </tr>
+    }
+
+</table>

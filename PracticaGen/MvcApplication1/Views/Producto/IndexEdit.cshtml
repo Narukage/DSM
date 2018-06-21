@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MvcApplication1.Models.Producto>
+
+@{
+    ViewBag.Title = "Pizzas Predefinidas";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h2><a id="back" href='@Url.Action("PanelAdmin", "Home")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a> PRODUCTOS</h2>
+
+<div class="container-fluid">
+    <div class=" text-center">
+        <table class="text-center">
+            @if (Model.Any())
+            {
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Precio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Foto)
+                    </th>
+                    <th></th>
+                </tr>
+            }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </td>
+                    <td>
+                        <img height="140" width="140 " src="@Html.DisplayFor(modelItem => item.Foto)" />
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "b_otro" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+<div>
+    <a class="b_otro" href='@Url.Action("PanelAdmin", "Home")'>Volver a la lista</a>
+</div>

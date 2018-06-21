@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MvcApplication1.Models.Predefinida>
+
+@{
+    ViewBag.Title = "Pizzas Predefinidas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="penne" style="position:absolute;">
+    <a id="back" href='@Url.Action("Index", "Home")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a>
+</div>
+<h2 class="titulo_seccion">PIZZAS PREDEFINIDAS</h2>
+
+@{
+
+    if (Model.Any())
+    {
+
+    }
+    else
+    {
+        <span>No hay productos existentes</span>
+    }
+}
+
+@foreach (var item in Model) { 
+        <div class="producto">
+    @using (Html.BeginForm("CreateyAnyade", "LineaPedido",new {id=item.Id,vuelve ="Predefinida"})){
+            if (User.Identity.Name != ""){
+            <p> @Html.TextBox("cantidad", "1", new { type = "number", min = "1", max = "10", name = "cantidad", id = "cantidad" }) </p> 
+             <input type="submit" class="add" value="+" />
+        }
+            <img height="250" width="250 " src="@Html.DisplayFor(modelItem => item.Foto)" />
+    } 
+         <table>
+                <tr class="nombre_producto"><td>@Html.DisplayFor(modelItem => item.Nombre)</td></tr>
+
+                <tr class ="desc_producto"><td>@Html.DisplayFor(modelItem => item.Descripcion)</td></tr>
+           
+                <tr><td> @Html.DisplayFor(modelItem => item.precio)</td></tr>
+           
+            </table>
+   </div>
+}

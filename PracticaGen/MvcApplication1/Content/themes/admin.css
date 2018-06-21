@@ -1,0 +1,306 @@
+﻿
+.container-full 			/* No lo estoy usando (uso container-fluid) */
+{
+	margin:				0 auto;
+	width: 				100%;
+
+}
+
+.header
+{
+	background-color: 	#D10505;
+}
+.menu
+{
+
+}
+
+#logo
+{
+	min-width: 50px;
+	min-height: auto;
+}
+
+#admin-profile-button
+{
+    color: white;
+}
+a{
+    color: white !important;
+    text-align: center;
+}
+
+h1
+{
+	margin:				auto;
+	width: 				100%;
+}
+#panel-title
+{
+	font-family: 		'Barlow Condensed', 'sans-serif';
+	font-size: 			3em;
+	color: 				white;
+	margin-top: 		40px;
+}
+
+.page-header
+{
+	width: 				100%;
+}
+
+
+/*#profile-button
+{
+	margin-top: 		40px;
+
+}
+
+i
+{
+	vertical-align: middle;
+}*/
+
+h3
+{
+	font-size: 2em;
+}
+
+
+fieldset
+{
+	border-style: 		solid;
+	border-radius:		8px;
+	border:				8px !important
+}
+.btn.btn-outline-danger
+{
+	background-color: 	#D10505;
+	color:				white;
+	border-color: 		black;
+	font-size: 1.5em;
+}
+.btn.btn-outline-danger:active, .btn.btn-outline-danger:link
+{
+	background-color: 	#D10505;
+	color:				white;
+	border-color: 		black;
+}
+
+#icono
+{
+	margin-top: 20px;
+}
+
+.row.menu
+{
+	font-family: 'Barlow Condensed', 'sans-serif';
+}
+
+
+@media screen and (max-width: 347px)
+{
+	#panel-title
+	{
+		
+		font-size: 			1em;
+		margin-top:			8px;
+		
+	}
+	.col-2.logo
+	{
+		padding-left: 		0.1em;
+	}
+
+	#profile-button
+	{
+		margin-top: 		10px;
+
+	}
+
+}
+
+
+@media screen and (min-width: 349px) and ( max-width: 1350px)
+{
+	#panel-title
+	{
+		
+		font-size: 			1.5em;
+		margin-top:			8px;
+		
+	}
+
+	
+
+
+
+
+}
+
+@media screen and (min-width: 500px) and ( max-width: 1110px) 
+{
+    #panel-title
+	{
+		
+		font-size: 			1.8em !important;
+		margin-top:			8px;
+		
+	}
+}
+
+@media screen and (min-width: 602px) and ( max-width: 1350px)
+{
+	#panel-title
+	{
+		
+		font-size: 			2.5em;
+		margin-top:			8px;
+		
+	}
+
+	#logo
+	{
+		width: 95px;
+		height: auto;
+	}
+
+	.header
+	{
+		height:				80px;
+	}
+}
+
+.b_delete {
+    color:red !important;
+    font-family: 'Roboto Condensed';
+}
+.b_otro {
+    color:black !important;
+    text-decoration:underline;
+    width:initial;
+}
+
+table {
+    border: 1px solid black;
+    width: 100%;
+    font-family: 'Roboto Condensed';
+}
+
+
+.tabla_detalles_pedido
+{
+    border: none !important;
+    font-family: 'Roboto Condensed';
+}
+
+
+.detalles_pedido_admin {
+    margin-top: 20px;
+}
+
+.detalles_pedido_admin h2
+{
+    font-family: 'Barlow Condensed';
+    font-size: 3em;
+    color: #D10505;
+}
+
+.detalles_pedido_admin p
+{
+    font-family: 'Roboto Condensed';
+    font-size: 1.5em;
+}
+.detalles_pedido_admin div
+{
+    overflow-y: scroll;
+}
+.titulo_detalles_pedido
+{
+    font-family: 'Barlow Condensed';
+    font-size: 3em;
+    color: #D10505;
+}
+
+.cesta_productos_admin
+{
+    border: solid;
+    margin-right: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    height: 600px;
+}
+h2
+{
+    font-family: 'Barlow Condensed';
+}
+.editor-label
+{
+    font-family: 'Roboto Condensed';
+    
+}
+.editor-field
+{
+    font-family: 'Roboto Condensed';
+    
+}
+.editor-label label
+{
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+}
+
+.admin_boton_crear
+{
+    margin-top: 20px;
+}
+.link_tipo_prod
+{
+    font-family: 'Roboto Condensed';
+}
+
+
+@media screen and (max-width: 1400px)
+{
+    .cesta_productos_admin
+    {
+        flex-basis:auto;
+    }
+
+    .cesta_productos_admin h2
+    {
+        text-align: center;
+    }
+    
+}
+@media screen and (max-width: 620px)
+{
+    .cesta_productos_admin h2
+    {
+        font-size: 2.5em;
+        text-align: center;
+    }
+    .cesta_productos_admin th p {
+        font-size: 1em ;
+    }
+    .cesta_productos_admin td p {
+        font-size: 1em ;
+    }
+    
+}
+
+@media screen and (max-width: 575px) 
+{
+    .img_tipo_prod
+    {
+        width: 100%;
+    }
+    
+}
+
+
+
+
+
+
+
+

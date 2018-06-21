@@ -1,0 +1,108 @@
+﻿@model MvcApplication1.Models.VistaPersonalizada
+
+@{
+    ViewBag.Title = "Personalizar pizza";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "VistaPersonalizada", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2>Personaliza tu pizza!!!</h2>
+        </div>
+    </div>
+   
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <h4>Ingredientes</h4>
+        </div>
+    </div>
+
+    foreach (var item in Model.ingredientes)
+    {
+        <div class="producto">
+            <img id="@Html.DisplayFor(modelItem => item.Id)" style="border:0px solid #4CAF50" height="140" width="140 " src="@Html.DisplayFor(modelItem => item.Foto)" />
+            <table>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio) €
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.ActionLink("+", "anyadirIngrediente", "Personalizada", new { id = item.Id, pizzaid = Model.personalizada.Id }, new { @class = "linko" })
+                    </td>
+                    <td>
+                        @Html.ActionLink("-", "eliminarIngrediente", "Personalizada", new { id = item.Id, pizzaid = Model.personalizada.Id }, new { @class = "linko" })
+                    </td>
+                 </tr>
+
+                        </table>
+                    </div>
+    }
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <h4>Tamaño</h4>
+        </div>
+    </div>
+    <div class="editor-field">
+        <div class="row">
+            <div class="col-4 text-center">
+                @Html.RadioButtonFor(model => model.personalizada.tamaño, "pequenya")<span>Pequeña</span>
+            </div>
+            <div class="col-4 text-center">
+                @Html.RadioButtonFor(model => model.personalizada.tamaño, "normal")<span>Normal</span>
+            </div>
+            <div class="col-4 text-center">
+                @Html.RadioButtonFor(model => model.personalizada.tamaño, "Familiar")<span>Familiar</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <h4>Masa</h4>
+        </div>
+    </div>
+    <div class="editor-field">
+        <div class="row">
+            <div class="col-3 text-center">
+                @Html.RadioButtonFor(model => model.personalizada.masa, "extra_fina")<span>Extrafina</span>
+            </div>
+            <div class="col-3 text-center">
+                @Html.RadioButtonFor(model => model.personalizada.masa, "clasica")<span>Clásica</span>
+            </div>
+            <div class="col-3 text-center">
+                @Html.RadioButtonFor(model => model.personalizada.masa, "gruesa")<span>Gruesa</span>
+            </div>
+            <div class="col-3 text-center">
+                @Html.RadioButtonFor(model => model.personalizada.masa, "rellena_de_queso")<span>Rellena de queso</span>
+            </div>
+        </div>
+    </div>
+     @Html.HiddenFor(model => model.personalizada.Id)
+     @Html.HiddenFor(model => model.personalizada.Precio)
+    <p>  PrecioTotal: @Html.DisplayFor(model => model.personalizada.Precio)</p>
+    <fieldset>
+        <legend>Ingredientes:</legend>
+        @foreach (var item2 in Model.personalizada.ingredientes)
+        {
+        <p>  @Html.DisplayFor(modelitem => item2.Nombre)</p>
+        }
+    </fieldset>
+      <p> @Html.TextBox("cantidad", "1", new { type = "number", min = "1", max = "10", name = "cantidad", id = "cantidad" }) <input type="submit" value="Añadir a la cesta" /></p> 
+     
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Contacta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Contacta</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+<fieldset>
+    <legend>
+        Contacta con nosostros
+    </legend>
+    Nombre:<input type="text" name="nombre"/><br />
+    Email:<input type="email" name="email" /><br />
+    comentario:<textarea rows="4" cols="50" name="textoAdicional" id="textoAdicional" placeholder="Escriba aquí su problema" maxlength="4000"></textarea>
+    <input type="submit" value="Enviar" />
+</fieldset>
+
+}
+
+<h3>¿Tienes problemas? Tambien puedes llamarnos 902003523</h3>

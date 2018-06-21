@@ -1,0 +1,58 @@
+﻿@model MvcApplication1.Models.Bebida
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<a id="back" href='@Url.Action("Index", "Bebida")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a>
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm("Edit", "Bebida", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Predefinida</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.precio)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.precio, new { @type = "number", @min = "0", @step = "0.01", @value = "0" })
+            @Html.ValidationMessageFor(model => model.precio)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nombre)
+            @Html.ValidationMessageFor(model => model.nombre)
+        </div>
+
+        
+        <div class="editor-label">
+            @Html.EditorFor(model => model.foto)
+        </div>
+        <div class="editor-field">
+            <img height="800" width="600" src="@Model.foto" />
+        </div>
+        <div>
+            <input type="file" name="file" />
+        </div>
+
+        <p>
+            <input type="submit" value="Edit" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>

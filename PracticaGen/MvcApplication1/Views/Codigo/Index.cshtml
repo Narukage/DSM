@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MvcApplication1.Models.Codigo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<a id="back" href='@Url.Action("PanelAdmin", "Home")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a>
+
+<h2>Gestión de códigos</h2>
+
+<div class="row">
+     <div class="col">
+       
+         <table>
+@{ if (Model.Any())
+ {
+             <tr>
+                 <th>
+                     @Html.DisplayNameFor(model => model.Descuento)
+                 </th>
+                 <th>
+                     @Html.DisplayNameFor(model => model.Numero)
+                 </th>
+                 <th>
+                     @Html.DisplayNameFor(model => model.Tipo)    
+                 </th>
+                 <th>
+                    Acción
+                 </th>
+             </tr>
+             }
+             else
+             {
+             <tr>No hay ningún código activo</tr>
+             }
+             }
+
+             @foreach (var item in Model)
+             {
+                 <tr>
+                     <td>
+                         @Html.DisplayFor(modelItem => item.Descuento)%
+                     </td>
+                     <td>
+                         @Html.DisplayFor(modelItem => item.Numero)
+                     </td>
+                     <td>
+                         @Html.DisplayFor(modelItem => item.Tipo)
+                     </td>
+                     <td>
+                         <i class="fa fa-trash fa"> @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "b_delete" })</i>
+                    </td>
+                 </tr>
+             }
+
+         </table>
+     </div>
+    <div class="col">
+      @Html.ActionLink("Añadir nuevo", "Create", null, new { @class = "btn btn-outline-danger btn-block" })
+
+    </div>
+</div>

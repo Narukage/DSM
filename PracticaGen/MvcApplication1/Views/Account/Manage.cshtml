@@ -1,0 +1,22 @@
+﻿@model MvcApplication1.Models.LocalPasswordModel
+@{
+    ViewBag.Title = "Mi perfil";
+}
+
+<hgroup class="title">
+    <h1>Mi perfil</h1>
+</hgroup>
+
+
+@if (ViewBag.HasLocalPassword)
+{
+    @Html.Partial("_ChangePasswordPartial")
+}
+else
+{ 
+    @Html.Partial("_SetPasswordPartial")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

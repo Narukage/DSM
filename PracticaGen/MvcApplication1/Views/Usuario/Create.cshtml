@@ -1,0 +1,74 @@
+﻿@model MvcApplication1.Models.Usuario
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<a id="back" href='@Url.Action("PanelAdmin", "Home")'><img id="atras" src="~/Content/themes/base/images/atras.png" /></a>
+
+<h2 class="text-center">Dar de alta usuario</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="container-fluid">
+        <div class="col text-center">
+            <fieldset>
+
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.email)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.email)
+                    @Html.ValidationMessageFor(model => model.email)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.nombre)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.nombre)
+                    @Html.ValidationMessageFor(model => model.nombre)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.telefono)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.telefono)
+                    @Html.ValidationMessageFor(model => model.telefono)
+                </div>
+
+                <div class="editor-label">
+                    <label for="contrasenya">Contraseña</label>
+                </div>
+                <div class="editor-field">
+                    @Html.PasswordFor(model => model.contrasenya)
+                    @Html.ValidationMessageFor(model => model.contrasenya)
+                </div>
+
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.fecha_nac)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_nac)
+                    @Html.ValidationMessageFor(model => model.fecha_nac)
+                </div>
+
+                <p>
+                    <input type="submit" value="Dar de alta" class="admin_boton_crear btn btn-success" />
+                </p>
+            </fieldset>
+
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
